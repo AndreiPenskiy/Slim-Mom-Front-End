@@ -1,6 +1,6 @@
 import React from 'react';
 import { Circles } from 'react-loader-spinner';
-import { LoaderWrapper, LoaderLayout } from './Loader.styled';
+import { LoaderWrapper, LoaderLayout } from './loader.styled';
 
 export const Loader = () => {
   return (
