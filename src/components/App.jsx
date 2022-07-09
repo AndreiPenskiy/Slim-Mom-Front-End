@@ -1,3 +1,4 @@
+import { GlobalStyle } from '../style/GlobalStyle';
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './Layout/Layout';
@@ -20,6 +21,8 @@ const CalculatorPage = lazy(() =>
 
 export const App = () => {
   return (
+    <>
+    <GlobalStyle />
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -31,6 +34,7 @@ export const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
-    </Suspense>
+      </Suspense>
+      </>
   );
 };
