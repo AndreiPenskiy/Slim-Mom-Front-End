@@ -1,10 +1,9 @@
-@import url("./fonts/Verdana/stylesheet.css");
-@import url("./fonts/Gotham Pro/stylesheet.css");
+@import url('./fonts/Verdana/stylesheet.css');
+@import url('./fonts/Gotham Pro/stylesheet.css');
 
 body {
   margin: 0;
-  font-family: 'Verdana', 'Gotham Pro',
-    sans-serif;
+  font-family: 'Verdana', 'Gotham Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
