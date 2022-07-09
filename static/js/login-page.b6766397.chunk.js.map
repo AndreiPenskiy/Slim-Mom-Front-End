@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/login-page.b6766397.chunk.js","mappings":"gKAMA,UAJkB,WAChB,OAAO","sources":["pages/LoginPage.jsx"],"sourcesContent":["import React from 'react';\n\nconst LoginPage = () => {\n  return <div>LoginPage</div>;\n};\n\nexport default LoginPage;\n"],"names":[],"sourceRoot":""}

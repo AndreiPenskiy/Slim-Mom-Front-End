@@ -1,7 +1,12 @@
 {
   "files": {
     "main.css": "/Slim-Mom-Front-End/static/css/main.6f622971.css",
-    "main.js": "/Slim-Mom-Front-End/static/js/main.4533455d.js",
+    "main.js": "/Slim-Mom-Front-End/static/js/main.ae2573d4.js",
+    "main-page.js": "/Slim-Mom-Front-End/static/js/main-page.f2172be3.chunk.js",
+    "login-page.js": "/Slim-Mom-Front-End/static/js/login-page.b6766397.chunk.js",
+    "regisrtation-page.js": "/Slim-Mom-Front-End/static/js/regisrtation-page.f9c265f9.chunk.js",
+    "diary-page.js": "/Slim-Mom-Front-End/static/js/diary-page.e4a3c929.chunk.js",
+    "calculator-page.js": "/Slim-Mom-Front-End/static/js/calculator-page.e789c790.chunk.js",
     "static/media/Verdana.eot": "/Slim-Mom-Front-End/static/media/Verdana.94cd1b53aeed0ebb51f3.eot",
     "static/media/Verdana.ttf": "/Slim-Mom-Front-End/static/media/Verdana.66debd0285340bb23dd6.ttf",
     "static/media/Verdana-BoldItalic.eot": "/Slim-Mom-Front-End/static/media/Verdana-BoldItalic.4e5cd9efdf20784164f8.eot",
@@ -68,10 +73,15 @@
     "static/media/GothamPro-Light.woff2": "/Slim-Mom-Front-End/static/media/GothamPro-Light.a2a52b37266bc749d00c.woff2",
     "index.html": "/Slim-Mom-Front-End/index.html",
     "main.6f622971.css.map": "/Slim-Mom-Front-End/static/css/main.6f622971.css.map",
-    "main.4533455d.js.map": "/Slim-Mom-Front-End/static/js/main.4533455d.js.map"
+    "main.ae2573d4.js.map": "/Slim-Mom-Front-End/static/js/main.ae2573d4.js.map",
+    "main-page.f2172be3.chunk.js.map": "/Slim-Mom-Front-End/static/js/main-page.f2172be3.chunk.js.map",
+    "login-page.b6766397.chunk.js.map": "/Slim-Mom-Front-End/static/js/login-page.b6766397.chunk.js.map",
+    "regisrtation-page.f9c265f9.chunk.js.map": "/Slim-Mom-Front-End/static/js/regisrtation-page.f9c265f9.chunk.js.map",
+    "diary-page.e4a3c929.chunk.js.map": "/Slim-Mom-Front-End/static/js/diary-page.e4a3c929.chunk.js.map",
+    "calculator-page.e789c790.chunk.js.map": "/Slim-Mom-Front-End/static/js/calculator-page.e789c790.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6f622971.css",
-    "static/js/main.4533455d.js"
+    "static/js/main.ae2573d4.js"
   ]
 }
