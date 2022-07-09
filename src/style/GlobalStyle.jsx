@@ -1,0 +1,54 @@
+import { createGlobalStyle } from 'styled-components';
+import { modernNormalize } from 'styled-modern-normalize';
+
+
+
+export const GlobalStyle = createGlobalStyle`
+  ${modernNormalize}
+
+  html {
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0;
+  font-family: 'Verdana', 'Gotham Pro',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+  img {
+  width: 100%;
+  display: block;
+  height: auto;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
