@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Slim-Mom-Front-End/static/js/main.97e02811.js",
+    "main.js": "/Slim-Mom-Front-End/static/js/main.c08f8be7.js",
     "main-page.js": "/Slim-Mom-Front-End/static/js/main-page.f2172be3.chunk.js",
     "login-page.js": "/Slim-Mom-Front-End/static/js/login-page.b6766397.chunk.js",
     "regisrtation-page.js": "/Slim-Mom-Front-End/static/js/regisrtation-page.f9c265f9.chunk.js",
     "diary-page.js": "/Slim-Mom-Front-End/static/js/diary-page.e4a3c929.chunk.js",
     "calculator-page.js": "/Slim-Mom-Front-End/static/js/calculator-page.e789c790.chunk.js",
     "index.html": "/Slim-Mom-Front-End/index.html",
-    "main.97e02811.js.map": "/Slim-Mom-Front-End/static/js/main.97e02811.js.map",
+    "main.c08f8be7.js.map": "/Slim-Mom-Front-End/static/js/main.c08f8be7.js.map",
     "main-page.f2172be3.chunk.js.map": "/Slim-Mom-Front-End/static/js/main-page.f2172be3.chunk.js.map",
     "login-page.b6766397.chunk.js.map": "/Slim-Mom-Front-End/static/js/login-page.b6766397.chunk.js.map",
     "regisrtation-page.f9c265f9.chunk.js.map": "/Slim-Mom-Front-End/static/js/regisrtation-page.f9c265f9.chunk.js.map",
@@ -15,6 +15,6 @@
     "calculator-page.e789c790.chunk.js.map": "/Slim-Mom-Front-End/static/js/calculator-page.e789c790.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.97e02811.js"
+    "static/js/main.c08f8be7.js"
   ]
 }
