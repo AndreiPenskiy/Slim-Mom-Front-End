@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/calculator-page.ac4fb347.chunk.js","mappings":"mKAQA,UANuB,WACnB,OACI","sources":["pages/CalculatorPage.jsx"],"sourcesContent":["import React from 'react'\n\nconst CalculatorPage = () => {\n    return (\n        <div>CalculatorPage</div>\n    );\n}\n\nexport default CalculatorPage;"],"names":[],"sourceRoot":""}

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/main-page.901173c4.chunk.js","mappings":"kKAMA,UAJiB,WACf,OAAO","sources":["pages/MainPage.jsx"],"sourcesContent":["import React from 'react';\n\nconst MainPage = () => {\n  return <div>MainPage</div>;\n};\n\nexport default MainPage;\n"],"names":[],"sourceRoot":""}

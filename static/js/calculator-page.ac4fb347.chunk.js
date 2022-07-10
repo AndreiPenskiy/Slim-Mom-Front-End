@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[528],{7290:function(e,t,a){a.r(t);a(2791);var r=a(184);t.default=function(){return(0,r.jsx)("div",{children:"CalculatorPage"})}}}]);
+//# sourceMappingURL=calculator-page.ac4fb347.chunk.js.map
