@@ -1,4 +1,9 @@
+import { DiaryProductsItem } from './DiaryProductsItem';
+
 export default function DiaryProductsList() {
-  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  return <h1>DiaryProductsList</h1>;
+  return (
+    <ul>
+      <DiaryProductsItem />
+    </ul>
+  );
 }

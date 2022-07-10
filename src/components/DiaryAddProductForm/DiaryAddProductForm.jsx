@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import {
   DiaryFormConteiner,
   DiaryFormProductStyled,

@@ -73,8 +73,11 @@ export const DiaryFormGramsConteinerStyled = styled.div`
 export const DiaryFormButton = styled.button`
   width: 48px;
   height: 48px;
-  background-color: #4caf50;
+  background-color: #fc842d;
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  :hover {
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  }
 `;
