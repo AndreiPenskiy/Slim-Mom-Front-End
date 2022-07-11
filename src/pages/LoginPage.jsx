@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from '../redux/auth/auth-options';
 import '../style/FormLoginRegistration.css';
+import { PageContainer } from 'components/PageContainer/PageContainer';
 
 const LoginPage = () => {
   const dispath = useDispatch();
@@ -19,6 +20,7 @@ const LoginPage = () => {
 
 
   return (
+    <PageContainer>
 
       <Formik
         initialValues={{ email: '', password: '' }}
@@ -80,7 +82,7 @@ const LoginPage = () => {
           {/* </div> */}
         </Form>
       </Formik>
-
+</PageContainer>
   );
 };
 

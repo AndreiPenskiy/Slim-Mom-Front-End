@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from '../redux/auth/auth-options';
 import '../style/FormLoginRegistration.css';
+import { PageContainer } from 'components/PageContainer/PageContainer';
 
 const RegistrationPage = () => {
   const dispath = useDispatch();
@@ -37,8 +38,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <>
-    {/* <section className="container"> */}
+    <PageContainer>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
         validationSchema={schema}
@@ -95,8 +95,7 @@ const RegistrationPage = () => {
           {/* </div> */}
         </Form>
       </Formik>
-    {/* </section> */}
-    </>
+    </PageContainer>
   );
 };
 
