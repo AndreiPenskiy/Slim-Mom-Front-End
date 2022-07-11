@@ -1,8 +1,11 @@
 import React from 'react'
+import { PageContainer } from 'components/PageContainer/PageContainer';
 
 const CalculatorPage = () => {
     return (
-        <div>CalculatorPage</div>
+        <PageContainer>
+            <div>CalculatorPage</div>
+            </PageContainer>
     );
 }
 
