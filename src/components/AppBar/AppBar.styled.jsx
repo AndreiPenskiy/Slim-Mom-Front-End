@@ -1,6 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const StyledAppBar = styled.header`
+  border-bottom: 2px solid #e0e0e0;
+
+  @media (min-width: 1280px) {
+    border-bottom: none;
+  }
+`;
+
 export const StyledHeader = styled.header`
   position: relative;
   display: flex;
@@ -8,14 +16,12 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding-top: 20px;
   padding-bottom: 16px;
-  border-bottom: 2px solid #e0e0e0;
 
   @media (min-width: 1280px) {
     justify-content: flex-start;
     align-items: flex-end;
     padding-top: 80px;
     padding-bottom: 0;
-    border-bottom: none;
   }
 `;
 

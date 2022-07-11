@@ -1,16 +1,22 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const UserInfoSection = styled.div`
+  background-color: #e5e5e5;
+
+  @media (min-width: 768px) {
+    background-color: transparent;
+  }
+`;
+
 export const UserInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 40px;
-  background-color: #e5e5e5;
 
   @media (min-width: 768px) {
     margin-left: auto;
     margin-right: 50px;
-    background-color: transparent;
   }
 
   @media (min-width: 1280px) {
@@ -19,6 +25,9 @@ export const UserInfoWrapper = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #212121;
 `;
 

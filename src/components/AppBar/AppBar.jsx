@@ -7,12 +7,15 @@ import { IoClose } from 'react-icons/io5';
 import { Logo } from 'components/Logo/Logo';
 import { Navigation } from 'components/Navigation/Navigation';
 import { UserInfo } from 'components/UserInfo/UserInfo';
+import { PageContainer } from 'components/PageContainer/PageContainer';
 import {
+  StyledAppBar,
   StyledHeader,
   BurgerMenu,
   BurgerButton,
   StyledNavLink,
 } from './AppBar.styled';
+import { UserInfoSection } from 'components/UserInfo/UserInfo.styled';
 import { getLoggedIn } from 'redux/auth/auth-selectors';
 
 export const AppBar = () => {
@@ -27,37 +30,45 @@ export const AppBar = () => {
   };
 
   return (
-    <>
-      <StyledHeader>
-        {isLoggedIn ? (
-          <Link to="/diary">
-            <Logo />
-          </Link>
-        ) : (
-          <Link to="/">
-            <Logo />
-          </Link>
-        )}
-        <Navigation />
-        {isLoggedIn && !isMobile && <UserInfo />}
-        {isLoggedIn && !isDesktop && !burgerShown && (
-          <BurgerButton type="button" onClick={toggleBurgerMenu}>
-            <GiHamburgerMenu size={24} />
-          </BurgerButton>
-        )}
-        {isLoggedIn && !isDesktop && burgerShown && (
-          <BurgerButton type="button" onClick={toggleBurgerMenu}>
-            <IoClose size={24} />
-          </BurgerButton>
-        )}
-      </StyledHeader>
+    <StyledAppBar>
+      <PageContainer>
+        <StyledHeader>
+          {isLoggedIn ? (
+            <Link to="/diary">
+              <Logo />
+            </Link>
+          ) : (
+            <Link to="/">
+              <Logo />
+            </Link>
+          )}
+          <Navigation />
+          {isLoggedIn && !isMobile && <UserInfo />}
+          {isLoggedIn && !isDesktop && !burgerShown && (
+            <BurgerButton type="button" onClick={toggleBurgerMenu}>
+              <GiHamburgerMenu size={24} />
+            </BurgerButton>
+          )}
+          {isLoggedIn && !isDesktop && burgerShown && (
+            <BurgerButton type="button" onClick={toggleBurgerMenu}>
+              <IoClose size={24} />
+            </BurgerButton>
+          )}
+        </StyledHeader>
+      </PageContainer>
       {isLoggedIn && !isDesktop && burgerShown && (
         <BurgerMenu>
           <StyledNavLink to="/diary">Diary</StyledNavLink>
           <StyledNavLink to="/calculator">Calculator</StyledNavLink>
         </BurgerMenu>
       )}
-      {isLoggedIn && isMobile && <UserInfo />}
-    </>
+      {isLoggedIn && isMobile && (
+        <UserInfoSection>
+          <PageContainer>
+            <UserInfo />
+          </PageContainer>
+        </UserInfoSection>
+      )}
+    </StyledAppBar>
   );
 };
