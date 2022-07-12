@@ -4,6 +4,7 @@ import { DailyCaloriesForm } from '../components/DailyCaloriesForm/DailyCalories
 const MainPage = () => {
   return (
     <>
+      <div>MainPage</div>
       <DailyCaloriesForm />
       <Background />
     </>
