@@ -89,14 +89,22 @@ export const FieldStyledTab = styled(Field)`
     color: #9b9faa;
   }
 `;
-export const FieldRadioStyled = styled.div`
-  display: block;
-  width: 240px;
-`;
+
 export const FieldRadioGrup = styled(Field)`
   align-items: baseline;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  width: 240px;
+  @media screen and (max-width: 767px) {
+    margin-top: 32px;
+  }
 `;
 
 export const RadioStyled = styled.input`
@@ -201,4 +209,33 @@ export const Radiolabel = styled.label`
   letter-spacing: 0.04em;
   color: #9b9faa;
   margin-top: 8px;
+`;
+export const RadioGrupLabel = styled.div`
+  display: flex;
+  // align-items: baseline;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  width: 240px;
+  justify-content: space-between;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 8px;
+`;
+export const Label = styled.label`
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  margin-bottom: 20px;
+  display: block;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 8px;
+  }
 `;

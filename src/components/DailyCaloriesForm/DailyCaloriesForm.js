@@ -6,10 +6,11 @@ import {
   DailyCaloriesFormTitle,
   DailyCaloriesFormButton,
   FieldStyled,
-  FieldRadioStyled,
+  Label,
   FieldStyledTab,
   FieldStyledMobil,
   FieldRadioGrup,
+  RadioGrupLabel,
   RadioStyled,
   Radiolabel,
   FormStyled,
@@ -34,7 +35,9 @@ const DailyCaloriesSchema = Yup.object().shape({
     .min(20, 'Бажана вага має бути більше ніж 20!')
     .max(500, 'Бажана вага має бути менше ніж 500!')
     .required("Це поле є обов'язковим!"),
-  bloodType: Yup.number().required("Це поле є обов'язковим!"),
+  bloodType: Yup.number()
+    .oneOf([1, 2, 3, 4])
+    .required("Це поле є обов'язковим!"),
 });
 
 export const DailyCaloriesForm = () => (
@@ -48,7 +51,7 @@ export const DailyCaloriesForm = () => (
         age: '',
         currentWeight: '',
         desiredWeight: '',
-        bloodType: '',
+        bloodType: '1',
       }}
       validationSchema={DailyCaloriesSchema}
       onSubmit={values => {
@@ -98,59 +101,38 @@ export const DailyCaloriesForm = () => (
             placeholder="Ваша вага*"
           />
 
-          <FieldRadioStyled>
-            <FieldStyled
-              name="bloodType"
-              placeholder="Група крові*"
-              autoComplete="off"
-            ></FieldStyled>
-            {errors.bloodType && touched.bloodType ? (
-              <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
-            ) : null}
+          {errors.bloodType && touched.bloodType ? (
+            <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
+          ) : null}
 
-            <FieldRadioGrup component="div" name="bloodType" label="bloodType">
+          {/* <RadioGrupLabel> */}
+          {/* Група крові* */}
+          <FieldRadioGrup component="div" name="bloodType" label="bloodType">
+            <Label> Група крові*</Label>
+            <RadioGrupLabel>
               <Radiolabel htmlFor="bloodType">
                 <RadioStyled
                   type="radio"
                   name="bloodType"
-                  id="bloodType1"
+                  id="1"
                   defaultChecked
                   value="1"
                 />
                 1
               </Radiolabel>
-
               <Radiolabel htmlFor="bloodType">
-                <RadioStyled
-                  type="radio"
-                  name="bloodType"
-                  id="bloodType2"
-                  value="2"
-                />
-                2
+                <RadioStyled type="radio" name="bloodType" id="2" value="2" />2
               </Radiolabel>
-
               <Radiolabel htmlFor="bloodType">
-                <RadioStyled
-                  type="radio"
-                  name="bloodType"
-                  id="bloodType3"
-                  value="3"
-                />
-                3
+                <RadioStyled type="radio" name="bloodType" id="3" value="3" />3
               </Radiolabel>
-
               <Radiolabel htmlFor="bloodType">
-                <RadioStyled
-                  type="radio"
-                  name="bloodType"
-                  id="bloodType4"
-                  value="4"
-                />
-                4
+                <RadioStyled type="radio" name="bloodType" id="4" value="4" />4
               </Radiolabel>
-            </FieldRadioGrup>
-          </FieldRadioStyled>
+            </RadioGrupLabel>
+          </FieldRadioGrup>
+          {/* </RadioGrupLabel> */}
+          {/* </FieldRadioStyled> */}
 
           <FieldStyledTab
             name="currentWeight"
