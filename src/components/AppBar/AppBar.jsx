@@ -73,9 +73,7 @@ export const AppBar = () => {
       )}
     </StyledAppBar>
 
-      <PageContainer>
         <Outlet />
-      </PageContainer>
       
       </>
   );

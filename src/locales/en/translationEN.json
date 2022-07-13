@@ -1,0 +1,16 @@
+{
+  "header": {
+    "signin": "sign in",
+    "signup": "registration",
+    "exit": "exit"
+  },
+  "dailyCalorieForm": {
+    "title": "Calculate your daily calorie intake right now",
+    "label_1": "Height, cm *",
+    "label_2": "Age, years *",
+    "label_3": "Current weight, kg *",
+    "label_4": "Desired weight, kg *",
+    "label_5": "Blood type *",
+    "btn_name": "Lose weight"
+  }
+}
