@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    margin: 0;
+    margin: auto;
   font-family: 'Verdana', 'Gotham Pro',
     sans-serif;
   -webkit-font-smoothing: antialiased;

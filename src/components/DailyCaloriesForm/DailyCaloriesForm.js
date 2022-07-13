@@ -16,6 +16,7 @@ import {
   FormStyled,
   ButtonCont,
   ErrorMessageContainer,
+  FormDiv,
 } from './DailyCaloriesForm.styled';
 
 const DailyCaloriesSchema = Yup.object().shape({
@@ -61,50 +62,53 @@ export const DailyCaloriesForm = () => (
     >
       {({ errors, touched }) => (
         <FormStyled>
-          <FieldStyled
-            name="height"
-            type="number"
-            autoComplete="off"
-            placeholder="Зріст*"
-          />
-          {errors.height && touched.height ? (
-            <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
-          ) : null}
+          <FormDiv>
+            <FieldStyled
+              name="height"
+              type="number"
+              autoComplete="off"
+              placeholder="Зріст*"
+            />
+            {errors.height && touched.height ? (
+              <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
+            ) : null}
+          </FormDiv>
+          <FormDiv>
+            <FieldStyled
+              name="desiredWeight"
+              type="number"
+              autoComplete="off"
+              placeholder="Бажана вага*"
+            />
 
-          <FieldStyled
-            name="desiredWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Бажана вага*"
-          />
-
-          {errors.desiredWeight && touched.desiredWeight ? (
-            <ErrorMessageContainer>
-              {errors.desiredWeight}
-            </ErrorMessageContainer>
-          ) : null}
-
-          <FieldStyled
-            name="age"
-            type="number"
-            autoComplete="off"
-            placeholder="Вік*"
-          />
-          {errors.age && touched.age ? (
-            <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
-          ) : null}
-
-          <FieldStyledMobil
-            name="currentWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Ваша вага*"
-          />
-
-          {errors.bloodType && touched.bloodType ? (
-            <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
-          ) : null}
-
+            {errors.desiredWeight && touched.desiredWeight ? (
+              <ErrorMessageContainer>
+                {errors.desiredWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </FormDiv>
+          <FormDiv>
+            <FieldStyled
+              name="age"
+              type="number"
+              autoComplete="off"
+              placeholder="Вік*"
+            />
+            {errors.age && touched.age ? (
+              <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
+            ) : null}
+          </FormDiv>
+          <FormDiv>
+            <FieldStyledMobil
+              name="currentWeight"
+              type="number"
+              autoComplete="off"
+              placeholder="Ваша вага*"
+            />
+            {errors.bloodType && touched.bloodType ? (
+              <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
+            ) : null}
+          </FormDiv>
           {/* <RadioGrupLabel> */}
           {/* Група крові* */}
           <FieldRadioGrup component="div" name="bloodType" label="bloodType">
@@ -133,20 +137,20 @@ export const DailyCaloriesForm = () => (
           </FieldRadioGrup>
           {/* </RadioGrupLabel> */}
           {/* </FieldRadioStyled> */}
+          <FormDiv>
+            <FieldStyledTab
+              name="currentWeight"
+              type="number"
+              autoComplete="off"
+              placeholder="Ваша вага*"
+            />
 
-          <FieldStyledTab
-            name="currentWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Ваша вага*"
-          />
-
-          {errors.currentWeight && touched.currentWeight ? (
-            <ErrorMessageContainer>
-              {errors.currentWeight}
-            </ErrorMessageContainer>
-          ) : null}
-
+            {errors.currentWeight && touched.currentWeight ? (
+              <ErrorMessageContainer>
+                {errors.currentWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </FormDiv>
           <ButtonCont>
             <DailyCaloriesFormButton type="submit">
               Схуднути
