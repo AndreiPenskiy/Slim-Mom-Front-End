@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/Slim-Mom-Front-End/static/js/main.70654b8f.js",
+    "main.js": "/Slim-Mom-Front-End/static/js/main.5e8823ad.js",
     "main-page.js": "/Slim-Mom-Front-End/static/js/main-page.c33480c4.chunk.js",
     "login-page.css": "/Slim-Mom-Front-End/static/css/login-page.8e478e9d.chunk.css",
     "login-page.js": "/Slim-Mom-Front-End/static/js/login-page.067143e7.chunk.js",
     "regisrtation-page.css": "/Slim-Mom-Front-End/static/css/regisrtation-page.8e478e9d.chunk.css",
     "regisrtation-page.js": "/Slim-Mom-Front-End/static/js/regisrtation-page.fbc5ffbd.chunk.js",
     "diary-page.css": "/Slim-Mom-Front-End/static/css/diary-page.4d1426e3.chunk.css",
-    "diary-page.js": "/Slim-Mom-Front-End/static/js/diary-page.afa145db.chunk.js",
+    "diary-page.js": "/Slim-Mom-Front-End/static/js/diary-page.b3f7794e.chunk.js",
     "calculator-page.js": "/Slim-Mom-Front-End/static/js/calculator-page.b804460b.chunk.js",
     "static/js/705.a9d6fb25.chunk.js": "/Slim-Mom-Front-End/static/js/705.a9d6fb25.chunk.js",
     "static/js/968.5f059a14.chunk.js": "/Slim-Mom-Front-End/static/js/968.5f059a14.chunk.js",
-    "static/js/633.67500428.chunk.js": "/Slim-Mom-Front-End/static/js/633.67500428.chunk.js",
+    "static/js/540.4bf9f5d0.chunk.js": "/Slim-Mom-Front-End/static/js/540.4bf9f5d0.chunk.js",
     "static/media/str.png": "/Slim-Mom-Front-End/static/media/str.4afd5c6b7febd9237be9.png",
     "static/media/btab.png": "/Slim-Mom-Front-End/static/media/btab.c9bae4c1d788895e7e32.png",
     "static/media/strtab.png": "/Slim-Mom-Front-End/static/media/strtab.810e8754ff3a5ece844c.png",
@@ -28,20 +28,20 @@
     "static/media/calendar.svg": "/Slim-Mom-Front-End/static/media/calendar.4455a7d0ba359a7e4c1ee14c1d385d20.svg",
     "static/media/plus.svg": "/Slim-Mom-Front-End/static/media/plus.37bf4c8724e8a073c86e950c3000a222.svg",
     "static/media/cross.svg": "/Slim-Mom-Front-End/static/media/cross.8cdb920ca8331504fc3379915d48c780.svg",
-    "main.70654b8f.js.map": "/Slim-Mom-Front-End/static/js/main.70654b8f.js.map",
+    "main.5e8823ad.js.map": "/Slim-Mom-Front-End/static/js/main.5e8823ad.js.map",
     "main-page.c33480c4.chunk.js.map": "/Slim-Mom-Front-End/static/js/main-page.c33480c4.chunk.js.map",
     "login-page.8e478e9d.chunk.css.map": "/Slim-Mom-Front-End/static/css/login-page.8e478e9d.chunk.css.map",
     "login-page.067143e7.chunk.js.map": "/Slim-Mom-Front-End/static/js/login-page.067143e7.chunk.js.map",
     "regisrtation-page.8e478e9d.chunk.css.map": "/Slim-Mom-Front-End/static/css/regisrtation-page.8e478e9d.chunk.css.map",
     "regisrtation-page.fbc5ffbd.chunk.js.map": "/Slim-Mom-Front-End/static/js/regisrtation-page.fbc5ffbd.chunk.js.map",
     "diary-page.4d1426e3.chunk.css.map": "/Slim-Mom-Front-End/static/css/diary-page.4d1426e3.chunk.css.map",
-    "diary-page.afa145db.chunk.js.map": "/Slim-Mom-Front-End/static/js/diary-page.afa145db.chunk.js.map",
+    "diary-page.b3f7794e.chunk.js.map": "/Slim-Mom-Front-End/static/js/diary-page.b3f7794e.chunk.js.map",
     "calculator-page.b804460b.chunk.js.map": "/Slim-Mom-Front-End/static/js/calculator-page.b804460b.chunk.js.map",
     "705.a9d6fb25.chunk.js.map": "/Slim-Mom-Front-End/static/js/705.a9d6fb25.chunk.js.map",
     "968.5f059a14.chunk.js.map": "/Slim-Mom-Front-End/static/js/968.5f059a14.chunk.js.map",
-    "633.67500428.chunk.js.map": "/Slim-Mom-Front-End/static/js/633.67500428.chunk.js.map"
+    "540.4bf9f5d0.chunk.js.map": "/Slim-Mom-Front-End/static/js/540.4bf9f5d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.70654b8f.js"
+    "static/js/main.5e8823ad.js"
   ]
 }
