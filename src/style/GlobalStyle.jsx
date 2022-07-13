@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-
-
 export const GlobalStyle = createGlobalStyle`
 
   html {
@@ -49,4 +47,3 @@ a {
     padding: 0;
   }
 `;
-
