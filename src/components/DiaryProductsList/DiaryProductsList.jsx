@@ -1,9 +1,10 @@
 import { DiaryProductsItem } from './DiaryProductsItem';
+import { DiaryProductsListStyled } from './DiaryProductsList.styled';
 
 export default function DiaryProductsList() {
   return (
-    <ul>
+    <DiaryProductsListStyled>
       <DiaryProductsItem />
-    </ul>
+    </DiaryProductsListStyled>
   );
 }

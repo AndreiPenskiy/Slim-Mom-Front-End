@@ -81,3 +81,10 @@ export const DiaryFormButton = styled.button`
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
 `;
+
+export const DiaryProductsPlusStyled = styled.img`
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  font-size: bold;
+`;

@@ -1,11 +1,13 @@
 import {
   DiaryPageDatetimeStyled,
   DiaryPageConteiner,
+  DiaryProductsCalendarStyled,
 } from './DiaryDateСalendar.styled';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 import 'moment/locale/uk';
 import 'moment/locale/ru';
+import calendar from '../../icons/calendar.svg';
 
 export default function DiaryDateСalendar() {
   const inputProps = {
@@ -34,6 +36,7 @@ export default function DiaryDateСalendar() {
         dateFormat="DD.MM.YYYY"
         timeFormat={false}
       />
+      <DiaryProductsCalendarStyled src={calendar} alt="calendar" />
     </DiaryPageConteiner>
   );
 }

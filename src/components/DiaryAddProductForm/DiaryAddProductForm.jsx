@@ -6,7 +6,9 @@ import {
   DiaryFormProductConteinerStyled,
   DiaryFormGramsConteinerStyled,
   DiaryFormButton,
+  DiaryProductsPlusStyled,
 } from './DiaryAddProductForm.styled';
+import plus from '../../icons/plus.svg';
 
 export default function DiaryAddProductForm() {
   return (
@@ -33,7 +35,9 @@ export default function DiaryAddProductForm() {
             <DiaryFormGramsStyled id="grams" name="grams" placeholder="Grams" />
           </DiaryFormGramsConteinerStyled>
 
-          <DiaryFormButton type="submit">+</DiaryFormButton>
+          <DiaryFormButton type="submit">
+            <DiaryProductsPlusStyled src={plus} alt="plus" />
+          </DiaryFormButton>
         </DiaryFormConteiner>
       </Formik>
     </>
