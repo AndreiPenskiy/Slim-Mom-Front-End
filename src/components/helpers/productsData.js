@@ -35,6 +35,11 @@ export const productsData = [
     calories: 2800,
     products: 'cucumber',
   },
+  {
+    weight: 100,
+    calories: 2800,
+    products: 'cucumbe',
+  },
 ];
 
 // Code to test rendering of diary page //

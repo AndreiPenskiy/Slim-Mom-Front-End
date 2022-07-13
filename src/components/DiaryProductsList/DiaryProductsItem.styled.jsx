@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import gradient from '../../icons/gradient.jpg';
 
 export const DiaryProductsItemStyled = styled.li`
   display: flex;
@@ -12,7 +13,35 @@ export const DiaryProductsItemStyled = styled.li`
   :not(:first-child) {
     margin-top: 16px;
   }
+  :last-child {
+    opacity: 0.5;
+    /* background-image: linear-gradient(
+        to bottom,
+        hsl((255, 255, 255, 0.5), 60%, 65%),
+        hsl((255, 255, 255, 0.5), 64%, 60%)
+      ),
+      url(${gradient}); */
+    /* background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 1)
+    ); */
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      #ffffff 42.19%,
+      url(${gradient})
+    );
+  }
 `;
+// export const DiaryProductsGradientStyled = styled.div`
+//   /* opacity: 0.5; */
+//   background: linear-gradient(
+//     to bottom,
+//     rgba(255, 200, 255, 0.1),
+//     rgba(255, 255, 122, 0.9)
+//   );
+// `;
 
 export const DiaryProductsItemProductStyled = styled.p`
   width: 240px;
