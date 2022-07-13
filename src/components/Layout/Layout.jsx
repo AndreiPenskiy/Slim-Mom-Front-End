@@ -7,15 +7,6 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Main Page</Link>
-          </li>
-          <li>
-            <Link to="/login">Login Page</Link>
-          </li>
-          <li>
-            <Link to="/registration">Regisrtation Page</Link>
-          </li>
-          <li>
             <Link to="/diary">Diary Page</Link>
           </li>
           <li>

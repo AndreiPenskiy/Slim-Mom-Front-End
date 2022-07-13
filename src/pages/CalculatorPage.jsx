@@ -1,11 +1,13 @@
 import React from 'react'
-import { PageContainer } from 'components/PageContainer/PageContainer';
+import { DailyCaloriesForm } from '../components/DailyCaloriesForm/DailyCaloriesForm';
+import { RightSideBar } from '../components/RightSideBar/RightSideBar';
 
 const CalculatorPage = () => {
     return (
-        <PageContainer>
-            <div>CalculatorPage</div>
-            </PageContainer>
+        <>
+            <DailyCaloriesForm />
+            <RightSideBar />
+        </>
     );
 }
 
