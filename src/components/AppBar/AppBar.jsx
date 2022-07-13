@@ -17,6 +17,7 @@ import {
 } from './AppBar.styled';
 import { UserInfoSection } from 'components/UserInfo/UserInfo.styled';
 import { getLoggedIn } from 'redux/auth/auth-selectors';
+import { Outlet } from 'react-router-dom';
 
 export const AppBar = () => {
   const [burgerShown, setBurgerShown] = useState(false);
@@ -30,6 +31,7 @@ export const AppBar = () => {
   };
 
   return (
+    <>
     <StyledAppBar>
       <PageContainer>
         <StyledHeader>
@@ -70,5 +72,11 @@ export const AppBar = () => {
         </UserInfoSection>
       )}
     </StyledAppBar>
+
+      <PageContainer>
+        <Outlet />
+      </PageContainer>
+      
+      </>
   );
 };

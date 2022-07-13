@@ -25,10 +25,9 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <AppBar />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<AppBar />}>
             <Route index element={<MainPage />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="registration" element={<RegistrationPage />} />
@@ -38,6 +37,7 @@ export const App = () => {
           </Route>
         </Routes>
       </Suspense>
+      <Layout />
     </>
   );
 };

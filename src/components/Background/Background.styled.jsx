@@ -24,7 +24,8 @@ export const BackgroundImage = styled.div`
     width: 1280px;
     height: 850px;
   }
-`;
+`
+
 export const S = styled.div`
   display: none;
 
@@ -49,8 +50,8 @@ export const S = styled.div`
     height: 374px;
     z-index:2;
   }
-}
-`;
+
+`
 
 export const L = styled.div`
   display: none;
@@ -105,8 +106,9 @@ export const B = styled.div`
     height: 552px;
     z-index:2;
   }
-}
-`;
+
+`
+
 export const V = styled.div`
   display: none;
 
@@ -131,4 +133,4 @@ export const V = styled.div`
     height: 816px;
     z-index: 1;
   }
-`;
+`
