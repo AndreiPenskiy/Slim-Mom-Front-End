@@ -1,10 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import { modernNormalize } from 'styled-modern-normalize';
-
-
 
 export const GlobalStyle = createGlobalStyle`
-  ${modernNormalize}
+
 
   html {
     box-sizing: border-box;
@@ -51,4 +48,3 @@ a {
     padding: 0;
   }
 `;
-
