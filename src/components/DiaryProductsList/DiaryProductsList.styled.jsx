@@ -7,15 +7,26 @@ export const DiaryProductsConteinerListStyled = styled.div`
 export const DiaryProductsListStyled = styled.ul`
   height: 300px;
   width: 625px;
-  /* overflow: auto; */
+  overflow: auto;
   scroll-behavior: smooth;
-  scrollbar-color: rgba(38, 64, 97, 1);
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+    /* background-color: #264061; */
+  }
   ::-webkit-scrollbar-thumb {
-    background-color: blue;
-    border-radius: 20px;
-    border: 3px solid orange;
+    background-color: #264061;
+    max-height: 5px;
+    /* border-radius: 20px; */
+    /* border: 3px solid orange; */
   }
   ::-webkit-scrollbar-track {
-    background: orange;
+    background: #f0f1f3;
   }
+  /* ::-webkit-scrollbar-track-piece {
+    height: 4px;
+  } */
+  /* ::-webkit-resizer {
+    height: 4px;
+  } */
 `;
