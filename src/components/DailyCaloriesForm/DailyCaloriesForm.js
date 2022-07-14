@@ -20,12 +20,15 @@ import {
 
 const DailyCaloriesSchema = Yup.object().shape({
   height: Yup.number()
+    .positive()
     .min(100, 'Зріст має бути більше ніж 100см!')
     .max(250, 'Зріст має бути менше ніж 250см!')
+    .integer('Зріст має бути цілим числом')
     .required("Це поле є обов'язковим!"),
   age: Yup.number()
     .min(18, 'Вік має бути більше ніж 18!')
     .max(100, 'Вік має бути менше ніж 100!')
+    .integer('Зріст має бути цілим числом')
     .required("Це поле є обов'язковим!"),
   currentWeight: Yup.number()
     .min(20, 'Вага має бути більше ніж 20!')
@@ -61,52 +64,59 @@ export const DailyCaloriesForm = () => (
     >
       {({ errors, touched }) => (
         <FormStyled>
-          <FieldStyled
-            name="height"
-            type="number"
-            autoComplete="off"
-            placeholder="Зріст*"
-          />
-          {errors.height && touched.height ? (
-            <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
-          ) : null}
+          <div>
+            <FieldStyled
+              name="height"
+              type="number"
+              autoComplete="off"
+              placeholder="Зріст*"
+            />
+            {errors.height && touched.height ? (
+              <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
+            ) : null}
+          </div>
 
-          <FieldStyled
-            name="desiredWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Бажана вага*"
-          />
+          <div>
+            <FieldStyled
+              name="desiredWeight"
+              type="number"
+              autoComplete="off"
+              placeholder="Бажана вага*"
+            />
 
-          {errors.desiredWeight && touched.desiredWeight ? (
-            <ErrorMessageContainer>
-              {errors.desiredWeight}
-            </ErrorMessageContainer>
-          ) : null}
+            {errors.desiredWeight && touched.desiredWeight ? (
+              <ErrorMessageContainer>
+                {errors.desiredWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </div>
 
-          <FieldStyled
-            name="age"
-            type="number"
-            autoComplete="off"
-            placeholder="Вік*"
-          />
-          {errors.age && touched.age ? (
-            <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
-          ) : null}
+          <div>
+            <FieldStyled
+              name="age"
+              type="number"
+              autoComplete="off"
+              placeholder="Вік*"
+            />
+            {errors.age && touched.age ? (
+              <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
+            ) : null}
+          </div>
 
-          <FieldStyledMobil
-            name="currentWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Ваша вага*"
-          />
+          <FieldStyledMobil>
+            <FieldStyled
+              name="currentWeight"
+              type="number"
+              autoComplete="off"
+              placeholder="Ваша вага*"
+            />
+            {errors.currentWeight && touched.currentWeight ? (
+              <ErrorMessageContainer>
+                {errors.currentWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </FieldStyledMobil>
 
-          {errors.bloodType && touched.bloodType ? (
-            <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
-          ) : null}
-
-          {/* <RadioGrupLabel> */}
-          {/* Група крові* */}
           <FieldRadioGrup component="div" name="bloodType" label="bloodType">
             <Label> Група крові*</Label>
             <RadioGrupLabel>
@@ -131,21 +141,21 @@ export const DailyCaloriesForm = () => (
               </Radiolabel>
             </RadioGrupLabel>
           </FieldRadioGrup>
-          {/* </RadioGrupLabel> */}
-          {/* </FieldRadioStyled> */}
 
-          <FieldStyledTab
-            name="currentWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Ваша вага*"
-          />
-
-          {errors.currentWeight && touched.currentWeight ? (
-            <ErrorMessageContainer>
-              {errors.currentWeight}
-            </ErrorMessageContainer>
-          ) : null}
+          <FieldStyledTab>
+            <FieldStyled
+              style={{ marginTop: '0' }}
+              name="currentWeight"
+              type="number"
+              autoComplete="off"
+              placeholder="Ваша вага*"
+            />
+            {errors.currentWeight && touched.currentWeight ? (
+              <ErrorMessageContainer>
+                {errors.currentWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </FieldStyledTab>
 
           <ButtonCont>
             <DailyCaloriesFormButton type="submit">

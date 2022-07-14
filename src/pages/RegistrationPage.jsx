@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from '../redux/auth/auth-options';
 import '../style/FormLoginRegistration.css';
-import { Background } from 'components/Background/Background';
+import { LoginBackground } from 'components/Background/LoginBackground';
 
 const RegistrationPage = () => {
   const dispath = useDispatch();
@@ -38,7 +38,6 @@ const RegistrationPage = () => {
   };
 
   return (
-
     <>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
@@ -46,57 +45,74 @@ const RegistrationPage = () => {
         onSubmit={handleSubmit}
       >
         <Form className="formContainer">
-        <div className="form">
-          <h1 className="formTitle">Register</h1>
-          <div>
-            <label htmlFor="name" className="formLabel">
-              Name *
-            </label>
-            <Field id="name" name="name" type="text" className="formInput" />
-            <ErrorMessage
-              name="name"
-              render={() => (
-                <p className='alert'>The name must be at least 3 characters and more than 20</p>
-              )}
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="formLabel">
-              Email *
-            </label>
-            <Field id="email" name="email" type="email" className="formInput" />
-            <ErrorMessage
-              name="email"
-              render={() => <p className='alert'>Email should not exceed 40 characters</p>}
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className="formLabel">
-              Password *
-            </label>
-            <Field
-              id="password"
-              name="password"
-              type="password"
-              className="formInput"
-            />
-            <ErrorMessage
-              name="password"
-              render={() => <p className='alert'>Password should be longer than 8 characters</p>}
-            />
-          </div>
+          <div className="form">
+            <h1 className="formTitle">Register</h1>
+            <div>
+              <label htmlFor="name" className="formLabel">
+                Name *
+              </label>
+              <Field id="name" name="name" type="text" className="formInput" />
+              <ErrorMessage
+                name="name"
+                render={() => (
+                  <p className="alert">
+                    The name must be at least 3 characters and more than 20
+                  </p>
+                )}
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="formLabel">
+                Email *
+              </label>
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                className="formInput"
+              />
+              <ErrorMessage
+                name="email"
+                render={() => (
+                  <p className="alert">Email should not exceed 40 characters</p>
+                )}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="formLabel">
+                Password *
+              </label>
+              <Field
+                id="password"
+                name="password"
+                type="password"
+                className="formInput"
+              />
+              <ErrorMessage
+                name="password"
+                render={() => (
+                  <p className="alert">
+                    Password should be longer than 8 characters
+                  </p>
+                )}
+              />
+            </div>
           </div>
           {/* <div className="FormButtonContainer"> */}
-            <a href="http://localhost:3000/Slim-Mom-Front-End/login" className="FormButtonActive"  role="button">
-            Login                     
-            </a>
-            <button  type="submit" className="FormButton">
-              Register
-            </button>
+          <a
+            href="http://localhost:3000/Slim-Mom-Front-End/login"
+            className="FormButtonActive"
+            role="button"
+          >
+            Login
+          </a>
+          <button type="submit" className="FormButton">
+            Register
+          </button>
           {/* </div> */}
         </Form>
-    </Formik>
-    <Background />
+      </Formik>
+      <LoginBackground />
     </>
   );
 };

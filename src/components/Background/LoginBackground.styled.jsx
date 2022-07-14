@@ -4,7 +4,7 @@ import BackgroundL from './backgroundImages/l.png';
 import BackgroundB from './backgroundImages/b.png';
 import BackgroundV from './backgroundImages/v.png';
 import BackgroundStrTab from './backgroundImages/strtab.png';
-import BackgroundLTab from './backgroundImages/ltab.png';
+import BackgroundLlTab from './backgroundImages/lltab.png';
 import BackgroundBTab from './backgroundImages/btab.png';
 import BackgroundVTab from './backgroundImages/vtab.png';
 
@@ -34,19 +34,18 @@ export const S = styled.div`
     background-image: url(${BackgroundStrTab});
     display: block;
     position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    top: 564px;
-    right: 65px;
-    width: 265px;
-    height: 273px;
-    z-index: 2;
+    background-size: cover;
+    top: 442px;
+    right: -86px;
+    width: 370px;
+    height: 382px;
+    z-index: 4;
   }
 
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundStr});
-    top: 458px;
-    right: 2px;
+    top: 165px;
+    right: 27px;
     width: 362px;
     height: 374px;
     z-index: 2;
@@ -57,21 +56,21 @@ export const L = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${BackgroundLTab});
+    background-image: url(${BackgroundLlTab});
     display: block;
     position: absolute;
     background-repeat: no-repeat;
-    background-size: 602px 531px;
-    top: 473px;
-    width: 531px;
-    height: 602px;
+    background-size: contain;
+    top: 0px;
+    right: 50px;
+    width: 740px;
+    height: 842px;
     z-index: 3;
   }
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundL});
-    background-size: 746px;
-    top: 0;
-    right: 195px;
+    top: -26px;
+    right: 250px;
     width: 746px;
     height: 846px;
     // transform: rotate(0);
