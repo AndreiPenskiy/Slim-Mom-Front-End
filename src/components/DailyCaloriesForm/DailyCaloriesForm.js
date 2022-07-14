@@ -113,7 +113,6 @@ export const DailyCaloriesForm = () => (
                 {errors.currentWeight}
               </ErrorMessageContainer>
             ) : null}
-          </FieldStyledMobil>
 </FormDiv>
           <FieldRadioGrup component="div" name="bloodType" label="bloodType">
             <Label> Група крові*</Label>
