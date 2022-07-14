@@ -120,7 +120,6 @@ export const V = styled.div`
 
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundV});
-
     top: 34px;
     right: 0;
     width: 603px;
