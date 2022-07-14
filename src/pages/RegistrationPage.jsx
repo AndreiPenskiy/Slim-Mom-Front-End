@@ -1,9 +1,19 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from '../redux/auth/auth-options';
-import '../style/FormLoginRegistration.css';
 import { LoginBackground } from 'components/Background/LoginBackground';
+import {
+  FormContainer,
+  FormTitle,
+  Forma,
+  FormDiv,
+  FormLabel,
+  FormInput,
+  FormButtonActive,
+  FormButton,
+  Alert,
+} from '../style/FormLoginRegistration.styled';
 
 const RegistrationPage = () => {
   const dispath = useDispatch();
@@ -44,60 +54,59 @@ const RegistrationPage = () => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <Form className="formContainer">
-        <div className="form">
-          <h1 className="formTitle">Register</h1>
-          <div div className='formDiv'>
-            <label htmlFor="name" className="formLabel">
+        <FormContainer>
+        <Forma >
+          <FormTitle >Register</FormTitle>
+          <FormDiv >
+            <FormLabel htmlFor="name" >
               Name *
-            </label>
-            <Field id="name" name="name" type="text" className="formInput" />
+            </FormLabel>
+            <FormInput id="name" name="name" type="text"  />
             <ErrorMessage
               name="name"
               render={() => (
-                <p className='alert'>The name must be at least 3 characters and more than 20</p>
+                <Alert>The name must be at least 3 characters and more than 20</Alert>
               )}
             />
-          </div>
-          <div className='formDiv'>
-            <label htmlFor="email" className="formLabel">
+          </FormDiv>
+          <FormDiv >
+            <FormLabel htmlFor="email" >
               Email *
-            </label>
-            <Field id="email" name="email" type="email" className="formInput" />
+            </FormLabel>
+            <FormInput id="email" name="email" type="email"  />
             <ErrorMessage
               name="email"
-              render={() => <p className='alert'>Email should not exceed 40 characters</p>}
+              render={() => <Alert >Email should not exceed 40 characters</Alert>}
             />
-          </div>
-          <div div className='formDiv'>
-            <label htmlFor="password" className="formLabel">
+          </FormDiv>
+          <FormDiv>
+            <FormLabel htmlFor="password" >
               Password *
-            </label>
-            <Field
+            </FormLabel>
+            <FormInput
               id="password"
               name="password"
               type="password"
-              className="formInput"
             />
             <ErrorMessage
               name="password"
-              render={() => <p className='alert'>Password should be longer than 8 characters</p>}
+              render={() => <Alert>Password should be longer than 8 characters</Alert>}
             />
-          </div>
-          </div>
+          </FormDiv>
+          </Forma>
           {/* <div className="FormButtonContainer"> */}
-          <a
+          <FormButtonActive
             href="http://localhost:3000/Slim-Mom-Front-End/login"
-            className="FormButtonActive"
+          
             role="button"
           >
             Login
-          </a>
-          <button type="submit" className="FormButton">
+          </FormButtonActive>
+          <FormButton type="submit" >
             Register
-          </button>
+          </FormButton>
           {/* </div> */}
-        </Form>
+        </FormContainer>
       </Formik>
       <LoginBackground />
     </>

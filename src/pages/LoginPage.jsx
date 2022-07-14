@@ -1,9 +1,19 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from '../redux/auth/auth-options';
-import '../style/FormLoginRegistration.css';
 import { LoginBackground } from 'components/Background/LoginBackground';
+import {
+  FormContainer,
+  FormTitle,
+  Forma,
+  FormDiv,
+  FormLabel,
+  FormInput,
+  FormButtonActiveBtn,
+  FormButtonA,
+  Alert,
+} from '../style/FormLoginRegistration.styled';
 
 const LoginPage = () => {
   const dispath = useDispatch();
@@ -25,62 +35,59 @@ const LoginPage = () => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <Form className="formContainer">
+        <FormContainer >
           {/* <section className="container"> */}
-          <div className="form">
-            <h1 className="formTitle">Sign in</h1>
-            <div div className='formDiv'>
-              <label htmlFor="email" className="formLabel">
+          <Forma>
+            <FormTitle>Sign in</FormTitle>
+            <FormDiv>
+              <FormLabel htmlFor="email">
                 Email *
-              </label>
-              <Field
+              </FormLabel>
+              <FormInput
                 id="email"
                 name="email"
                 type="email"
-                className="formInput"
               />
-            </div>
-            <div div className='formDiv'>
-              <label htmlFor="password" className="formLabel">
+            </FormDiv>
+            <FormDiv>
+              <FormLabel htmlFor="password">
                 Password *
-              </label>
-              <Field
+              </FormLabel>
+              <FormInput
                 id="password"
                 name="password"
                 type="password"
-                className="formInput"
               />
               {(
                 <ErrorMessage
                   name="email"
                   render={() => (
-                    <p className="alert">Incorrect email or password entered</p>
+                    <Alert >Incorrect email or password entered</Alert>
                   )}
                 />
               ) || (
                 <ErrorMessage
                   name="password"
                   render={() => (
-                    <p className="alert">Incorrect email or password entered</p>
+                    <Alert >Incorrect email or password entered</Alert>
                   )}
                 />
               )}
-            </div>
-          </div>
+            </FormDiv>
+          </Forma>
           {/* </section> */}
           {/* <div className="FormButtonContainer"> */}
-          <button type="submit" className="FormButtonActive">
+          <FormButtonActiveBtn type="submit">
             Login
-          </button>
-          <a
+          </FormButtonActiveBtn>
+          <FormButtonA
             href="http://localhost:3000/Slim-Mom-Front-End/registration"
-            className="FormButton"
             role="button"
           >
             Register
-          </a>
+          </FormButtonA>
           {/* </div> */}
-        </Form>
+        </FormContainer>
       </Formik>
       <LoginBackground />
     </>
