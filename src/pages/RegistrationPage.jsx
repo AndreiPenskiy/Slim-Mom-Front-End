@@ -48,7 +48,7 @@ const RegistrationPage = () => {
         <Form className="formContainer">
         <div className="form">
           <h1 className="formTitle">Register</h1>
-          <div>
+          <div div className='formDiv'>
             <label htmlFor="name" className="formLabel">
               Name *
             </label>
@@ -60,7 +60,7 @@ const RegistrationPage = () => {
               )}
             />
           </div>
-          <div>
+          <div className='formDiv'>
             <label htmlFor="email" className="formLabel">
               Email *
             </label>
@@ -70,7 +70,7 @@ const RegistrationPage = () => {
               render={() => <p className='alert'>Email should not exceed 40 characters</p>}
             />
           </div>
-          <div>
+          <div div className='formDiv'>
             <label htmlFor="password" className="formLabel">
               Password *
             </label>
