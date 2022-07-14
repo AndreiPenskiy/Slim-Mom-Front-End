@@ -139,8 +139,6 @@ export const DailyCaloriesForm = () => (
               </Radiolabel>
             </RadioGrupLabel>
           </FieldRadioGrup>
-          {/* </RadioGrupLabel> */}
-          {/* </FieldRadioStyled> */}
           <FormDiv>
             <FieldStyledTab
               name="currentWeight"
