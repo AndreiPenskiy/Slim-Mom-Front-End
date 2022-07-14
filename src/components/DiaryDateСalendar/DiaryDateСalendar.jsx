@@ -8,8 +8,11 @@ import moment from 'moment';
 import 'moment/locale/uk';
 import 'moment/locale/ru';
 import calendar from '../../icons/calendar.svg';
+// import { useMediaQuery } from 'react-responsive';
 
 export default function DiaryDateСalendar() {
+  // const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const inputProps = {
     style: {
       color: '#212121',

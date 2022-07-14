@@ -21,6 +21,12 @@ const CalculatorPage = lazy(() =>
   import('pages/CalculatorPage' /* webpackChunkName: "calculator-page" */)
 );
 
+const DiaryFormProductMobile = lazy(() =>
+  import(
+    '../components/DiaryAddProductForm/DiaryFormProductMobile' /* webpackChunkName: "calculator-page" */
+  )
+);
+
 export const App = () => {
   return (
     <>
@@ -33,6 +39,10 @@ export const App = () => {
             <Route path="registration" element={<RegistrationPage />} />
             <Route path="diary" element={<DiaryPage />} />
             <Route path="calculator" element={<CalculatorPage />} />
+            <Route
+              path="diaryformmobile"
+              element={<DiaryFormProductMobile />}
+            />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>

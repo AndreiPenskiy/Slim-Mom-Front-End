@@ -44,10 +44,17 @@ export const DiaryProductsItemStyled = styled.li`
 // `;
 
 export const DiaryProductsItemProductStyled = styled.p`
-  width: 240px;
-  margin-right: 48px;
+  width: 130px;
+  margin-right: 8px;
+  @media screen and (min-width: 768px) {
+    width: 240px;
+    margin-right: 48px;
+    padding-bottom: 20px;
+  }
+
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
+  /* height: 16px; */
   ::after {
     position: absolute;
     content: '';
@@ -60,11 +67,17 @@ export const DiaryProductsItemProductStyled = styled.p`
 `;
 
 export const DiaryProductsItemCaloriestStyled = styled.p`
-  width: 107px;
-  margin-right: 32px;
+  width: 49px;
+  margin-right: 8px;
+  @media screen and (min-width: 768px) {
+    width: 107px;
+    margin-right: 32px;
+    padding-bottom: 20px;
+  }
+
   text-align: end;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
   ::after {
     position: absolute;
     content: '';
@@ -78,11 +91,18 @@ export const DiaryProductsItemCaloriestStyled = styled.p`
 
 export const DiaryProductsItemWeightStyled = styled.p`
   display: block;
-  width: 106px;
-  margin-right: 32px;
+  width: 58px;
+  margin-right: 17px;
+  @media screen and (min-width: 768px) {
+    width: 106px;
+    margin-right: 32px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
   text-align: end;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
   ::after {
     position: absolute;
     content: '';
@@ -113,10 +133,19 @@ export const DiaryProductsItemBtnDeleteStyled = styled.button`
     width: 12px;
   }
 `;
+export const DiaryProductsItemSpanStyled = styled.span`
+  /* font-weight: 100; */
+  font-size: 11px;
+  line-height: 15px;
+`;
 
 export const DiaryProductsImgDeleteStyled = styled.img`
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  @media screen and (min-width: 768px) {
+    width: 12px;
+    height: 12px;
+  }
   color: #9b9faa;
   position: absolute;
   top: 2px;

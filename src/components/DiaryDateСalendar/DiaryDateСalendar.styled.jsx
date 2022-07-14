@@ -2,10 +2,16 @@ import styled from 'styled-components';
 import Datetime from 'react-datetime';
 
 export const DiaryPageConteiner = styled.div`
-  margin-top: 20px;
-  margin-bottom: 60px;
+  padding-top: 40px;
+  margin-bottom: 0;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+    padding-top: 100px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 140px;
+  }
   display: flex;
-  /* justify-content: baseline; */
   align-items: baseline;
 `;
 

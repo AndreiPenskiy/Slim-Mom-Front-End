@@ -5,6 +5,7 @@ import {
   DiaryProductsItemWeightStyled,
   DiaryProductsItemBtnDeleteStyled,
   DiaryProductsImgDeleteStyled,
+  DiaryProductsItemSpanStyled,
 } from './DiaryProductsItem.styled';
 import { productsData } from 'components/helpers/productsData';
 import cross from '../../icons/cross.svg';
@@ -21,7 +22,8 @@ export function DiaryProductsItem() {
             {product.calories} g
           </DiaryProductsItemCaloriestStyled>
           <DiaryProductsItemWeightStyled>
-            {product.weight} kcal
+            {product.weight}{' '}
+            <DiaryProductsItemSpanStyled>kcal</DiaryProductsItemSpanStyled>
           </DiaryProductsItemWeightStyled>
           <DiaryProductsItemBtnDeleteStyled>
             <DiaryProductsImgDeleteStyled src={cross} alt="calendar" />
