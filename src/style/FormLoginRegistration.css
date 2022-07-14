@@ -24,6 +24,10 @@
   flex-direction: column;
 }
 
+.formDiv{
+  margin-bottom: 40px;
+}
+
 .formLabel {
   font-family: 'Verdana';
   font-style: normal;
@@ -37,8 +41,7 @@
 
 .formInput {
   width: 240px;
-  left: 16px;
-  margin-bottom: 40px;
+  left: 16px;  
   border-bottom: 1px solid #e0e0e0;
   border-top: transparent;
   border-left: transparent;
@@ -106,10 +109,11 @@
 } */
 
 .alert {
+  position: relative;
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 11px;
   line-height: 17px;
-  color: red;
+  color: rgb(217 120 74);
 }

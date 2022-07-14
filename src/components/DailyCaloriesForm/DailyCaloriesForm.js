@@ -16,6 +16,7 @@ import {
   FormStyled,
   ButtonCont,
   ErrorMessageContainer,
+  FormDiv,
 } from './DailyCaloriesForm.styled';
 
 const DailyCaloriesSchema = Yup.object().shape({
@@ -64,7 +65,7 @@ export const DailyCaloriesForm = () => (
     >
       {({ errors, touched }) => (
         <FormStyled>
-          <div>
+          <FormDiv>
             <FieldStyled
               name="height"
               type="number"
@@ -74,9 +75,8 @@ export const DailyCaloriesForm = () => (
             {errors.height && touched.height ? (
               <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
             ) : null}
-          </div>
-
-          <div>
+          </FormDiv>
+          <FormDiv>
             <FieldStyled
               name="desiredWeight"
               type="number"
@@ -89,9 +89,8 @@ export const DailyCaloriesForm = () => (
                 {errors.desiredWeight}
               </ErrorMessageContainer>
             ) : null}
-          </div>
-
-          <div>
+          </FormDiv>
+          <FormDiv>
             <FieldStyled
               name="age"
               type="number"
@@ -101,10 +100,9 @@ export const DailyCaloriesForm = () => (
             {errors.age && touched.age ? (
               <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
             ) : null}
-          </div>
-
-          <FieldStyledMobil>
-            <FieldStyled
+          </FormDiv>
+          <FormDiv>
+            <FieldStyledMobil
               name="currentWeight"
               type="number"
               autoComplete="off"
@@ -116,7 +114,6 @@ export const DailyCaloriesForm = () => (
               </ErrorMessageContainer>
             ) : null}
           </FieldStyledMobil>
-
           <FieldRadioGrup component="div" name="bloodType" label="bloodType">
             <Label> Група крові*</Label>
             <RadioGrupLabel>
@@ -141,22 +138,22 @@ export const DailyCaloriesForm = () => (
               </Radiolabel>
             </RadioGrupLabel>
           </FieldRadioGrup>
-
-          <FieldStyledTab>
-            <FieldStyled
-              style={{ marginTop: '0' }}
+          {/* </RadioGrupLabel> */}
+          {/* </FieldRadioStyled> */}
+          <FormDiv>
+            <FieldStyledTab
               name="currentWeight"
               type="number"
               autoComplete="off"
               placeholder="Ваша вага*"
             />
+            
             {errors.currentWeight && touched.currentWeight ? (
               <ErrorMessageContainer>
                 {errors.currentWeight}
               </ErrorMessageContainer>
             ) : null}
-          </FieldStyledTab>
-
+          </FormDiv>
           <ButtonCont>
             <DailyCaloriesFormButton type="submit">
               Схуднути

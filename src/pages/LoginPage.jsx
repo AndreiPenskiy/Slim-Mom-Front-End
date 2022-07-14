@@ -29,7 +29,7 @@ const LoginPage = () => {
           {/* <section className="container"> */}
           <div className="form">
             <h1 className="formTitle">Sign in</h1>
-            <div>
+            <div div className='formDiv'>
               <label htmlFor="email" className="formLabel">
                 Email *
               </label>
@@ -40,7 +40,7 @@ const LoginPage = () => {
                 className="formInput"
               />
             </div>
-            <div>
+            <div div className='formDiv'>
               <label htmlFor="password" className="formLabel">
                 Password *
               </label>

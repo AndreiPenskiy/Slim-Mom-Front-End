@@ -18,6 +18,18 @@ export const DailyCaloriesFormContainer = styled.div`
     margin-left: 16px;
   }
 `;
+
+export const FormDiv = styled.div`
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 40px;
+  }
+`;
+
 export const FormStyled = styled(Form)`
   display: flex;
   flex-wrap: wrap;
@@ -47,7 +59,7 @@ export const FieldStyled = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 20px 0;
+    padding-bottom: 20px;
     margin-right: 30px;
     margin-top: 20px;
     margin-bottom: 0;
@@ -167,15 +179,13 @@ export const ButtonCont = styled.div`
 `;
 
 export const ErrorMessageContainer = styled.div`
-  color: red;
-  @media screen and (min-width: 768px) {
-    top: 322px;
-  }
-`;
-export const ErrorMobil = styled.div`
-  color: red;
-  position: absolute;
-  bottom: 425px;
+  position: relative;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 17px;
+  color: rgb(217 120 74);
 `;
 
 export const Radiolabel = styled.label`
