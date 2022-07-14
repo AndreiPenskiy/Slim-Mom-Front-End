@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from '../redux/auth/auth-options';
 import '../style/FormLoginRegistration.css';
-import { Background } from 'components/Background/Background';
+import { LoginBackground } from 'components/Background/LoginBackground';
 
 const LoginPage = () => {
   const dispath = useDispatch();
@@ -14,14 +14,12 @@ const LoginPage = () => {
   });
 
   const handleSubmit = ({ email, password, resetForm }) => {
-    dispath(logIn({ email, password }));    
+    dispath(logIn({ email, password }));
     resetForm();
   };
 
-
   return (
     <>
-
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={schema}
@@ -53,17 +51,19 @@ const LoginPage = () => {
                 className="formInput"
               />
               {(
-              <ErrorMessage
-                name="email"
-                render={() => (
-                  <p className="alert">Incorrect email or password entered</p>
-                )}
-              />) ||  (<ErrorMessage
-                name="password"
-                render={() => (
-                  <p className="alert">Incorrect email or password entered</p>
-                )}
-              />
+                <ErrorMessage
+                  name="email"
+                  render={() => (
+                    <p className="alert">Incorrect email or password entered</p>
+                  )}
+                />
+              ) || (
+                <ErrorMessage
+                  name="password"
+                  render={() => (
+                    <p className="alert">Incorrect email or password entered</p>
+                  )}
+                />
               )}
             </div>
           </div>
@@ -81,10 +81,9 @@ const LoginPage = () => {
           </a>
           {/* </div> */}
         </Form>
-    </Formik>
-      <Background />
-      
-      </>
+      </Formik>
+      <LoginBackground />
+    </>
   );
 };
 

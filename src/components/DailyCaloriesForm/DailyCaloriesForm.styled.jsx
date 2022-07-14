@@ -3,15 +3,19 @@ import { Form, Field } from 'formik';
 
 export const DailyCaloriesFormContainer = styled.div`
   width: 280px;
+  margin-top: 32px;
+  margin-left: 20px;
 
   @media screen and (min-width: 768px) {
     display: block;
     width: 704px;
     margin-top: 100px;
+    margin-left: 32px;
   }
   @media screen and (min-width: 1280px) {
     width: 608px;
     margin-top: 147px;
+    margin-left: 16px;
   }
 `;
 
@@ -35,8 +39,9 @@ export const FormStyled = styled(Form)`
 export const FieldStyled = styled(Field)`
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  padding: 4px 0;
+  padding: 8px 0;
   width: 240px;
+  margin-bottom: 32px;
 
   ::placeholder {
     font-family: 'Verdana';
@@ -48,63 +53,36 @@ export const FieldStyled = styled(Field)`
     color: #9b9faa;
   }
 
-  @media screen and (max-width: 767px) {
-    margin-top: 32px;
+  :focus {
+    outline: none;
+    border-bottom: 1px solid #fc842d;
   }
 
   @media screen and (min-width: 768px) {
     padding-bottom: 20px;
     margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 `;
-export const FieldStyledMobil = styled(Field)`
+export const FieldStyledMobil = styled.div`
   display: block;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 4px 0;
-  width: 240px;
-  margin-top: 32px;
-
-  ::placeholder {
-    font-family: 'Verdana';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
-    color: #9b9faa;
-  }
 
   @media screen and (min-width: 768px) {
     display: none;
     width: 240px;
   }
 `;
-export const FieldStyledTab = styled(Field)`
+export const FieldStyledTab = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
-    border: none;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 20px 0;
-    width: 240px;
-
-  ::placeholder {
-    font-family: 'Verdana';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
-    color: #9b9faa;
-  }
-`;
+   `;
 
 export const FieldRadioGrup = styled(Field)`
   align-items: baseline;
-  // display: flex;
-  // justify-content: space-between;
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
@@ -113,9 +91,6 @@ export const FieldRadioGrup = styled(Field)`
   letter-spacing: 0.04em;
   color: #9b9faa;
   width: 240px;
-  @media screen and (max-width: 767px) {
-    margin-top: 32px;
-  }
 `;
 
 export const RadioStyled = styled.input`
@@ -151,9 +126,10 @@ export const DailyCaloriesFormTitle = styled.h1`
   font-size: 18px;
   line-height: 26px;
   color: #212121;
+  margin-bottom: 26px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 48px;
+    margin-bottom: 28px;
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 700;
@@ -201,6 +177,7 @@ export const DailyCaloriesFormButton = styled.button`
 export const ButtonCont = styled.div`
   width: 100%;
 `;
+
 export const ErrorMessageContainer = styled.div`
   position: relative;
   font-family: 'Verdana';

@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from '../redux/auth/auth-options';
 import '../style/FormLoginRegistration.css';
-import { Background } from 'components/Background/Background';
+import { LoginBackground } from 'components/Background/LoginBackground';
 
 const RegistrationPage = () => {
   const dispath = useDispatch();
@@ -38,7 +38,6 @@ const RegistrationPage = () => {
   };
 
   return (
-
     <>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
@@ -87,16 +86,20 @@ const RegistrationPage = () => {
           </div>
           </div>
           {/* <div className="FormButtonContainer"> */}
-            <a href="http://localhost:3000/Slim-Mom-Front-End/login" className="FormButtonActive"  role="button">
-            Login                     
-            </a>
-            <button  type="submit" className="FormButton">
-              Register
-            </button>
+          <a
+            href="http://localhost:3000/Slim-Mom-Front-End/login"
+            className="FormButtonActive"
+            role="button"
+          >
+            Login
+          </a>
+          <button type="submit" className="FormButton">
+            Register
+          </button>
           {/* </div> */}
         </Form>
-    </Formik>
-    <Background />
+      </Formik>
+      <LoginBackground />
     </>
   );
 };

@@ -1,6 +1,6 @@
-import { S, L, B, V, BackgroundImage } from './Background.styled';
+import { S, L, B, V, BackgroundImage } from './LoginBackground.styled';
 
-export const Background = () => {
+export const LoginBackground = () => {
   return (
     <BackgroundImage>
       <S />

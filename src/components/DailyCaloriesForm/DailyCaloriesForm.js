@@ -21,12 +21,15 @@ import {
 
 const DailyCaloriesSchema = Yup.object().shape({
   height: Yup.number()
+    .positive()
     .min(100, 'Зріст має бути більше ніж 100см!')
     .max(250, 'Зріст має бути менше ніж 250см!')
+    .integer('Зріст має бути цілим числом')
     .required("Це поле є обов'язковим!"),
   age: Yup.number()
     .min(18, 'Вік має бути більше ніж 18!')
     .max(100, 'Вік має бути менше ніж 100!')
+    .integer('Зріст має бути цілим числом')
     .required("Це поле є обов'язковим!"),
   currentWeight: Yup.number()
     .min(20, 'Вага має бути більше ніж 20!')
@@ -105,12 +108,12 @@ export const DailyCaloriesForm = () => (
               autoComplete="off"
               placeholder="Ваша вага*"
             />
-            {errors.bloodType && touched.bloodType ? (
-              <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
+            {errors.currentWeight && touched.currentWeight ? (
+              <ErrorMessageContainer>
+                {errors.currentWeight}
+              </ErrorMessageContainer>
             ) : null}
-          </FormDiv>
-          {/* <RadioGrupLabel> */}
-          {/* Група крові* */}
+          </FieldStyledMobil>
           <FieldRadioGrup component="div" name="bloodType" label="bloodType">
             <Label> Група крові*</Label>
             <RadioGrupLabel>
@@ -144,7 +147,7 @@ export const DailyCaloriesForm = () => (
               autoComplete="off"
               placeholder="Ваша вага*"
             />
-
+            
             {errors.currentWeight && touched.currentWeight ? (
               <ErrorMessageContainer>
                 {errors.currentWeight}
