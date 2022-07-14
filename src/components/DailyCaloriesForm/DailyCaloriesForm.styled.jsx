@@ -19,17 +19,6 @@ export const DailyCaloriesFormContainer = styled.div`
   }
 `;
 
-export const FormDiv = styled.div`
-  margin-bottom: 32px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 40px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 40px;
-  }
-`;
-
 export const FormStyled = styled(Form)`
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +30,7 @@ export const FieldStyled = styled(Field)`
   border-bottom: 1px solid #e0e0e0;
   padding: 8px 0;
   width: 240px;
-  margin-bottom: 32px;
+  margin-top: 32px;
 
   ::placeholder {
     font-family: 'Verdana';
@@ -59,12 +48,13 @@ export const FieldStyled = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
-    padding-bottom: 20px;
+    padding: 20px 0;
     margin-right: 30px;
-    margin-top: 20px;
+    margin-top: 22px;
     margin-bottom: 0;
   }
 `;
+
 export const FieldStyledMobil = styled.div`
   display: block;
   border: none;
@@ -74,11 +64,13 @@ export const FieldStyledMobil = styled.div`
     width: 240px;
   }
 `;
+
 export const FieldStyledTab = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
+    margin-top:-6px;
    `;
 
 export const FieldRadioGrup = styled(Field)`
@@ -91,6 +83,7 @@ export const FieldRadioGrup = styled(Field)`
   letter-spacing: 0.04em;
   color: #9b9faa;
   width: 240px;
+  margin-top: 32px;
 `;
 
 export const RadioStyled = styled.input`
@@ -119,6 +112,7 @@ export const RadioStyled = styled.input`
     transform: scale(1);
   }
 `;
+
 export const DailyCaloriesFormTitle = styled.h1`
   font-family: 'Verdana';
   font-style: normal;
@@ -126,10 +120,9 @@ export const DailyCaloriesFormTitle = styled.h1`
   font-size: 18px;
   line-height: 26px;
   color: #212121;
-  margin-bottom: 26px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 28px;
+    margin-bottom: 46px;
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 700;
@@ -137,6 +130,7 @@ export const DailyCaloriesFormTitle = styled.h1`
     line-height: 41px;
   }
 `;
+
 export const DailyCaloriesFormButton = styled.button`
   padding: 13px 37px 13px 37px;
   font-family: 'Verdana';
@@ -174,6 +168,7 @@ export const DailyCaloriesFormButton = styled.button`
     margin-top: 60px;
   }
 `;
+
 export const ButtonCont = styled.div`
   width: 100%;
 `;
@@ -186,6 +181,7 @@ export const ErrorMessageContainer = styled.div`
   font-size: 11px;
   line-height: 17px;
   color: rgb(217 120 74);
+  margin-bottom: -17px;
 `;
 
 export const Radiolabel = styled.label`
@@ -200,6 +196,7 @@ export const Radiolabel = styled.label`
   color: #9b9faa;
   margin-top: 8px;
 `;
+
 export const RadioGrupLabel = styled.div`
   display: flex;
   // align-items: baseline;

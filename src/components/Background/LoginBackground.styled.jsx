@@ -22,6 +22,7 @@ export const BackgroundImage = styled.div`
     display: block;
     min-height: 1024px;
   }
+
   @media screen and (min-width: 1280px) {
     min-height: 850px;
   }
@@ -44,8 +45,8 @@ export const S = styled.div`
 
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundStr});
-    top: 165px;
-    right: 27px;
+    top: 458px;
+    right: 2px;
     width: 362px;
     height: 374px;
     z-index: 2;
@@ -67,13 +68,14 @@ export const L = styled.div`
     height: 842px;
     z-index: 3;
   }
+
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundL});
-    top: -26px;
-    right: 250px;
+    background-size: 746px;
+    top: 0;
+    right: 195px;
     width: 746px;
     height: 846px;
-    // transform: rotate(0);
     z-index: 3;
   }
 `;
@@ -92,6 +94,7 @@ export const B = styled.div`
     height: 527px;
     z-index: 3;
   }
+
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundB});
     background-size: unset;
