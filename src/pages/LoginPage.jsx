@@ -1,11 +1,27 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from '../redux/auth/auth-options';
-import '../style/FormLoginRegistration.css';
-import { Background } from 'components/Background/Background';
+import { LoginBackground } from 'components/Background/LoginBackground';
+import {
+  FormContainer,
+  FormTitle,
+  Forma,
+  FormDiv,
+  FormLabel,
+  FormInput,
+  FormButtonActiveBtn,
+  FormButtonA,
+  Alert,
+} from '../style/FormLoginRegistration.styled';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
+
 
 const LoginPage = () => {
+
+  const { t } = useTranslation();
   const dispath = useDispatch();
 
   const schema = Yup.object().shape({
@@ -14,77 +30,73 @@ const LoginPage = () => {
   });
 
   const handleSubmit = ({ email, password, resetForm }) => {
-    dispath(logIn({ email, password }));    
+    dispath(logIn({ email, password }));
     resetForm();
   };
 
-
   return (
     <>
-
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <Form className="formContainer">
+        <FormContainer >
           {/* <section className="container"> */}
-          <div className="form">
-            <h1 className="formTitle">Sign in</h1>
-            <div>
-              <label htmlFor="email" className="formLabel">
-                Email *
-              </label>
-              <Field
+          <Forma>
+            <FormTitle>{t("header.signin")}</FormTitle>
+            <FormDiv>
+              <FormLabel htmlFor="email">
+                {t("AuthForm.label_3")}
+              </FormLabel>
+              <FormInput
                 id="email"
                 name="email"
                 type="email"
-                className="formInput"
               />
-            </div>
-            <div>
-              <label htmlFor="password" className="formLabel">
-                Password *
-              </label>
-              <Field
+            </FormDiv>
+            <FormDiv>
+              <FormLabel htmlFor="password">
+                {t("AuthForm.label_2")}
+              </FormLabel>
+              <FormInput
                 id="password"
                 name="password"
                 type="password"
-                className="formInput"
               />
               {(
-              <ErrorMessage
-                name="email"
-                render={() => (
-                  <p className="alert">Incorrect email or password entered</p>
-                )}
-              />) ||  (<ErrorMessage
-                name="password"
-                render={() => (
-                  <p className="alert">Incorrect email or password entered</p>
-                )}
-              />
+                <ErrorMessage
+                  name="email"
+                  render={() => (
+                    <Alert >{t("notify.alert1")}</Alert>
+                  )}
+                />
+              ) || (
+                <ErrorMessage
+                  name="password"
+                  render={() => (
+                    <Alert >{t("notify.alert1")}</Alert>
+                  )}
+                />
               )}
-            </div>
-          </div>
+            </FormDiv>
+          </Forma>
           {/* </section> */}
           {/* <div className="FormButtonContainer"> */}
-          <button type="submit" className="FormButtonActive">
-            Login
-          </button>
-          <a
+          <FormButtonActiveBtn type="submit">
+            {t("header.signin")}
+          </FormButtonActiveBtn>
+          <FormButtonA
             href="http://localhost:3000/Slim-Mom-Front-End/registration"
-            className="FormButton"
             role="button"
           >
-            Register
-          </a>
+            {t("header.signup")}
+          </FormButtonA>
           {/* </div> */}
-        </Form>
-    </Formik>
-      <Background />
-      
-      </>
+        </FormContainer>
+      </Formik>
+      <LoginBackground />
+    </>
   );
 };
 

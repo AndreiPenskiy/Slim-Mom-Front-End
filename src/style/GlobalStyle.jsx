@@ -14,9 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    margin: 0;
-  font-family: 'Verdana', 'Gotham Pro',
-    sans-serif;
+    margin: auto;
+  font-family: 'Verdana', 'Gotham Pro, sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   }
@@ -46,4 +45,11 @@ a {
     margin: 0;
     padding: 0;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+  
 `;

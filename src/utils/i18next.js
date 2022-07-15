@@ -4,7 +4,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
 import translationUA from "../locales/ua/translationUA.json";
 import translationEN from "../locales/en/translationEN.json";
-import translationRU from "../locales/ru/translationRU.json";
 
 const resources = {
    ua: {
@@ -12,9 +11,6 @@ const resources = {
     },
     en: {
         translation: translationEN
-    },
-    ru: {
-        translation: translationRU
     }
  };
 
@@ -26,7 +22,7 @@ i18n
     .init({
         resources,
         fallbackLng: "ua",
-        whitelist: ["ua", "ru", "en"],
+        whitelist: ["ua", "en"],
         debug: true,
         detection: {
             order: ["localStorage", "cookie"],

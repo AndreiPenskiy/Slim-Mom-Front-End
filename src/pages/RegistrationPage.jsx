@@ -1,24 +1,40 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from '../redux/auth/auth-options';
-import '../style/FormLoginRegistration.css';
-import { Background } from 'components/Background/Background';
+import { LoginBackground } from 'components/Background/LoginBackground';
+import {
+  FormContainer,
+  FormTitle,
+  Forma,
+  FormDiv,
+  FormLabel,
+  FormInput,
+  FormButtonActive,
+  FormButton,
+  Alert,
+} from '../style/FormLoginRegistration.styled';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
+
 
 const RegistrationPage = () => {
+
+  const { t } = useTranslation();
   const dispath = useDispatch();
 
   const schema = Yup.object().shape({
     name: Yup.string()
-      .min(3, 'The name is not entered correctly')
+      .min(3, `${t("validationRegisterForm.label1")}`)
       .max(20)
       .required('Required'),
     email: Yup.string()
-      .email('The email is not entered correctly')
+      .email(`${t("validationRegisterForm.label2")}`)
       .max(40)
       .required('Required'),
     password: Yup.string()
-      .min(8, `Password should be longer than 8 characters`)
+      .min(8, `${t("validationRegisterForm.label3")}`)
       .max(20)
       .required('Required'),
   });
@@ -38,65 +54,67 @@ const RegistrationPage = () => {
   };
 
   return (
-
     <>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <Form className="formContainer">
-        <div className="form">
-          <h1 className="formTitle">Register</h1>
-          <div>
-            <label htmlFor="name" className="formLabel">
-              Name *
-            </label>
-            <Field id="name" name="name" type="text" className="formInput" />
+        <FormContainer>
+        <Forma >
+          <FormTitle >{t("header.signup")}</FormTitle>
+          <FormDiv >
+            <FormLabel htmlFor="name" >
+              {t("AuthForm.label_1")}
+            </FormLabel>
+            <FormInput id="name" name="name" type="text"  />
             <ErrorMessage
               name="name"
               render={() => (
-                <p className='alert'>The name must be at least 3 characters and more than 20</p>
+                <Alert>{t("notify.alert4")}</Alert>
               )}
             />
-          </div>
-          <div>
-            <label htmlFor="email" className="formLabel">
-              Email *
-            </label>
-            <Field id="email" name="email" type="email" className="formInput" />
+          </FormDiv>
+          <FormDiv >
+            <FormLabel htmlFor="email" >
+              {t("AuthForm.label_3")}
+            </FormLabel>
+            <FormInput id="email" name="email" type="email"  />
             <ErrorMessage
               name="email"
-              render={() => <p className='alert'>Email should not exceed 40 characters</p>}
+              render={() => <Alert >{t("notify.alert3")}</Alert>}
             />
-          </div>
-          <div>
-            <label htmlFor="password" className="formLabel">
-              Password *
-            </label>
-            <Field
+          </FormDiv>
+          <FormDiv>
+            <FormLabel htmlFor="password" >
+              {t("AuthForm.label_2")}
+            </FormLabel>
+            <FormInput
               id="password"
               name="password"
               type="password"
-              className="formInput"
             />
             <ErrorMessage
               name="password"
-              render={() => <p className='alert'>Password should be longer than 8 characters</p>}
+              render={() => <Alert>{t("notify.alert2")}</Alert>}
             />
-          </div>
-          </div>
+          </FormDiv>
+          </Forma>
           {/* <div className="FormButtonContainer"> */}
-            <a href="http://localhost:3000/Slim-Mom-Front-End/login" className="FormButtonActive"  role="button">
-            Login                     
-            </a>
-            <button  type="submit" className="FormButton">
-              Register
-            </button>
+          <FormButtonActive
+            href="http://localhost:3000/Slim-Mom-Front-End/login"
+          
+            role="button"
+          >
+            {t("header.signin")}
+          </FormButtonActive>
+          <FormButton type="submit" >
+            {t("header.signup")}
+          </FormButton>
           {/* </div> */}
-        </Form>
-    </Formik>
-    <Background />
+        </FormContainer>
+      </Formik>
+      <LoginBackground />
     </>
   );
 };

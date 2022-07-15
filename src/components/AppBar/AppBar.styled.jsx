@@ -11,6 +11,7 @@ export const StyledAppBar = styled.header`
 
 export const StyledHeader = styled.header`
   position: relative;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -17,33 +17,45 @@ import {
   ButtonCont,
   ErrorMessageContainer,
 } from './DailyCaloriesForm.styled';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
 
-const DailyCaloriesSchema = Yup.object().shape({
+
+
+export const DailyCaloriesForm = () => {
+
+  const { t } = useTranslation();
+
+  const DailyCaloriesSchema = Yup.object().shape({
   height: Yup.number()
-    .min(100, 'Зріст має бути більше ніж 100см!')
-    .max(250, 'Зріст має бути менше ніж 250см!')
-    .required("Це поле є обов'язковим!"),
+    .positive()
+    .min(100, `${t("validationDiaryForm.label1")}`)
+    .max(250, `${t("validationDiaryForm.label2")}`)
+    .integer(`${t("validationDiaryForm.label3")}`)
+    .required(`${t("validationDiaryForm.label4")}`),
   age: Yup.number()
-    .min(18, 'Вік має бути більше ніж 18!')
-    .max(100, 'Вік має бути менше ніж 100!')
-    .required("Це поле є обов'язковим!"),
+    .min(18, `${t("validationDiaryForm.label5")}`)
+    .max(100, `${t("validationDiaryForm.label6")}`)
+    .integer(`${t("validationDiaryForm.label7")}`)
+    .required(`${t("validationDiaryForm.label4")}`),
   currentWeight: Yup.number()
-    .min(20, 'Вага має бути більше ніж 20!')
-    .max(500, 'Вага має бути менше ніж 500!')
-    .required("Це поле є обов'язковим!"),
+    .min(20, `${t("validationDiaryForm.label8")}`)
+    .max(500, `${t("validationDiaryForm.label9")}`)
+    .required(`${t("validationDiaryForm.label4")}`),
   desiredWeight: Yup.number()
-    .min(20, 'Бажана вага має бути більше ніж 20!')
-    .max(500, 'Бажана вага має бути менше ніж 500!')
-    .required("Це поле є обов'язковим!"),
+    .min(20, `${t("validationDiaryForm.label10")}`)
+    .max(500, `${t("validationDiaryForm.label11")}`)
+    .required(`${t("validationDiaryForm.label4")}`),
   bloodType: Yup.number()
     .oneOf([1, 2, 3, 4])
-    .required("Це поле є обов'язковим!"),
+    .required(`${t("validationDiaryForm.label4")}`),
 });
 
-export const DailyCaloriesForm = () => (
-  <DailyCaloriesFormContainer>
+  return (
+<DailyCaloriesFormContainer>
     <DailyCaloriesFormTitle>
-      Розрахуйте свою денну норму калорій прямо зараз
+      {t("dailyCalorieForm.title")}
     </DailyCaloriesFormTitle>
     <Formik
       initialValues={{
@@ -61,54 +73,59 @@ export const DailyCaloriesForm = () => (
     >
       {({ errors, touched }) => (
         <FormStyled>
-          <FieldStyled
-            name="height"
-            type="number"
-            autoComplete="off"
-            placeholder="Зріст*"
-          />
-          {errors.height && touched.height ? (
-            <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
-          ) : null}
+          <div>
+            <FieldStyled
+              name="height"
+              type="number"
+              autoComplete="off"
+              placeholder={t("dailyCalorieForm.label_1")}
+            />
+            {errors.height && touched.height ? (
+              <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
+            ) : null}
+          </div>
+          <div>
+            <FieldStyled
+              name="desiredWeight"
+              type="number"
+              autoComplete="off"
+              placeholder={t("dailyCalorieForm.label_4")}
+            />
 
-          <FieldStyled
-            name="desiredWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Бажана вага*"
-          />
+            {errors.desiredWeight && touched.desiredWeight ? (
+              <ErrorMessageContainer>
+                {errors.desiredWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </div>
+          <div>
+            <FieldStyled
+              name="age"
+              type="number"
+              autoComplete="off"
+              placeholder={t("dailyCalorieForm.label_2")}
+            />
+            {errors.age && touched.age ? (
+              <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
+            ) : null}
+          </div>
 
-          {errors.desiredWeight && touched.desiredWeight ? (
-            <ErrorMessageContainer>
-              {errors.desiredWeight}
-            </ErrorMessageContainer>
-          ) : null}
+          <FieldStyledMobil>
+            <FieldStyled
+              name="currentWeight"
+              type="number"
+              autoComplete="off"
+              placeholder={t("dailyCalorieForm.label_3")}
+            />
+            {errors.currentWeight && touched.currentWeight ? (
+              <ErrorMessageContainer>
+                {errors.currentWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </FieldStyledMobil>
 
-          <FieldStyled
-            name="age"
-            type="number"
-            autoComplete="off"
-            placeholder="Вік*"
-          />
-          {errors.age && touched.age ? (
-            <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
-          ) : null}
-
-          <FieldStyledMobil
-            name="currentWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Ваша вага*"
-          />
-
-          {errors.bloodType && touched.bloodType ? (
-            <ErrorMessageContainer>{errors.bloodType}</ErrorMessageContainer>
-          ) : null}
-
-          {/* <RadioGrupLabel> */}
-          {/* Група крові* */}
           <FieldRadioGrup component="div" name="bloodType" label="bloodType">
-            <Label> Група крові*</Label>
+            <Label> {t("dailyCalorieForm.label_5")}</Label>
             <RadioGrupLabel>
               <Radiolabel htmlFor="bloodType">
                 <RadioStyled
@@ -131,29 +148,31 @@ export const DailyCaloriesForm = () => (
               </Radiolabel>
             </RadioGrupLabel>
           </FieldRadioGrup>
-          {/* </RadioGrupLabel> */}
-          {/* </FieldRadioStyled> */}
 
-          <FieldStyledTab
-            name="currentWeight"
-            type="number"
-            autoComplete="off"
-            placeholder="Ваша вага*"
-          />
-
-          {errors.currentWeight && touched.currentWeight ? (
-            <ErrorMessageContainer>
-              {errors.currentWeight}
-            </ErrorMessageContainer>
-          ) : null}
+          <FieldStyledTab>
+            <FieldStyled
+              style={{ marginTop: '0' }}
+              name="currentWeight"
+              type="number"
+              autoComplete="off"
+              placeholder={t("dailyCalorieForm.label_3")}
+            />
+            {errors.currentWeight && touched.currentWeight ? (
+              <ErrorMessageContainer>
+                {errors.currentWeight}
+              </ErrorMessageContainer>
+            ) : null}
+          </FieldStyledTab>
 
           <ButtonCont>
             <DailyCaloriesFormButton type="submit">
-              Схуднути
+              {t("dailyCalorieForm.btn_name")}
             </DailyCaloriesFormButton>
           </ButtonCont>
         </FormStyled>
       )}
     </Formik>
   </DailyCaloriesFormContainer>
-);
+  );
+
+};
