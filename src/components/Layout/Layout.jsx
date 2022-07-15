@@ -1,3 +1,4 @@
+import { Modal } from 'components/Modal/Modal';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ const Layout = () => {
         </ul>
       </nav>
       <Outlet />
+      <Modal />
     </div>
   );
 };
