@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as Yup from 'yup';
 import {
@@ -10,11 +10,21 @@ import {
   DiaryFormButton,
   DiaryProductsPlusStyled,
   DiaryFormProductLabelStyled,
+  ErrorText,
 } from './DiaryAddProductForm.styled';
 import plus from '../../icons/plus.svg';
 
 export default function DiaryAddProductForm() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const FormError = ({ name }) => {
+    return (
+      <ErrorMessage
+        name={name}
+        render={message => <ErrorText>{message}</ErrorText>}
+      ></ErrorMessage>
+    );
+  };
 
   const DiaryAddProductSchema = Yup.object().shape({
     product: Yup.string().required("Це поле є обов'язковим!"),
@@ -44,10 +54,12 @@ export default function DiaryAddProductForm() {
                 Enter product name
               </DiaryFormProductLabelStyled>
               <DiaryFormProductStyled id="product" name="product" />
+              <FormError name="product" />
             </DiaryFormProductConteinerStyled>
             <DiaryFormGramsConteinerStyled>
               <label htmlFor="grams">Grams</label>
               <DiaryFormGramsStyled id="grams" name="grams" />
+              <FormError name="grams" />
             </DiaryFormGramsConteinerStyled>
             <DiaryFormButton type="submit">
               <DiaryProductsPlusStyled src={plus} alt="plus" />
