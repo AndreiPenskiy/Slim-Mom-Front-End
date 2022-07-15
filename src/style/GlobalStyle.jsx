@@ -15,8 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: auto;
-  font-family: 'Verdana', 'Gotham Pro',
-    sans-serif;
+  font-family: 'Verdana', 'Gotham Pro, sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   }
