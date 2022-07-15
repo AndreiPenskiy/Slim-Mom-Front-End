@@ -32,50 +32,52 @@ export const AppBar = () => {
 
   return (
     <>
-    <StyledAppBar>
-      <PageContainer>
-        <StyledHeader>
-          {isLoggedIn ? (
-            <Link to="/diary">
-              <Logo />
-            </Link>
-          ) : (
-            <Link to="/">
-              <Logo />
-            </Link>
-          )}
-          <Navigation />
-          {isLoggedIn && !isMobile && <UserInfo />}
-          {isLoggedIn && !isDesktop && !burgerShown && (
-            <BurgerButton type="button" onClick={toggleBurgerMenu}>
-              <GiHamburgerMenu size={24} />
-            </BurgerButton>
-          )}
-          {isLoggedIn && !isDesktop && burgerShown && (
-            <BurgerButton type="button" onClick={toggleBurgerMenu}>
-              <IoClose size={24} />
-            </BurgerButton>
-          )}
-        </StyledHeader>
-      </PageContainer>
-      {isLoggedIn && !isDesktop && burgerShown && (
-        <BurgerMenu>
-          <StyledNavLink to="/diary">Diary</StyledNavLink>
-          <StyledNavLink to="/calculator">Calculator</StyledNavLink>
-        </BurgerMenu>
-      )}
-      {isLoggedIn && isMobile && (
-        <UserInfoSection>
-          <PageContainer>
-            <UserInfo />
-          </PageContainer>
-        </UserInfoSection>
-      )}
-    </StyledAppBar>
+      <StyledAppBar>
+        <PageContainer>
+          <StyledHeader>
+            {isLoggedIn ? (
+              <Link to="/diary">
+                <Logo />
+              </Link>
+            ) : (
+              <Link to="/">
+                <Logo />
+              </Link>
+            )}
+            <Navigation />
+            {isLoggedIn && !isMobile && <UserInfo />}
+            {isLoggedIn && !isDesktop && !burgerShown && (
+              <BurgerButton type="button" onClick={toggleBurgerMenu}>
+                <GiHamburgerMenu size={24} />
+              </BurgerButton>
+            )}
+            {isLoggedIn && !isDesktop && burgerShown && (
+              <BurgerButton type="button" onClick={toggleBurgerMenu}>
+                <IoClose size={24} />
+              </BurgerButton>
+            )}
+          </StyledHeader>
+        </PageContainer>
+        {isLoggedIn && !isDesktop && burgerShown && (
+          <BurgerMenu>
+            <StyledNavLink to="/diary" onClick={toggleBurgerMenu}>
+              Diary
+            </StyledNavLink>
+            <StyledNavLink to="/calculator" onClick={toggleBurgerMenu}>
+              Calculator
+            </StyledNavLink>
+          </BurgerMenu>
+        )}
+        {isLoggedIn && isMobile && (
+          <UserInfoSection>
+            <PageContainer>
+              <UserInfo />
+            </PageContainer>
+          </UserInfoSection>
+        )}
+      </StyledAppBar>
 
-        <Outlet />
-      
+      <Outlet />
     </>
-    
   );
 };
