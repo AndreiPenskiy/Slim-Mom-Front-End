@@ -10,8 +10,8 @@ import {
   FormDiv,
   FormLabel,
   FormInput,
-  FormButtonActive,
-  FormButton,
+  FormButtonA,
+  FormButtonActiveBtn,
   Alert,
 } from '../style/FormLoginRegistration.styled';
 import { useTranslation } from 'react-i18next';
@@ -101,16 +101,16 @@ const RegistrationPage = () => {
           </FormDiv>
           </Forma>
           {/* <div className="FormButtonContainer"> */}
-          <FormButtonActive
-            href="http://localhost:3000/Slim-Mom-Front-End/login"
-          
+
+          <FormButtonActiveBtn type="submit" >
+            {t("header.signup")}
+          </FormButtonActiveBtn>
+          <FormButtonA
+            href="http://localhost:3000/Slim-Mom-Front-End/login"          
             role="button"
           >
             {t("header.signin")}
-          </FormButtonActive>
-          <FormButton type="submit" >
-            {t("header.signup")}
-          </FormButton>
+          </FormButtonA>
           {/* </div> */}
         </FormContainer>
       </Formik>
