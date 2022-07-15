@@ -150,3 +150,7 @@ export const DiaryFormProductLabelStyled = styled.label`
 export const DiaryFormGramsLabelStyled = styled.label`
   margin-right: 54px;
 `;
+
+export const ErrorText = styled.p`
+  color: red;
+`;

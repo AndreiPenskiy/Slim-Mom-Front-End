@@ -11,10 +11,20 @@ import {
   DiaryFormProductLabelStyled,
   DiaryFormGramsLabelStyled,
   DiaryFormButtonConteiner,
+  ErrorText,
 } from './DiaryAddProductForm.styled';
 
 export default function DiaryAddProductForm() {
   let navigate = useNavigate();
+
+  const FormError = ({ name }) => {
+    return (
+      <ErrorMessage
+        name={name}
+        render={message => <ErrorText>{message}</ErrorText>}
+      ></ErrorMessage>
+    );
+  };
 
   const DiaryAddProductSchema = Yup.object().shape({
     product: Yup.string().required("Це поле є обов'язковим!"),
@@ -43,24 +53,15 @@ export default function DiaryAddProductForm() {
               Enter product name
             </DiaryFormProductLabelStyled>
             <DiaryFormProductStyled id="product" name="product" />
+            <FormError name="product" />
           </DiaryFormProductConteinerStyled>
           <DiaryFormGramsConteinerStyled>
             <DiaryFormGramsLabelStyled htmlFor="grams">
               Grams
             </DiaryFormGramsLabelStyled>
             <DiaryFormGramsStyled id="grams" name="grams" />
+            <FormError name="grams" />
           </DiaryFormGramsConteinerStyled>
-          {(
-            <ErrorMessage
-              name="product"
-              render={() => <p className="alert">Incorrect product entered</p>}
-            />
-          ) || (
-            <ErrorMessage
-              name="grams"
-              render={() => <p className="alert">Incorrect grams entered</p>}
-            />
-          )}
           <DiaryFormButtonConteiner>
             <DiaryFormButton type="submit">Add</DiaryFormButton>
           </DiaryFormButtonConteiner>
