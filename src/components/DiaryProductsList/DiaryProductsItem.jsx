@@ -5,6 +5,7 @@ import {
   DiaryProductsItemWeightStyled,
   DiaryProductsItemBtnDeleteStyled,
   DiaryProductsImgDeleteStyled,
+  DiaryProductsItemSpanStyled,
 } from './DiaryProductsItem.styled';
 import { productsData } from 'components/helpers/productsData';
 import cross from '../../icons/cross.svg';
@@ -13,7 +14,6 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'utils/i18next';
 
 export function DiaryProductsItem() {
-
   const { t } = useTranslation();
 
   return (
@@ -24,10 +24,13 @@ export function DiaryProductsItem() {
             {product.products}
           </DiaryProductsItemProductStyled>
           <DiaryProductsItemCaloriestStyled>
-            {product.calories} {t("EatenProductsListItem.item_1")}
+            {product.calories} {t('EatenProductsListItem.item_1')}
           </DiaryProductsItemCaloriestStyled>
           <DiaryProductsItemWeightStyled>
-            {product.weight} {t("EatenProductsListItem.item_2")}
+            {product.weight}{' '}
+            <DiaryProductsItemSpanStyled>
+              {t('EatenProductsListItem.item_2')}
+            </DiaryProductsItemSpanStyled>
           </DiaryProductsItemWeightStyled>
           <DiaryProductsItemBtnDeleteStyled>
             <DiaryProductsImgDeleteStyled src={cross} alt="calendar" />

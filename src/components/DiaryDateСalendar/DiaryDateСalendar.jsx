@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import LocaleContext from '../../context';
 import {
   DiaryPageDatetimeStyled,
@@ -9,10 +9,12 @@ import {
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 import 'moment/locale/uk';
-import 'moment/locale/en-gb'
+import 'moment/locale/en-gb';
 import calendar from '../../icons/calendar.svg';
+// import { useMediaQuery } from 'react-responsive';
 
 export default function DiaryDateСalendar() {
+  // const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const { locale, setLocale } = useContext(LocaleContext);
 

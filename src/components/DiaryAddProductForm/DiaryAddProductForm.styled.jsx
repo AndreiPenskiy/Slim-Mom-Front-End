@@ -11,6 +11,12 @@ export const DiaryFormConteiner = styled(Form)`
   letter-spacing: 0.04em;
   color: #9b9faa;
   text-align: end;
+
+  @media screen and (max-width: 767px) {
+    margin-left: 20px;
+    padding-top: 80px;
+    flex-direction: column;
+  }
 `;
 
 export const DiaryFormProductStyled = styled(Field)`
@@ -21,21 +27,25 @@ export const DiaryFormProductStyled = styled(Field)`
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
-  /* ::placeholder {
-    font-family: 'Verdana';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
-    color: #9b9faa;
-  } */
+
+  @media screen and (max-width: 767px) {
+    width: 280px;
+    margin-bottom: 32px;
+    /* ::placeholder {
+      font-family: 'Verdana';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.04em;
+      color: #9b9faa; */
+    /* } */
+  }
 `;
 
 export const DiaryFormProductConteinerStyled = styled.div`
   width: 240px;
   /* position: relative; */
-  /* padding-bottom: 20px; */
   margin-right: 50px;
   /* ::after {
     position: absolute;
@@ -56,6 +66,9 @@ export const DiaryFormGramsStyled = styled(Field)`
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
+  @media screen and (max-width: 767px) {
+    width: 280px;
+  }
   /* ::placeholder {
     font-family: 'Verdana';
     font-style: normal;
@@ -71,8 +84,10 @@ export const DiaryFormGramsStyled = styled(Field)`
 export const DiaryFormGramsConteinerStyled = styled.div`
   width: 107px;
   /* position: relative; */
-  /* padding-bottom: 20px; */
   margin-right: 60px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
   /* ::after {
     position: absolute;
     content: '';
@@ -83,6 +98,13 @@ export const DiaryFormGramsConteinerStyled = styled.div`
     border: 1px solid #e0e0e0;
   } */
 `;
+export const DiaryFormButtonConteiner = styled.div`
+  @media screen and (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
 export const DiaryFormButton = styled.button`
   width: 48px;
@@ -91,19 +113,44 @@ export const DiaryFormButton = styled.button`
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  background: #ffffff;
   :hover {
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 176px;
+    height: 44px;
+    left: 72px;
+    top: 340px;
+    background: #fc842d;
+    border-radius: 30px;
+
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #ffffff;
   }
 `;
 
 export const DiaryProductsPlusStyled = styled.img`
-  margin-left: 8px;
-  width: 20px;
-  height: 20px;
+  margin-left: 6px;
+  width: 24px;
+  height: 24px;
   font-size: bold;
 `;
 
 export const DiaryFormProductLabelStyled = styled.label`
   width: 107px;
   margin-right: 73px;
+`;
+
+export const DiaryFormGramsLabelStyled = styled.label`
+  margin-right: 54px;
+`;
+
+export const ErrorText = styled.p`
+  color: red;
 `;
