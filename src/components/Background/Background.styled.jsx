@@ -22,6 +22,7 @@ export const BackgroundImage = styled.div`
     display: block;
     min-height: 1024px;
   }
+
   @media screen and (min-width: 1280px) {
     min-height: 850px;
   }
@@ -62,11 +63,12 @@ export const L = styled.div`
     position: absolute;
     background-repeat: no-repeat;
     background-size: 602px 531px;
-    top: 473px;
+    top: 482px;
     width: 531px;
     height: 602px;
     z-index: 3;
   }
+
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundL});
     background-size: 746px;
@@ -74,7 +76,6 @@ export const L = styled.div`
     right: 195px;
     width: 746px;
     height: 846px;
-    // transform: rotate(0);
     z-index: 3;
   }
 `;
@@ -93,6 +94,7 @@ export const B = styled.div`
     height: 527px;
     z-index: 3;
   }
+
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundB});
     background-size: unset;
@@ -121,7 +123,6 @@ export const V = styled.div`
 
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundV});
-
     top: 34px;
     right: 0;
     width: 603px;
