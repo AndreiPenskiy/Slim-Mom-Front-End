@@ -14,8 +14,14 @@ import {
   FormButtonA,
   Alert,
 } from '../style/FormLoginRegistration.styled';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
+
 
 const LoginPage = () => {
+
+  const { t } = useTranslation();
   const dispath = useDispatch();
 
   const schema = Yup.object().shape({
@@ -38,10 +44,10 @@ const LoginPage = () => {
         <FormContainer >
           {/* <section className="container"> */}
           <Forma>
-            <FormTitle>Sign in</FormTitle>
+            <FormTitle>{t("header.signin")}</FormTitle>
             <FormDiv>
               <FormLabel htmlFor="email">
-                Email *
+                {t("AuthForm.label_3")}
               </FormLabel>
               <FormInput
                 id="email"
@@ -51,7 +57,7 @@ const LoginPage = () => {
             </FormDiv>
             <FormDiv>
               <FormLabel htmlFor="password">
-                Password *
+                {t("AuthForm.label_2")}
               </FormLabel>
               <FormInput
                 id="password"
@@ -62,14 +68,14 @@ const LoginPage = () => {
                 <ErrorMessage
                   name="email"
                   render={() => (
-                    <Alert >Incorrect email or password entered</Alert>
+                    <Alert >{t("notify.alert1")}</Alert>
                   )}
                 />
               ) || (
                 <ErrorMessage
                   name="password"
                   render={() => (
-                    <Alert >Incorrect email or password entered</Alert>
+                    <Alert >{t("notify.alert1")}</Alert>
                   )}
                 />
               )}
@@ -78,13 +84,13 @@ const LoginPage = () => {
           {/* </section> */}
           {/* <div className="FormButtonContainer"> */}
           <FormButtonActiveBtn type="submit">
-            Login
+            {t("header.signin")}
           </FormButtonActiveBtn>
           <FormButtonA
             href="http://localhost:3000/Slim-Mom-Front-End/registration"
             role="button"
           >
-            Register
+            {t("header.signup")}
           </FormButtonA>
           {/* </div> */}
         </FormContainer>

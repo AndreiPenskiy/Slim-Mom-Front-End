@@ -10,8 +10,14 @@ import {
   DiaryFormProductLabelStyled,
 } from './DiaryAddProductForm.styled';
 import plus from '../../icons/plus.svg';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
 
 export default function DiaryAddProductForm() {
+
+  const { t } = useTranslation();
+
   return (
     <>
       <Formik
@@ -27,12 +33,12 @@ export default function DiaryAddProductForm() {
         <DiaryFormConteiner>
           <DiaryFormProductConteinerStyled>
             <DiaryFormProductLabelStyled htmlFor="product">
-              Enter product name
+              {t("ProductForm.label_1")}
             </DiaryFormProductLabelStyled>
             <DiaryFormProductStyled id="product" name="product" />
           </DiaryFormProductConteinerStyled>
           <DiaryFormGramsConteinerStyled>
-            <label htmlFor="grams">Grams</label>
+            <label htmlFor="grams">{t("ProductForm.label_2")}</label>
             <DiaryFormGramsStyled id="grams" name="grams" />
           </DiaryFormGramsConteinerStyled>
 

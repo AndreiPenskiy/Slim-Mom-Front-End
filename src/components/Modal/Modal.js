@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { MdOutlineKeyboardReturn } from 'react-icons/md';
-import ReactDOM, { createPortal } from 'react-dom';
+import { createPortal } from 'react-dom';
 import {
   Button,
   Calories,
@@ -19,8 +19,15 @@ import {
   ContentContainer,
 } from './Modal.styled';
 import { caloriesData } from 'components/helpers/caloriesData';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
+
 
 export const Modal = ({ data, activator }) => {
+
+  const { t } = useTranslation();
+
   const [open, setOpen] = useState(false);
   data = caloriesData;
   const { calories, products } = data;
@@ -54,13 +61,13 @@ export const Modal = ({ data, activator }) => {
             <IoClose size={20} onClick={() => setOpen(false)} />
           </Close>
 
-          <Title>Your recommended daily calorie intake is</Title>
+          <Title>{t("ModalText.title_1")}</Title>
           <div>
             <DailyCalories>
-              <Calories>{calories}</Calories> ккал
+              <Calories>{calories}</Calories> {t("CalloriesText.count")}
             </DailyCalories>
             <ProductsContainer>
-              <ProductsTitle>Foods you should not eat</ProductsTitle>
+              <ProductsTitle>{t("ModalText.text")}</ProductsTitle>
               <List>
                 {products.map((product, index) => (
                   <Product key={index}>{product}</Product>
@@ -68,7 +75,7 @@ export const Modal = ({ data, activator }) => {
               </List>
             </ProductsContainer>
           </div>
-          <Button href="/">Start losing weight</Button>
+          <Button href="/">{t("ModalText.btn")}</Button>
         </ContentContainer>
       </ModalContainer>
     </Overlay>

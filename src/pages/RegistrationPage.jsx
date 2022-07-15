@@ -14,21 +14,27 @@ import {
   FormButton,
   Alert,
 } from '../style/FormLoginRegistration.styled';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
+
 
 const RegistrationPage = () => {
+
+  const { t } = useTranslation();
   const dispath = useDispatch();
 
   const schema = Yup.object().shape({
     name: Yup.string()
-      .min(3, 'The name is not entered correctly')
+      .min(3, `${t("validationRegisterForm.label1")}`)
       .max(20)
       .required('Required'),
     email: Yup.string()
-      .email('The email is not entered correctly')
+      .email(`${t("validationRegisterForm.label2")}`)
       .max(40)
       .required('Required'),
     password: Yup.string()
-      .min(8, `Password should be longer than 8 characters`)
+      .min(8, `${t("validationRegisterForm.label3")}`)
       .max(20)
       .required('Required'),
   });
@@ -56,32 +62,32 @@ const RegistrationPage = () => {
       >
         <FormContainer>
         <Forma >
-          <FormTitle >Register</FormTitle>
+          <FormTitle >{t("header.signup")}</FormTitle>
           <FormDiv >
             <FormLabel htmlFor="name" >
-              Name *
+              {t("AuthForm.label_1")}
             </FormLabel>
             <FormInput id="name" name="name" type="text"  />
             <ErrorMessage
               name="name"
               render={() => (
-                <Alert>The name must be at least 3 characters and more than 20</Alert>
+                <Alert>{t("notify.alert4")}</Alert>
               )}
             />
           </FormDiv>
           <FormDiv >
             <FormLabel htmlFor="email" >
-              Email *
+              {t("AuthForm.label_3")}
             </FormLabel>
             <FormInput id="email" name="email" type="email"  />
             <ErrorMessage
               name="email"
-              render={() => <Alert >Email should not exceed 40 characters</Alert>}
+              render={() => <Alert >{t("notify.alert3")}</Alert>}
             />
           </FormDiv>
           <FormDiv>
             <FormLabel htmlFor="password" >
-              Password *
+              {t("AuthForm.label_2")}
             </FormLabel>
             <FormInput
               id="password"
@@ -90,7 +96,7 @@ const RegistrationPage = () => {
             />
             <ErrorMessage
               name="password"
-              render={() => <Alert>Password should be longer than 8 characters</Alert>}
+              render={() => <Alert>{t("notify.alert2")}</Alert>}
             />
           </FormDiv>
           </Forma>
@@ -100,10 +106,10 @@ const RegistrationPage = () => {
           
             role="button"
           >
-            Login
+            {t("header.signin")}
           </FormButtonActive>
           <FormButton type="submit" >
-            Register
+            {t("header.signup")}
           </FormButton>
           {/* </div> */}
         </FormContainer>
