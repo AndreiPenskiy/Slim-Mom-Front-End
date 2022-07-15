@@ -76,29 +76,6 @@ export const FormButtonContainer = styled.div`
 flex-direction: row;
 margin-top: 60px;  
 `
-export const FormButtonActive = styled.a`
-padding: 13px 51px 13px 50px;
-margin-bottom: 20px;
-margin-right: 32px;
-font-family: 'Verdana';
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 17px;
-display: inline-block;
-flex-direction: row;
-align-items: center;
-text-align: center;
-text-decoration: none;
-letter-spacing: 0.04em;
-cursor: pointer;
-
-color: #ffffff;
-background-color: #fc842d;
-box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-border-radius: 30px;
-border: transparent;
-`
 
 export const FormButtonActiveBtn = styled.button`
 padding: 13px 51px 13px 50px;
@@ -122,31 +99,19 @@ background-color: #fc842d;
 box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 border-radius: 30px;
 border: transparent;
+
+:hover:focus{
+  color: #ffffff;
+  background-color: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  border: transparent;
+ }
 `
 
-export const FormButton = styled.button`
-padding: 13px 37px 13px 37px;
-font-family: 'Verdana';
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 17px;
-display: inline-block;
-flex-direction: row;
-align-items: center;
-text-align: center;
-text-decoration: none;
-letter-spacing: 0.04em;
-cursor: pointer;
-
-color: #fc842d;
-
-background: #ffffff;
-border: 2px solid #fc842d;
-border-radius: 30px;
-`
 export const FormButtonA = styled.a`
 padding: 13px 37px 13px 37px;
+margin-right: 32px;
 font-family: 'Verdana';
 font-style: normal;
 font-weight: 700;
@@ -165,9 +130,17 @@ color: #fc842d;
 background: #ffffff;
 border: 2px solid #fc842d;
 border-radius: 30px;
+ :hover:focus{
+  color: #ffffff;
+  background-color: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  border: transparent;
+ }
 `
 export const Alert = styled.p`
 position: relative;
+margin-bottom: -17px;
 font-family: 'Verdana';
 font-style: normal;
 font-weight: 700;
