@@ -20,11 +20,13 @@ import {
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
+import { useDispatch } from 'react-redux';
+import { caloriesCalculator } from 'redux/products/products-operation';
 
 
 
 export const DailyCaloriesForm = () => {
-
+const dispath = useDispatch()
   const { t } = useTranslation();
 
   const DailyCaloriesSchema = Yup.object().shape({
@@ -52,6 +54,9 @@ export const DailyCaloriesForm = () => {
     .required(`${t("validationDiaryForm.label4")}`),
 });
 
+const handleSubmit = (parameters) => {
+  dispath(caloriesCalculator({parameters}));
+};
   return (
 <DailyCaloriesFormContainer>
     <DailyCaloriesFormTitle>
@@ -66,10 +71,7 @@ export const DailyCaloriesForm = () => {
         bloodType: '1',
       }}
       validationSchema={DailyCaloriesSchema}
-      onSubmit={values => {
-        // same shape as initial values
-        console.log(JSON.stringify(values, null, 2));
-      }}
+      onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
         <FormStyled>

@@ -18,19 +18,24 @@ import {
   Return,
   ContentContainer,
 } from './Modal.styled';
-import { caloriesData } from 'components/helpers/caloriesData';
+
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
+import { useSelector } from 'react-redux';
 
-
-export const Modal = ({ data, activator }) => {
-
+export const Modal = () => {
   const { t } = useTranslation();
 
   const [open, setOpen] = useState(false);
-  data = caloriesData;
-  const { calories, products } = data;
+
+  const { calories, notRecomendate } = useSelector(state => state.calculator);
+
+  useEffect(() => {
+    if (notRecomendate.length > 0) {
+      setOpen(true);
+    }
+  }, [notRecomendate]);
 
   useEffect(() => {
     const onEscape = e => {
@@ -48,7 +53,7 @@ export const Modal = ({ data, activator }) => {
     }
   };
 
-  const content = 
+  const content = (
     <Overlay open={open} onClick={handleBackdropClick}>
       <ModalContainer open={open}>
         <ReturnContainer>
@@ -61,28 +66,31 @@ export const Modal = ({ data, activator }) => {
             <IoClose size={20} onClick={() => setOpen(false)} />
           </Close>
 
-          <Title>{t("ModalText.title_1")}</Title>
+          <Title>{t('ModalText.title_1')}</Title>
           <div>
             <DailyCalories>
-              <Calories>{calories}</Calories> {t("CalloriesText.count")}
+              <Calories>{calories}</Calories> {t('CalloriesText.count')}
             </DailyCalories>
             <ProductsContainer>
-              <ProductsTitle>{t("ModalText.text")}</ProductsTitle>
-              <List>
-                {products.map((product, index) => (
-                  <Product key={index}>{product}</Product>
-                ))}
-              </List>
+              <ProductsTitle>{t('ModalText.text')}</ProductsTitle>
+              {notRecomendate.length > 0 && (
+                <List>
+                  {notRecomendate.map((product, index) => (
+                    <Product key={index}>{product}</Product>
+                  ))}
+                </List>
+              )}
             </ProductsContainer>
           </div>
-          <Button href="/">{t("ModalText.btn")}</Button>
+          <Button to='/login' onClick={()=>setOpen(false)}>{t('ModalText.btn')}</Button>
         </ContentContainer>
       </ModalContainer>
     </Overlay>
+  );
 
   return (
     <>
-      {activator({ setOpen })}
+    
       {createPortal(content, document.body)}
     </>
   );
