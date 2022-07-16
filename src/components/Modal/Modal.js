@@ -82,7 +82,7 @@ export const Modal = () => {
               )}
             </ProductsContainer>
           </div>
-          <Button to='/login' onClick={()=>setOpen(false)}>{t('ModalText.btn')}</Button>
+          <Button to='/registration' onClick={()=>setOpen(false)}>{t('ModalText.btn')}</Button>
         </ContentContainer>
       </ModalContainer>
     </Overlay>
@@ -96,11 +96,3 @@ export const Modal = () => {
   );
 };
 
-// Add code to App.js to test //
-/* <Modal
-activator={({ setOpen }) => (
-  <button type="button" onClick={() => setOpen(true)}>
-    Show Modal
-  </button>
-)}
-/> */
