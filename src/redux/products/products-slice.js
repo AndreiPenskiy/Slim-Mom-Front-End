@@ -3,7 +3,7 @@ import { caloriesCalculator } from './products-operation';
 
 
 const initialState = {
-  notRecomendate: {},
+  notRecomendate: [],
   calories: null
 };
 
