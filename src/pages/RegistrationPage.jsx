@@ -17,40 +17,32 @@ import {
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
-
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationPage = () => {
-
   const { t } = useTranslation();
   const dispath = useDispatch();
 
   const schema = Yup.object().shape({
     name: Yup.string()
-      .min(3, `${t("validationRegisterForm.label1")}`)
+      .min(3, `${t('validationRegisterForm.label1')}`)
       .max(20)
       .required('Required'),
     email: Yup.string()
-      .email(`${t("validationRegisterForm.label2")}`)
+      .email(`${t('validationRegisterForm.label2')}`)
       .max(40)
       .required('Required'),
     password: Yup.string()
-      .min(8, `${t("validationRegisterForm.label3")}`)
+      .min(8, `${t('validationRegisterForm.label3')}`)
       .max(20)
       .required('Required'),
   });
 
-  const handleSubmit = ({
-    name,
-    email,
-    password,
-    resetForm,
-    setSubmitting,
-  }) => {
+  let navigate = useNavigate();
+
+  const handleSubmit = ({ name, email, password }) => {
     dispath(register({ name, email, password }));
-    setTimeout(() => {
-      resetForm();
-      setSubmitting(false);
-    }, 100);
+    navigate('/diary');
   };
 
   return (
@@ -61,55 +53,43 @@ const RegistrationPage = () => {
         onSubmit={handleSubmit}
       >
         <FormContainer>
-        <Forma >
-          <FormTitle >{t("header.signup")}</FormTitle>
-          <FormDiv >
-            <FormLabel htmlFor="name" >
-              {t("AuthForm.label_1")}
-            </FormLabel>
-            <FormInput id="name" name="name" type="text"  />
-            <ErrorMessage
-              name="name"
-              render={() => (
-                <Alert>{t("notify.alert4")}</Alert>
-              )}
-            />
-          </FormDiv>
-          <FormDiv >
-            <FormLabel htmlFor="email" >
-              {t("AuthForm.label_3")}
-            </FormLabel>
-            <FormInput id="email" name="email" type="email"  />
-            <ErrorMessage
-              name="email"
-              render={() => <Alert >{t("notify.alert3")}</Alert>}
-            />
-          </FormDiv>
-          <FormDiv>
-            <FormLabel htmlFor="password" >
-              {t("AuthForm.label_2")}
-            </FormLabel>
-            <FormInput
-              id="password"
-              name="password"
-              type="password"
-            />
-            <ErrorMessage
-              name="password"
-              render={() => <Alert>{t("notify.alert2")}</Alert>}
-            />
-          </FormDiv>
+          <Forma>
+            <FormTitle>{t('header.signup')}</FormTitle>
+            <FormDiv>
+              <FormLabel htmlFor="name">{t('AuthForm.label_1')}</FormLabel>
+              <FormInput id="name" name="name" type="text" />
+              <ErrorMessage
+                name="name"
+                render={() => <Alert>{t('notify.alert4')}</Alert>}
+              />
+            </FormDiv>
+            <FormDiv>
+              <FormLabel htmlFor="email">{t('AuthForm.label_3')}</FormLabel>
+              <FormInput id="email" name="email" type="email" />
+              <ErrorMessage
+                name="email"
+                render={() => <Alert>{t('notify.alert3')}</Alert>}
+              />
+            </FormDiv>
+            <FormDiv>
+              <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
+              <FormInput id="password" name="password" type="password" />
+              <ErrorMessage
+                name="password"
+                render={() => <Alert>{t('notify.alert2')}</Alert>}
+              />
+            </FormDiv>
           </Forma>
           {/* <div className="FormButtonContainer"> */}
 
-          <FormButtonActiveBtn type="submit" >
-            {t("header.signup")}
+          <FormButtonActiveBtn type="submit">
+            {t('header.signup')}
           </FormButtonActiveBtn>
           <FormButtonA
-            href="http://localhost:3000/Slim-Mom-Front-End/login"          
+            href="http://localhost:3000/Slim-Mom-Front-End/login"
             role="button"
           >
-            {t("header.signin")}
+            {t('header.signin')}
           </FormButtonA>
           {/* </div> */}
         </FormContainer>
