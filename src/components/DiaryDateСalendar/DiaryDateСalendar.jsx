@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import LocaleContext from '../../context';
+import LocaleContext from '../../context/context';
 import {
   DiaryPageDatetimeStyled,
   DiaryPageConteiner,

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { store, persistor } from './redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import LocaleContext from './context';
+import LocaleContext from './context/context';
 import './fonts/fonts.css';
 
 function Main() {

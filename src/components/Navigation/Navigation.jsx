@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { getLoggedIn } from 'redux/auth/auth-selectors';
@@ -7,11 +7,14 @@ import { StyledNav, StyledNavLink } from './Navigation.styled';
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
-import LocaleContext from '../../context';
+import LocaleContext from '../../context/context';
+import { LangButton, LangButtonEn, ButtonContainer } from './LangButton.styled';
 
 export const Navigation = () => {
   
   const { locale, setLocale } = useContext(LocaleContext);
+  const [activeUa, setActiveUa] = useState(null);
+  const [activeEn, setActiveEn] = useState(null);
 
   const { t, i18n } = useTranslation();
   const changeLanguageUa = (lang) => {
@@ -27,6 +30,21 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(getLoggedIn);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
+  const onClickUa = (event) => {
+    changeLanguageUa("ua");
+    setActiveEn(null);
+    setActiveUa(true);
+  }
+
+  const onClickEn = (event) => {
+    changeLanguageUa("en");
+    setActiveUa(null);
+    setActiveEn(true);
+  }
+
+
+  // () => changeLanguageUa("ua")
+
   return (
     <>
       {isLoggedIn && isDesktop && (
@@ -37,8 +55,10 @@ export const Navigation = () => {
       )}
       {!isLoggedIn && (
         <>
-          <button type='button' onClick={() => changeLanguageUa("ua")}>UA</button>
-          <button type='button' onClick={() => changeLanguageEn("en")}>EN</button>
+          <ButtonContainer>
+          <LangButton type='button' onClick={() => onClickUa()} active={activeUa}>UA</LangButton>
+            <LangButtonEn type='button' onClick={() => onClickEn()} active={activeEn}>EN</LangButtonEn>
+            </ButtonContainer>
           
         <StyledNav>
           <StyledNavLink to="/login">{t("header.signin")}</StyledNavLink>
