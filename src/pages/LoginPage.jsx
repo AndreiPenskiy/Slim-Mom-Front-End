@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { logIn } from '../redux/auth/auth-options';
 import { LoginBackground } from 'components/Background/LoginBackground';
 import {
@@ -17,7 +19,6 @@ import {
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
-import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const { t } = useTranslation();
@@ -25,14 +26,11 @@ const LoginPage = () => {
 
   const schema = Yup.object().shape({
     email: Yup.string().email().max(40).required('Required'),
-    password: Yup.string().min(8).max(20).required('Required'),
+    password: Yup.string().min(1).max(20).required('Required'),
   });
-
-  let navigate = useNavigate();
 
   const handleSubmit = ({ email, password }) => {
     dispath(logIn({ email, password }));
-    navigate('/diary');
   };
 
   return (
@@ -80,6 +78,14 @@ const LoginPage = () => {
           {/* </div> */}
         </FormContainer>
       </Formik>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+      />
       <LoginBackground />
     </>
   );
