@@ -47,24 +47,23 @@ export const Navigation = () => {
 
   return (
     <>
-      {isLoggedIn && isDesktop && (
-        <StyledNav>
-          <StyledNavLink to="/diary">{t("MobileMenu.page1")}</StyledNavLink>
-          <StyledNavLink to="/calculator">{t("MobileMenu.page2")}</StyledNavLink>
-        </StyledNav>
-      )}
-      {!isLoggedIn && (
-        <>
-          <ButtonContainer>
+      <ButtonContainer>
           <LangButton type='button' onClick={() => onClickUa()} active={activeUa}>UA</LangButton>
             <LangButtonEn type='button' onClick={() => onClickEn()} active={activeEn}>EN</LangButtonEn>
             </ButtonContainer>
+      {isLoggedIn && isDesktop && (
+        
+        <StyledNav>
+          <StyledNavLink to="/diary">{t("MobileMenu.page1")}</StyledNavLink>
+          <StyledNavLink to="/calculator">{t("MobileMenu.page2")}</StyledNavLink>
+          </StyledNav>
           
+      )}
+      {!isLoggedIn && (   
         <StyledNav>
           <StyledNavLink to="/login">{t("header.signin")}</StyledNavLink>
           <StyledNavLink to="/registration">{t("header.signup")}</StyledNavLink>
         </StyledNav>
-        </>
       )}
     </>
   );
