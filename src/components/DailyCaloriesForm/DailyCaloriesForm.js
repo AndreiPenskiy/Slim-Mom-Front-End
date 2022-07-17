@@ -18,163 +18,177 @@ import {
   ErrorMessageContainer,
 } from './DailyCaloriesForm.styled';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { caloriesCalculator } from 'redux/products/products-operation';
+import { setTempParameters, refreshParameters } from 'redux/auth/auth-options';
+import { getUser } from 'redux/auth/auth-selectors';
 
-
-
-export const DailyCaloriesForm = () => {
-const dispath = useDispatch()
+export const DailyCaloriesForm = ({ publicPage }) => {
+  let navigate = useNavigate();
+  const dispath = useDispatch();
   const { t } = useTranslation();
-
-  const DailyCaloriesSchema = Yup.object().shape({
-  height: Yup.number()
-    .positive()
-    .min(100, `${t("validationDiaryForm.label1")}`)
-    .max(250, `${t("validationDiaryForm.label2")}`)
-    .integer(`${t("validationDiaryForm.label3")}`)
-    .required(`${t("validationDiaryForm.label4")}`),
-  age: Yup.number()
-    .min(18, `${t("validationDiaryForm.label5")}`)
-    .max(100, `${t("validationDiaryForm.label6")}`)
-    .integer(`${t("validationDiaryForm.label7")}`)
-    .required(`${t("validationDiaryForm.label4")}`),
-  currentWeight: Yup.number()
-    .min(20, `${t("validationDiaryForm.label8")}`)
-    .max(500, `${t("validationDiaryForm.label9")}`)
-    .required(`${t("validationDiaryForm.label4")}`),
-  desiredWeight: Yup.number()
-    .min(20, `${t("validationDiaryForm.label10")}`)
-    .max(500, `${t("validationDiaryForm.label11")}`)
-    .required(`${t("validationDiaryForm.label4")}`),
-  bloodType: Yup.number()
-    .oneOf([1, 2, 3, 4])
-    .required(`${t("validationDiaryForm.label4")}`),
-});
-
-const handleSubmit = (parameters) => {
-  dispath(caloriesCalculator({parameters}));
-};
-  return (
-<DailyCaloriesFormContainer>
-    <DailyCaloriesFormTitle>
-      {t("dailyCalorieForm.title")}
-    </DailyCaloriesFormTitle>
-    <Formik
-      initialValues={{
+  const user = useSelector(getUser);
+  const initialValues = user.parameters
+    ? user.parameters
+    : {
         height: '',
         age: '',
         currentWeight: '',
         desiredWeight: '',
         bloodType: '1',
-      }}
-      validationSchema={DailyCaloriesSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ errors, touched }) => (
-        <FormStyled>
-          <div>
-            <FieldStyled
-              name="height"
-              type="number"
-              autoComplete="off"
-              placeholder={t("dailyCalorieForm.label_1")}
-            />
-            {errors.height && touched.height ? (
-              <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
-            ) : null}
-          </div>
-          <div>
-            <FieldStyled
-              name="desiredWeight"
-              type="number"
-              autoComplete="off"
-              placeholder={t("dailyCalorieForm.label_4")}
-            />
+      };
 
-            {errors.desiredWeight && touched.desiredWeight ? (
-              <ErrorMessageContainer>
-                {errors.desiredWeight}
-              </ErrorMessageContainer>
-            ) : null}
-          </div>
-          <div>
-            <FieldStyled
-              name="age"
-              type="number"
-              autoComplete="off"
-              placeholder={t("dailyCalorieForm.label_2")}
-            />
-            {errors.age && touched.age ? (
-              <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
-            ) : null}
-          </div>
+  const DailyCaloriesSchema = Yup.object().shape({
+    height: Yup.number()
+      .positive()
+      .min(100, `${t('validationDiaryForm.label1')}`)
+      .max(250, `${t('validationDiaryForm.label2')}`)
+      .integer(`${t('validationDiaryForm.label3')}`)
+      .required(`${t('validationDiaryForm.label4')}`),
+    age: Yup.number()
+      .min(18, `${t('validationDiaryForm.label5')}`)
+      .max(100, `${t('validationDiaryForm.label6')}`)
+      .integer(`${t('validationDiaryForm.label7')}`)
+      .required(`${t('validationDiaryForm.label4')}`),
+    currentWeight: Yup.number()
+      .min(20, `${t('validationDiaryForm.label8')}`)
+      .max(500, `${t('validationDiaryForm.label9')}`)
+      .required(`${t('validationDiaryForm.label4')}`),
+    desiredWeight: Yup.number()
+      .min(20, `${t('validationDiaryForm.label10')}`)
+      .max(500, `${t('validationDiaryForm.label11')}`)
+      .required(`${t('validationDiaryForm.label4')}`),
+    bloodType: Yup.number()
+      .oneOf([1, 2, 3, 4])
+      .required(`${t('validationDiaryForm.label4')}`),
+  });
 
-          <FieldStyledMobil>
-            <FieldStyled
-              name="currentWeight"
-              type="number"
-              autoComplete="off"
-              placeholder={t("dailyCalorieForm.label_3")}
-            />
-            {errors.currentWeight && touched.currentWeight ? (
-              <ErrorMessageContainer>
-                {errors.currentWeight}
-              </ErrorMessageContainer>
-            ) : null}
-          </FieldStyledMobil>
+  const handleSubmit = async parameters => {
+    if (publicPage) {
+      await dispath(caloriesCalculator({ parameters }));
+      await dispath(setTempParameters(parameters));
+    } else {
+      await dispath(refreshParameters({ parameters }));
+      navigate('/diary');
+    }
+  };
+  return (
+    <DailyCaloriesFormContainer>
+      <DailyCaloriesFormTitle>
+        {t('dailyCalorieForm.title')}
+      </DailyCaloriesFormTitle>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={DailyCaloriesSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ errors, touched }) => (
+          <FormStyled>
+            <div>
+              <FieldStyled
+                name="height"
+                type="number"
+                autoComplete="off"
+                placeholder={t('dailyCalorieForm.label_1')}
+              />
+              {errors.height && touched.height ? (
+                <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
+              ) : null}
+            </div>
+            <div>
+              <FieldStyled
+                name="desiredWeight"
+                type="number"
+                autoComplete="off"
+                placeholder={t('dailyCalorieForm.label_4')}
+              />
 
-          <FieldRadioGrup component="div" name="bloodType" label="bloodType">
-            <Label> {t("dailyCalorieForm.label_5")}</Label>
-            <RadioGrupLabel>
-              <Radiolabel htmlFor="bloodType">
-                <RadioStyled
-                  type="radio"
-                  name="bloodType"
-                  id="1"
-                  defaultChecked
-                  value="1"
-                />
-                1
-              </Radiolabel>
-              <Radiolabel htmlFor="bloodType">
-                <RadioStyled type="radio" name="bloodType" id="2" value="2" />2
-              </Radiolabel>
-              <Radiolabel htmlFor="bloodType">
-                <RadioStyled type="radio" name="bloodType" id="3" value="3" />3
-              </Radiolabel>
-              <Radiolabel htmlFor="bloodType">
-                <RadioStyled type="radio" name="bloodType" id="4" value="4" />4
-              </Radiolabel>
-            </RadioGrupLabel>
-          </FieldRadioGrup>
+              {errors.desiredWeight && touched.desiredWeight ? (
+                <ErrorMessageContainer>
+                  {errors.desiredWeight}
+                </ErrorMessageContainer>
+              ) : null}
+            </div>
+            <div>
+              <FieldStyled
+                name="age"
+                type="number"
+                autoComplete="off"
+                placeholder={t('dailyCalorieForm.label_2')}
+              />
+              {errors.age && touched.age ? (
+                <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
+              ) : null}
+            </div>
 
-          <FieldStyledTab>
-            <FieldStyled
-              style={{ marginTop: '0' }}
-              name="currentWeight"
-              type="number"
-              autoComplete="off"
-              placeholder={t("dailyCalorieForm.label_3")}
-            />
-            {errors.currentWeight && touched.currentWeight ? (
-              <ErrorMessageContainer>
-                {errors.currentWeight}
-              </ErrorMessageContainer>
-            ) : null}
-          </FieldStyledTab>
+            <FieldStyledMobil>
+              <FieldStyled
+                name="currentWeight"
+                type="number"
+                autoComplete="off"
+                placeholder={t('dailyCalorieForm.label_3')}
+              />
+              {errors.currentWeight && touched.currentWeight ? (
+                <ErrorMessageContainer>
+                  {errors.currentWeight}
+                </ErrorMessageContainer>
+              ) : null}
+            </FieldStyledMobil>
 
-          <ButtonCont>
-            <DailyCaloriesFormButton type="submit">
-              {t("dailyCalorieForm.btn_name")}
-            </DailyCaloriesFormButton>
-          </ButtonCont>
-        </FormStyled>
-      )}
-    </Formik>
-  </DailyCaloriesFormContainer>
+            <FieldRadioGrup component="div" name="bloodType" label="bloodType">
+              <Label> {t('dailyCalorieForm.label_5')}</Label>
+              <RadioGrupLabel>
+                <Radiolabel htmlFor="bloodType">
+                  <RadioStyled
+                    type="radio"
+                    name="bloodType"
+                    id="1"
+                    defaultChecked
+                    value="1"
+                  />
+                  1
+                </Radiolabel>
+                <Radiolabel htmlFor="bloodType">
+                  <RadioStyled type="radio" name="bloodType" id="2" value="2" />
+                  2
+                </Radiolabel>
+                <Radiolabel htmlFor="bloodType">
+                  <RadioStyled type="radio" name="bloodType" id="3" value="3" />
+                  3
+                </Radiolabel>
+                <Radiolabel htmlFor="bloodType">
+                  <RadioStyled type="radio" name="bloodType" id="4" value="4" />
+                  4
+                </Radiolabel>
+              </RadioGrupLabel>
+            </FieldRadioGrup>
+
+            <FieldStyledTab>
+              <FieldStyled
+                style={{ marginTop: '0' }}
+                name="currentWeight"
+                type="number"
+                autoComplete="off"
+                placeholder={t('dailyCalorieForm.label_3')}
+              />
+              {errors.currentWeight && touched.currentWeight ? (
+                <ErrorMessageContainer>
+                  {errors.currentWeight}
+                </ErrorMessageContainer>
+              ) : null}
+            </FieldStyledTab>
+
+            <ButtonCont>
+              <DailyCaloriesFormButton type="submit">
+                {t('dailyCalorieForm.btn_name')}
+              </DailyCaloriesFormButton>
+            </ButtonCont>
+          </FormStyled>
+        )}
+      </Formik>
+    </DailyCaloriesFormContainer>
   );
-
 };

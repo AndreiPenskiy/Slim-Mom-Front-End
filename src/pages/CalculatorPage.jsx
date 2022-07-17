@@ -5,7 +5,7 @@ import { RightSideBar } from '../components/RightSideBar/RightSideBar';
 const CalculatorPage = () => {
     return (
         <>
-            <DailyCaloriesForm />
+            <DailyCaloriesForm publicPage={false} />
             <RightSideBar />
         </>
     );

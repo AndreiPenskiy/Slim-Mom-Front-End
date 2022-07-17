@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://slimmom-project-team6.herokuapp.com/';
+// axios.defaults.baseURL = 'https://slimmom-project-team6.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 const token = {
   set(token) {
@@ -19,6 +20,7 @@ const register = createAsyncThunk(
       const {
         data: { data },
       } = await axios.post('/api/auth/signup', credentials);
+      token.set(data.token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue();
@@ -70,4 +72,27 @@ const fetchCurrentUser = createAsyncThunk(
   }
 );
 
-export { register, logOut, logIn, fetchCurrentUser };
+const refreshParameters = createAsyncThunk(
+  'auth/refreshParams',
+  async (parameters, thunkAPI) => {
+    try {
+      const {
+        data: { data },
+      } = await axios.post('/api/products/calculatorPagePrivate', parameters);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue();
+    }
+  }
+);
+
+const setTempParameters = createAction('auth/tempParameters');
+
+export {
+  register,
+  logOut,
+  logIn,
+  fetchCurrentUser,
+  setTempParameters,
+  refreshParameters,
+};
