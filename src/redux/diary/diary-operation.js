@@ -9,7 +9,7 @@ const getAllByDate = createAsyncThunk(
     try {
       const {
         data: { data },
-      } = await axios.get(`/api/diary/${date}`);
+      } = await axios.get(`/api/diary/?date=${date}`);
       return {
         data,
         date,
