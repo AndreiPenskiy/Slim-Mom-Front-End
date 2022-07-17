@@ -19,7 +19,6 @@ import {
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
-import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const { t } = useTranslation();
@@ -30,11 +29,8 @@ const LoginPage = () => {
     password: Yup.string().min(1).max(20).required('Required'),
   });
 
-  let navigate = useNavigate();
-
   const handleSubmit = ({ email, password }) => {
     dispath(logIn({ email, password }));
-    // navigate('/diary');
   };
 
   return (
