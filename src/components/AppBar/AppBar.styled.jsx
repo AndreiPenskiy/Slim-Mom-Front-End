@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledAppBar = styled.header`
+export const StyledAppBar = styled.div`
   border-bottom: 2px solid #e0e0e0;
 
   @media (min-width: 1280px) {
@@ -30,8 +30,8 @@ export const BurgerMenu = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
+  width: 100vw;
+  height: 1200px;
   z-index: 100;
   padding-top: 60px;
   text-align: center;
@@ -43,8 +43,13 @@ export const BurgerMenu = styled.div`
 `;
 
 export const BurgerButton = styled.div`
+  margin-left: auto;
   background-color: transparent;
   border: none;
+
+  @media (min-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
