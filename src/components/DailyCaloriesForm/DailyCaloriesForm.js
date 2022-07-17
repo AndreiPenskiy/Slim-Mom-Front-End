@@ -7,6 +7,8 @@ import {
   DailyCaloriesFormButton,
   FieldStyled,
   Label,
+  InputLabel,
+  InputContainer,
   FieldStyledTab,
   FieldStyledMobil,
   FieldRadioGrup,
@@ -87,50 +89,44 @@ export const DailyCaloriesForm = ({ publicPage }) => {
       >
         {({ errors, touched }) => (
           <FormStyled>
-            <div>
-              <FieldStyled
-                name="height"
-                type="number"
-                autoComplete="off"
-                placeholder={t('dailyCalorieForm.label_1')}
-              />
+            <InputContainer>
+              <FieldStyled name="height" type="number" autoComplete="off" />
+              <InputLabel>{t('dailyCalorieForm.label_1')}</InputLabel>
               {errors.height && touched.height ? (
                 <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
               ) : null}
-            </div>
-            <div>
+            </InputContainer>
+            <InputContainer>
               <FieldStyled
                 name="desiredWeight"
                 type="number"
                 autoComplete="off"
-                placeholder={t('dailyCalorieForm.label_4')}
               />
+              <InputLabel>{t('dailyCalorieForm.label_4')}</InputLabel>
 
               {errors.desiredWeight && touched.desiredWeight ? (
                 <ErrorMessageContainer>
                   {errors.desiredWeight}
                 </ErrorMessageContainer>
               ) : null}
-            </div>
-            <div>
-              <FieldStyled
-                name="age"
-                type="number"
-                autoComplete="off"
-                placeholder={t('dailyCalorieForm.label_2')}
-              />
+            </InputContainer>
+            <InputContainer>
+              <FieldStyled name="age" type="number" autoComplete="off" />
+              <InputLabel>{t('dailyCalorieForm.label_2')}</InputLabel>
+
               {errors.age && touched.age ? (
                 <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
               ) : null}
-            </div>
+            </InputContainer>
 
             <FieldStyledMobil>
               <FieldStyled
                 name="currentWeight"
                 type="number"
                 autoComplete="off"
-                placeholder={t('dailyCalorieForm.label_3')}
               />
+              <InputLabel>{t('dailyCalorieForm.label_3')}</InputLabel>
+
               {errors.currentWeight && touched.currentWeight ? (
                 <ErrorMessageContainer>
                   {errors.currentWeight}
@@ -168,12 +164,12 @@ export const DailyCaloriesForm = ({ publicPage }) => {
 
             <FieldStyledTab>
               <FieldStyled
-                style={{ marginTop: '0' }}
                 name="currentWeight"
                 type="number"
                 autoComplete="off"
-                placeholder={t('dailyCalorieForm.label_3')}
               />
+              <InputLabel>{t('dailyCalorieForm.label_3')}</InputLabel>
+
               {errors.currentWeight && touched.currentWeight ? (
                 <ErrorMessageContainer>
                   {errors.currentWeight}

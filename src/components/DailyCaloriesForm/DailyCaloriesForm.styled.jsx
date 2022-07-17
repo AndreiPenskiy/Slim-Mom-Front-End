@@ -22,42 +22,50 @@ export const DailyCaloriesFormContainer = styled.div`
 export const FormStyled = styled(Form)`
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: flex-start;
 `;
 
 export const FieldStyled = styled(Field)`
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  padding: 8px 0;
   width: 240px;
-  margin-top: 32px;
-
-  ::placeholder {
-    font-family: 'Verdana';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
-    color: #9b9faa;
-  }
+  margin-top: 0px;
 
   :focus {
     outline: none;
     border-bottom: 1px solid #fc842d;
-  }
 
+    + label {
+      color: #fc842d;
+      font-size: 10px;
+      margin-bottom: 5px;
+      margin-top: -5px;
+    }
+  }
   @media screen and (min-width: 768px) {
-    padding: 20px 0;
+    margin-top: 0px;
     margin-right: 30px;
-    margin-top: 22px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
+
+    :focus {
+      outline: none;
+      border-bottom: 1px solid #fc842d;
+
+      + label {
+        color: #fc842d;
+        font-size: 10px;
+        margin-bottom: 10px;
+        margin-top: -10px;
+      }
+    }
   }
 `;
 
 export const FieldStyledMobil = styled.div`
-  display: block;
+  display: flex;
+  flex-flow: column-reverse;
   border: none;
+  margin-top: 20px;
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -70,8 +78,10 @@ export const FieldStyledTab = styled.div`
 
   @media screen and (min-width: 768px) {
     display: block;
-    margin-top:-6px;
-   `;
+      display: flex;
+  flex-flow: column-reverse;
+
+    margin-top: 10px;   `;
 
 export const FieldRadioGrup = styled(Field)`
   align-items: baseline;
@@ -83,7 +93,7 @@ export const FieldRadioGrup = styled(Field)`
   letter-spacing: 0.04em;
   color: #9b9faa;
   width: 240px;
-  margin-top: 32px;
+  margin-top: 20px;
 `;
 
 export const RadioStyled = styled.input`
@@ -120,9 +130,9 @@ export const DailyCaloriesFormTitle = styled.h1`
   font-size: 18px;
   line-height: 26px;
   color: #212121;
-
+  margin-bottom: 12px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 46px;
+    margin-bottom: 48px;
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 700;
@@ -174,14 +184,19 @@ export const ButtonCont = styled.div`
 `;
 
 export const ErrorMessageContainer = styled.div`
-  position: relative;
+  position: absolute;
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
   font-size: 11px;
   line-height: 17px;
   color: rgb(217 120 74);
-  margin-bottom: -17px;
+  margin: -17px;
+  padding-left: 16px;
+  @media screen and (min-width: 768px) {
+    margin: 0px;
+    padding-left: 0px;
+  }
 `;
 
 export const Radiolabel = styled.label`
@@ -199,7 +214,6 @@ export const Radiolabel = styled.label`
 
 export const RadioGrupLabel = styled.div`
   display: flex;
-  // align-items: baseline;
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
@@ -209,8 +223,11 @@ export const RadioGrupLabel = styled.div`
   color: #9b9faa;
   width: 240px;
   justify-content: space-between;
-  border-top: 1px solid #e0e0e0;
   margin-top: 8px;
+
+  @media screen and (min-width: 768px) {
+    border-top: 1px solid #e0e0e0;
+  }
 `;
 export const Label = styled.label`
   font-family: 'Verdana';
@@ -225,4 +242,18 @@ export const Label = styled.label`
   @media screen and (max-width: 767px) {
     margin-bottom: 8px;
   }
+`;
+export const InputLabel = styled.label`
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+`;
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 20px;
 `;
