@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://slimmom-project-team6.herokuapp.com/';
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://slimmom-project-team6.herokuapp.com/';
 
 const token = {
   set(token) {

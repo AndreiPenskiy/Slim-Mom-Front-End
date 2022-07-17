@@ -45,8 +45,6 @@ const RegistrationPage = () => {
 
   let navigate = useNavigate();
 
-  console.log(tempParameters);
-
   const handleSubmit = async ({ name, email, password }) => {
     const { payload } = await dispath(
       register({
