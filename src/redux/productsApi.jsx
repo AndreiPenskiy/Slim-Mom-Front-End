@@ -17,34 +17,46 @@ export const productsApi = createApi({
 
   endpoints: builder => ({
     getProducts: builder.query({
+      query: (date = '2022-07-17') => ({
+        url: `/api/diary/${date}`,
+        method: 'GET',
+      }),
+      providesTags: ['products'],
+    }),
+
+    getAllProducts: builder.query({
       query: () => ({
-        url: `/api/diary/:date`,
+        url: `/api/products/search`,
         method: 'GET',
       }),
       providesTags: ['products'],
     }),
 
     createProducts: builder.mutation({
-      query: ({ product: title, grams: weight, kcal = 100 }) => ({
+      query: ({
+        date = new Date().toISOString().split('T')[0],
+        product: title,
+        grams: weight,
+      }) => ({
         url: `/api/diary`,
         method: 'POST',
         body: {
+          date,
           title,
           weight: Number(weight),
-          kcal,
         },
       }),
       invalidatesTags: ['products'],
     }),
 
-    updateProducts: builder.mutation({
-      query: ({ productId, name, number }) => ({
-        url: `/products/${productId}`,
-        method: 'PATCH',
-        body: { name, number },
-      }),
-      invalidatesTags: ['products'],
-    }),
+    // updateProducts: builder.mutation({
+    //   query: ({ productId, name, number }) => ({
+    //     url: `/products/${productId}`,
+    //     method: 'PATCH',
+    //     body: { name, number },
+    //   }),
+    //   invalidatesTags: ['products'],
+    // }),
 
     deleteProducts: builder.mutation({
       query: productId => ({
@@ -56,13 +68,9 @@ export const productsApi = createApi({
   }),
 });
 export const {
+  useGetAllProductsQuery,
   useGetProductsQuery,
   useCreateProductsMutation,
   useDeleteProductsMutation,
-  useUpdateProductsMutation,
+  // useUpdateProductsMutation,
 } = productsApi;
-
-// https://slimmom-project-team6.herokuapp.com/api/auth/signup
-// "name": "nick",
-// "email": "test@gmail.com",
-// "password": "testpassword"

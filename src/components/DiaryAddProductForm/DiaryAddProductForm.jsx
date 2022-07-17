@@ -2,7 +2,7 @@ import {
   useGetProductsQuery,
   useCreateProductsMutation,
 } from '../../redux/productsApi';
-import { ErrorMessage, Formik } from 'formik';
+import { ErrorMessage, Field, Formik } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as Yup from 'yup';
 import {
@@ -21,6 +21,7 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
 import { useState } from 'react';
+import { DiaryListProducts } from './DiaryListProducts';
 
 export default function DiaryAddProductForm() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -61,6 +62,7 @@ export default function DiaryAddProductForm() {
   // };
   console.log('product', product);
   console.log('grams', grams);
+  console.log('products', products);
 
   // const handlerSubmitUser = e => {
   //   e.preventDefault();
@@ -130,6 +132,7 @@ export default function DiaryAddProductForm() {
                   }}
                   value={values.product}
                 />
+                <DiaryListProducts></DiaryListProducts>
                 <FormError name="product" />
               </DiaryFormProductConteinerStyled>
               <DiaryFormGramsConteinerStyled>
