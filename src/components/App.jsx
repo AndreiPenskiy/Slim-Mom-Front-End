@@ -47,45 +47,60 @@ export const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<AppBar />}>
-              
-                <Route index element={
-                <PublicRoute restricted>
-                  <MainPage />
-                </PublicRoute>
-                } />
-              
-                <Route path="login" element={
-                <PublicRoute restricted>
-                  <LoginPage />
+              <Route
+                index
+                element={
+                  <PublicRoute restricted>
+                    <MainPage />
                   </PublicRoute>
-                } />
-              
-                <Route path="registration" element={
-                <PublicRoute restricted>
-                  <RegistrationPage />
+                }
+              />
+
+              <Route
+                path="login"
+                element={
+                  <PublicRoute restricted>
+                    <LoginPage />
                   </PublicRoute>
-                } />
-              
-                <Route path="diary" element={
+                }
+              />
+
+              <Route
+                path="registration"
+                element={
+                  <PublicRoute restricted>
+                    <RegistrationPage />
+                  </PublicRoute>
+                }
+              />
+
+              <Route
+                path="diary"
+                element={
                   <PrivateRoute>
-                  <DiaryPage />
+                    <DiaryPage />
                   </PrivateRoute>
-                } />
-              
-                <Route path="calculator" element={
-                <PrivateRoute>
-                  <CalculatorPage />
+                }
+              />
+
+              <Route
+                path="calculator"
+                element={
+                  <PrivateRoute>
+                    <CalculatorPage />
                   </PrivateRoute>
-                } />
-              
+                }
+              />
+
               <Route
                 path="diaryformmobile"
-                  element={
-                    <PrivateRoute>
-                      <DiaryFormProductMobile />
-                    </PrivateRoute>}
-                />
-                
+                element={
+                  <PrivateRoute>
+                    <DiaryFormProductMobile />
+                  </PrivateRoute>
+                }
+              />
+
               <Route path="*" element={<Navigate to="/" />} />
             </Route>
           </Routes>
