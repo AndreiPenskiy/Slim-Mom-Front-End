@@ -1,6 +1,6 @@
 import {
-  useGetProductsQuery,
   useCreateProductsMutation,
+  useGetAllProductsQuery,
 } from '../../redux/productsApi';
 import { ErrorMessage, Formik } from 'formik';
 import { useMediaQuery } from 'react-responsive';
@@ -26,7 +26,7 @@ import { DiaryListProducts } from './DiaryListProducts';
 export default function DiaryAddProductForm() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  const { data: products } = useGetProductsQuery();
+  const { data: products } = useGetAllProductsQuery('Бу');
   const [addProducts] = useCreateProductsMutation();
 
   const [product, setProduct] = useState('');
@@ -46,20 +46,6 @@ export default function DiaryAddProductForm() {
     }
   };
 
-  // const handleChange = event => {
-  //   // setProduct(event.target.value);
-  //   console.log('e.target.name', event.target.product);
-  //   console.log('e.target.value', event.target.value);
-
-  //   switch (event.target.name) {
-  //     case 'product':
-  //       return setProduct(event.target.value);
-  //     case 'grams':
-  //       return setGrams(event.target.value);
-  //     default:
-  //       throw new Error();
-  //   }
-  // };
   console.log('product', product);
   console.log('grams', grams);
   console.log('products', products);
@@ -72,7 +58,6 @@ export default function DiaryAddProductForm() {
   //   };
   // handlerSubmitUserForm(contact);
   // };
-
   // const handlerSubmitUserForm = contact => {
   //   products.some(
   //     contactItem =>

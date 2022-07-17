@@ -17,8 +17,8 @@ export const productsApi = createApi({
 
   endpoints: builder => ({
     getProducts: builder.query({
-      query: (date = '2022-07-17') => ({
-        url: `/api/diary/${date}`,
+      query: date => ({
+        url: `/api/diary/?date=${date}`,
         method: 'GET',
       }),
       providesTags: ['products'],
