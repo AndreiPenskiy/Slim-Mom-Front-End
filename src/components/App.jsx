@@ -47,14 +47,18 @@ export const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<AppBar />}>
-              <Route index element={<MainPage />} />
+              
+                <Route index element={
+                <PublicRoute restricted>
+                  <MainPage />
+                </PublicRoute>
+                } />
               
                 <Route path="login" element={
                 <PublicRoute restricted>
                   <LoginPage />
                   </PublicRoute>
                 } />
-                
               
                 <Route path="registration" element={
                 <PublicRoute restricted>
@@ -62,13 +66,11 @@ export const App = () => {
                   </PublicRoute>
                 } />
               
-              
                 <Route path="diary" element={
                   <PrivateRoute>
                   <DiaryPage />
                   </PrivateRoute>
                 } />
-                
               
                 <Route path="calculator" element={
                 <PrivateRoute>
