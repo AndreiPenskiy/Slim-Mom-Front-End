@@ -8,6 +8,8 @@ import Layout from './Layout/Layout';
 import { Loader } from '../components/Loader/Loader';
 import { fetchCurrentUser } from 'redux/auth/auth-options';
 import { getCurrentRefresh } from 'redux/auth/auth-selectors';
+import { PublicRoute } from './RouteType/PublicRoute';
+import { PrivateRoute } from './RouteType/PrivateRoute';
 
 const MainPage = lazy(() =>
   import('pages/MainPage' /* webpackChunkName: "main-page" */)
@@ -47,14 +49,42 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<AppBar />}>
               <Route index element={<MainPage />} />
-              <Route path="login" element={<LoginPage />} />
-              <Route path="registration" element={<RegistrationPage />} />
-              <Route path="diary" element={<DiaryPage />} />
-              <Route path="calculator" element={<CalculatorPage />} />
+              
+                <Route path="login" element={
+                <PublicRoute restricted>
+                  <LoginPage />
+                  </PublicRoute>
+                } />
+                
+              
+                <Route path="registration" element={
+                <PublicRoute restricted>
+                  <RegistrationPage />
+                  </PublicRoute>
+                } />
+              
+              
+                <Route path="diary" element={
+                  <PrivateRoute>
+                  <DiaryPage />
+                  </PrivateRoute>
+                } />
+                
+              
+                <Route path="calculator" element={
+                <PrivateRoute>
+                  <CalculatorPage />
+                  </PrivateRoute>
+                } />
+              
               <Route
                 path="diaryformmobile"
-                element={<DiaryFormProductMobile />}
-              />
+                  element={
+                    <PrivateRoute>
+                      <DiaryFormProductMobile />
+                    </PrivateRoute>}
+                />
+                
               <Route path="*" element={<Navigate to="/" />} />
             </Route>
           </Routes>
