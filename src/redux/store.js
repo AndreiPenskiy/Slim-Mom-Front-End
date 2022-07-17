@@ -12,7 +12,8 @@ import {
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
 import loadingReducer from './loader/spinner-slice';
-import calculatorSlice from './products/products-slice'
+import calculatorSlice from './products/products-slice';
+import dairySlice from './diary/diary-slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -25,6 +26,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     loading: loadingReducer,
     calculator: calculatorSlice,
+    dairy: dairySlice,
   },
 
   middleware(getDefaultMiddleware) {
