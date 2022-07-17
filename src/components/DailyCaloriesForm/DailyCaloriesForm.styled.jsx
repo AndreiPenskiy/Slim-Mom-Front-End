@@ -70,8 +70,9 @@ export const FieldStyledTab = styled.div`
 
   @media screen and (min-width: 768px) {
     display: block;
-    margin-top:-6px;
-   `;
+    margin-top: -6px;
+  }
+`;
 
 export const FieldRadioGrup = styled(Field)`
   align-items: baseline;

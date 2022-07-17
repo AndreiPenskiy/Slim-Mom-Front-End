@@ -25,12 +25,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { caloriesCalculator } from 'redux/products/products-operation';
 import { setTempParameters, refreshParameters } from 'redux/auth/auth-options';
 import { getUser } from 'redux/auth/auth-selectors';
+import { toggleLoading } from 'redux/loader/spinner-slice';
 
 export const DailyCaloriesForm = ({ publicPage }) => {
   let navigate = useNavigate();
   const dispath = useDispatch();
   const { t } = useTranslation();
   const user = useSelector(getUser);
+  const loader = useSelector(toggleLoading)
   const initialValues = user.parameters
     ? user.parameters
     : {
@@ -67,15 +69,21 @@ export const DailyCaloriesForm = ({ publicPage }) => {
   });
 
   const handleSubmit = async parameters => {
+    dispath(loader)
     if (publicPage) {
+      
       await dispath(caloriesCalculator({ parameters }));
       await dispath(setTempParameters(parameters));
+
     } else {
       await dispath(refreshParameters({ parameters }));
       navigate('/diary');
+      
     }
+    dispath(loader)
   };
   return (
+    
     <DailyCaloriesFormContainer>
       <DailyCaloriesFormTitle>
         {t('dailyCalorieForm.title')}
