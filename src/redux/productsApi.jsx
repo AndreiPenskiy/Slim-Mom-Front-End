@@ -4,8 +4,9 @@ export const productsApi = createApi({
   reducerPath: 'productsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://slimmom-project-team6.herokuapp.com',
+
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().authUser.token;
+      const token = getState().auth.token;
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }
@@ -29,7 +30,7 @@ export const productsApi = createApi({
         method: 'POST',
         body: {
           title,
-          weight,
+          weight: Number(weight),
           kcal,
         },
       }),
