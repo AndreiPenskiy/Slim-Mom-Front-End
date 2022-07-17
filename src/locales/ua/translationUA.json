@@ -2,7 +2,7 @@
   "header": {
     "signin": "Вхід",
     "signup": "Реєстрація",
-    "exit": "Вийти"
+    "exit": "Вихід"
   },
   "dailyCalorieForm": {
     "title": "Розрахуйте свою денну норму калорій прямо зараз",
@@ -33,7 +33,7 @@
     "count": "кал."
   },
   "EatenProductsListItem": {
-    "item_1": "гр",
+    "item_1": "г",
     "item_2": "кал."
   },
   "ModalText": {

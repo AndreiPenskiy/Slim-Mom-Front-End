@@ -36,7 +36,7 @@ export const RightSideBar = () => {
             </ListItem>
             <ListItem>
               <span>{t("CalloriesText.item_4")}</span>
-              <span>000 {t("CalloriesText.count")}</span>
+              <span>000 %</span>
             </ListItem>
           </List>
         </Summary>

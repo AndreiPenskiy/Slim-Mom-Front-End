@@ -1,7 +1,9 @@
+
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
-  z-index: 98;
+  z-index: 998;
   position: fixed;
   top: 0;
   right: 0;
@@ -13,13 +15,13 @@ export const Overlay = styled.div`
   height: 100%;
   width: 100%;
   background-color: rgba(33, 33, 33, 0.12);
-  transform: scale(${({ open }) => (open ? 1 : 0.7)});
+  transform: scale(${({ open }) => (open ? 1 : 0)});
   opacity: ${({ open }) => (open ? 1 : 0)};
   transition: opacity 300ms ease-in-out;
 `;
 
 export const ModalContainer = styled.div`
-  z-index: 99;
+  z-index: 999;
   position: relative;
   width: 100%;
   max-width: 672px;
@@ -124,7 +126,7 @@ export const Product = styled.li`
     margin-top: 20px;
   }
 `;
-export const Button = styled.a`
+export const Button = styled(NavLink)`
   display: block;
   box-sizing: content-box;
   width: fit-content;
