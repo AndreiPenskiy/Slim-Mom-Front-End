@@ -51,6 +51,7 @@ export const UserNicName = styled.span`
 `;
 
 export const LogoutButton = styled.button`
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
