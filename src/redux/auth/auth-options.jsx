@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://slimmom-project-team6.herokuapp.com/';
 
@@ -35,6 +36,7 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
     token.set(data.token);
     return data;
   } catch (error) {
+    toast.error('Неправильний пароль або пошта');
     return thunkAPI.rejectWithValue();
   }
 });
