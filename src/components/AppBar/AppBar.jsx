@@ -18,6 +18,8 @@ import {
 import { UserInfoSection } from 'components/UserInfo/UserInfo.styled';
 import { getLoggedIn } from 'redux/auth/auth-selectors';
 import { Outlet } from 'react-router-dom';
+import { Modal } from 'components/Modal/Modal';
+import { LoadingPage } from 'components/LoadingPage/LoadingPage';
 
 export const AppBar = () => {
   const [burgerShown, setBurgerShown] = useState(false);
@@ -78,6 +80,8 @@ export const AppBar = () => {
       </StyledAppBar>
 
       <Outlet />
+      <Modal/>
+      <LoadingPage/>
     </>
   );
 };
