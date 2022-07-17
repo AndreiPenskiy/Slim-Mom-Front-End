@@ -20,6 +20,7 @@ import i18n from 'utils/i18next';
 import { useNavigate } from 'react-router-dom';
 import { getTempParameters } from 'redux/auth/auth-selectors';
 import { getCaloriesCalculator } from 'redux/products/products-selectors';
+import { setTempParameters } from 'redux/auth/auth-options';
 
 const RegistrationPage = () => {
   const { t } = useTranslation();
@@ -56,6 +57,7 @@ const RegistrationPage = () => {
         calculator: calcCalories.calories ? { ...calcCalories } : {},
       })
     );
+    await dispath(setTempParameters(null));
 
     if (payload.user.calories) navigate('/diary');
     else navigate('/calculator');
