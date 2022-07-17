@@ -2,7 +2,7 @@ import {
   useGetProductsQuery,
   useCreateProductsMutation,
 } from '../../redux/productsApi';
-import { ErrorMessage, Field, Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as Yup from 'yup';
 import {
