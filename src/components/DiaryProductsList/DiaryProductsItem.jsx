@@ -21,7 +21,6 @@ export function DiaryProductsItem() {
 
   const { data: productsUser } = useGetProductsQuery('2022-07-17');
 
-  console.log(productsUser.data.products);
   console.log('productsUser', productsUser);
 
   // const {
@@ -42,25 +41,26 @@ export function DiaryProductsItem() {
 
   return (
     <>
-      {productsUser.data.products.map(product => (
-        <DiaryProductsItemStyled key={product._id}>
-          <DiaryProductsItemProductStyled>
-            {product.title}
-          </DiaryProductsItemProductStyled>
-          <DiaryProductsItemCaloriestStyled>
-            {product.weight} {t('EatenProductsListItem.item_1')}
-          </DiaryProductsItemCaloriestStyled>
-          <DiaryProductsItemWeightStyled>
-            {product.kcal}{' '}
-            <DiaryProductsItemSpanStyled>
-              {t('EatenProductsListItem.item_2')}
-            </DiaryProductsItemSpanStyled>
-          </DiaryProductsItemWeightStyled>
-          <DiaryProductsItemBtnDeleteStyled>
-            <DiaryProductsImgDeleteStyled src={cross} alt="calendar" />
-          </DiaryProductsItemBtnDeleteStyled>
-        </DiaryProductsItemStyled>
-      ))}
+      {productsUser &&
+        productsUser.data.products.map(product => (
+          <DiaryProductsItemStyled key={product._id}>
+            <DiaryProductsItemProductStyled>
+              {product.title}
+            </DiaryProductsItemProductStyled>
+            <DiaryProductsItemCaloriestStyled>
+              {product.weight} {t('EatenProductsListItem.item_1')}
+            </DiaryProductsItemCaloriestStyled>
+            <DiaryProductsItemWeightStyled>
+              {product.kcal}{' '}
+              <DiaryProductsItemSpanStyled>
+                {t('EatenProductsListItem.item_2')}
+              </DiaryProductsItemSpanStyled>
+            </DiaryProductsItemWeightStyled>
+            <DiaryProductsItemBtnDeleteStyled>
+              <DiaryProductsImgDeleteStyled src={cross} alt="calendar" />
+            </DiaryProductsItemBtnDeleteStyled>
+          </DiaryProductsItemStyled>
+        ))}
     </>
   );
 }
