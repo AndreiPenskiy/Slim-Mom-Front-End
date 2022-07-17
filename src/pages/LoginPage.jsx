@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { logIn } from '../redux/auth/auth-options';
 import { LoginBackground } from 'components/Background/LoginBackground';
 import {
@@ -25,14 +27,14 @@ const LoginPage = () => {
 
   const schema = Yup.object().shape({
     email: Yup.string().email().max(40).required('Required'),
-    password: Yup.string().min(8).max(20).required('Required'),
+    password: Yup.string().min(1).max(20).required('Required'),
   });
 
   let navigate = useNavigate();
 
   const handleSubmit = ({ email, password }) => {
     dispath(logIn({ email, password }));
-    navigate('/diary');
+    // navigate('/diary');
   };
 
   return (
@@ -80,6 +82,14 @@ const LoginPage = () => {
           {/* </div> */}
         </FormContainer>
       </Formik>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+      />
       <LoginBackground />
     </>
   );
