@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, fetchCurrentUser } from './auth-options';
+import {
+  register,
+  logIn,
+  logOut,
+  fetchCurrentUser,
+  setTempParameters,
+  refreshParameters,
+} from './auth-options';
 
 const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isRefresh: false,
+  tempParameters: null,
 };
 
 const authSlice = createSlice({
@@ -36,6 +44,13 @@ const authSlice = createSlice({
     },
     [fetchCurrentUser.rejected](state) {
       state.isRefresh = false;
+    },
+    [setTempParameters](state, { payload }) {
+      state.tempParameters = payload;
+    },
+
+    [refreshParameters.fulfilled](state, { payload }) {
+      state.user = { ...state.user, ...payload };
     },
   },
 });

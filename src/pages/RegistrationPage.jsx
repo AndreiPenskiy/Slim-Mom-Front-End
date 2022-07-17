@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from '../redux/auth/auth-options';
@@ -18,10 +18,15 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
 import { useNavigate } from 'react-router-dom';
+import { getTempParameters } from 'redux/auth/auth-selectors';
+import { getCaloriesCalculator } from 'redux/products/products-selectors';
+import { setTempParameters } from 'redux/auth/auth-options';
 
 const RegistrationPage = () => {
   const { t } = useTranslation();
   const dispath = useDispatch();
+  const tempParameters = useSelector(getTempParameters);
+  const calcCalories = useSelector(getCaloriesCalculator);
 
   const schema = Yup.object().shape({
     name: Yup.string()
@@ -40,9 +45,20 @@ const RegistrationPage = () => {
 
   let navigate = useNavigate();
 
-  const handleSubmit = ({ name, email, password }) => {
-    dispath(register({ name, email, password }));
-    navigate('/diary');
+  const handleSubmit = async ({ name, email, password }) => {
+    const { payload } = await dispath(
+      register({
+        name,
+        email,
+        password,
+        parameters: tempParameters ? tempParameters : {},
+        calculator: calcCalories.calories ? { ...calcCalories } : {},
+      })
+    );
+    await dispath(setTempParameters(null));
+
+    if (payload.user.calories) navigate('/diary');
+    else navigate('/calculator');
   };
 
   return (
