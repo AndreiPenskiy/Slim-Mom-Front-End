@@ -34,7 +34,8 @@ export const DailyCaloriesForm = ({ publicPage }) => {
   const dispath = useDispatch();
   const { t } = useTranslation();
   const user = useSelector(getUser);
-  const loading = useSelector(toggleLoading)
+  const loading = useSelector(toggleLoading);
+  
   const initialValues = user.parameters
     ? user.parameters
     : {
@@ -73,15 +74,19 @@ export const DailyCaloriesForm = ({ publicPage }) => {
   const handleSubmit = async parameters => {
     dispath(loading)
     if (publicPage) {
+      
       await dispath(caloriesCalculator({ parameters }));
       await dispath(setTempParameters(parameters));
+
     } else {
       await dispath(refreshParameters({ parameters }));
       navigate('/diary');
+      
     }
     dispath(loading)
   };
   return (
+    
     <DailyCaloriesFormContainer>
       <DailyCaloriesFormTitle>
         {t('dailyCalorieForm.title')}

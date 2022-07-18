@@ -78,10 +78,10 @@ export const FieldStyledTab = styled.div`
 
   @media screen and (min-width: 768px) {
     display: block;
-      display: flex;
+    display: flex;
   flex-flow: column-reverse;
-
-    margin-top: 10px;   `;
+    margin-top: 10px;   
+    `;
 
 export const FieldRadioGrup = styled(Field)`
   align-items: baseline;
