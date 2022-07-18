@@ -19,6 +19,7 @@ import i18n from 'utils/i18next';
 import { getUser } from '../../redux/auth/auth-selectors';
 
 export const RightSideBar = () => {
+  // eslint-disable-next-line no-unused-vars
   const { kcal, setKcal } = useContext(CalloriesContext);
   const { t } = useTranslation();
 
