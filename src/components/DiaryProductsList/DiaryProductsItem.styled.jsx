@@ -134,7 +134,6 @@ export const DiaryProductsItemBtnDeleteStyled = styled.button`
   }
 `;
 export const DiaryProductsItemSpanStyled = styled.span`
-  /* font-weight: 100; */
   font-size: 11px;
   line-height: 15px;
 `;

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DiaryProductsConteinerListStyled = styled.div`
+  position: relative;
   padding-top: 32px;
   @media screen and (min-width: 768px) {
     padding-top: 60px;
@@ -60,4 +61,12 @@ export const DiaryProductsLinkStyled = styled(Link)`
 export const DiaryProductsPlusStyled = styled.img`
   width: 24px;
   height: 24px;
+`;
+export const DiaryProductsOpasityStyled = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: green;
+  height: 50px;
+  width: 731px;
 `;

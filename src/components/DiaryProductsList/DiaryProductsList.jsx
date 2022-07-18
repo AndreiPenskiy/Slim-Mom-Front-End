@@ -6,6 +6,7 @@ import {
   DiaryProductsConteinerListStyled,
   DiaryProductsLinkStyled,
   DiaryProductsPlusStyled,
+  DiaryProductsOpasityStyled,
 } from './DiaryProductsList.styled';
 import plus from '../../icons/plus.svg';
 
@@ -18,6 +19,7 @@ export default function DiaryProductsList() {
           <DiaryProductsItem />
         </DiaryProductsListStyled>
       </DiaryProductsConteinerListStyled>
+      <DiaryProductsOpasityStyled></DiaryProductsOpasityStyled>
       {isMobile && (
         <DiaryProductsLinkStyled to="/diaryformmobile">
           <DiaryProductsPlusStyled src={plus} alt="plus" />
