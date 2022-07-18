@@ -40,7 +40,7 @@ export function DiaryProductsItem() {
   // const showContacts = products && !isFetching && !isError;
   // showContacts && filterVisibleContacts();
 
-  const [deleteContact, { isLoading: isDeleting }] =
+  const [deleteContact, /* { isLoading: isDeleting } */] =
     useDeleteProductsMutation();
 
   return (
