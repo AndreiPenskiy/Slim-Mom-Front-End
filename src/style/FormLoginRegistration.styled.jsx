@@ -29,7 +29,7 @@ export const Forma = styled.div`
   flex-direction: column;
   margin-top: 40px;
 
-  @media screen (min-width: 768px) {
+  @media screen and(min-width: 768px) {
     margin-top: 178px;
   }
 
@@ -101,13 +101,15 @@ export const FormButtonActiveBtn = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
   border: transparent;
+  transition: transform 500ms linear;
 
   :hover:focus {
-    color: #ffffff;
-    background-color: #fc842d;
+    color: #fc842d;
+    background-color: #ffffff;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     border-radius: 30px;
     border: transparent;
+    transform: scale(1.1);
   }
 `;
 
@@ -132,12 +134,14 @@ export const FormButtonA = styled.a`
   background: #ffffff;
   border: 2px solid #fc842d;
   border-radius: 30px;
+  transition: transform 500ms linear;
   :hover:focus {
     color: #ffffff;
     background-color: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     border-radius: 30px;
     border: transparent;
+    transform: scale(1.1);
   }
 `;
 export const Alert = styled.p`

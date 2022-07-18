@@ -79,9 +79,10 @@ export const FieldStyledTab = styled.div`
   @media screen and (min-width: 768px) {
     display: block;
     display: flex;
-  flex-flow: column-reverse;
-    margin-top: 10px;   
-    `;
+    flex-flow: column-reverse;
+    margin-top: 10px;
+  }
+`;
 
 export const FieldRadioGrup = styled(Field)`
   align-items: baseline;
@@ -160,14 +161,16 @@ export const DailyCaloriesFormButton = styled.button`
   border-radius: 30px;
   margin: auto;
   margin-top: 40px;
+  transition: transform 500ms linear;
 
   :hover,
   :focus {
-    padding: 13px 51px 13px 50px;
+    /* padding: 13px 51px 13px 50px; */
     color: #ffffff;
     background-color: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     border-radius: 30px;
+    transform: scale(0.9);
   }
   @media screen and (min-width: 768px) {
     margin: 0;
