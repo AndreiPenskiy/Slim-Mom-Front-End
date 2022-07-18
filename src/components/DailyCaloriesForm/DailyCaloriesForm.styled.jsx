@@ -47,6 +47,8 @@ export const FieldStyled = styled(Field)`
     margin-right: 30px;
     margin-bottom: 20px;
 
+    font-family: 'Verdana';
+    font-size: 14px;
     :focus {
       outline: none;
       border-bottom: 1px solid #fc842d;

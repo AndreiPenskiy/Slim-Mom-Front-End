@@ -26,7 +26,12 @@ const LoginPage = () => {
 
   const schema = Yup.object().shape({
     email: Yup.string().email().max(40).required('Required'),
-    password: Yup.string().min(1).max(20).required('Required'),
+    password: Yup.string()
+      .min(1)
+      .max(20)
+      .matches(/^(?=.*[0-9])[a-zA-Zа-яА-Я](?=\S+$)/g)
+      .trim()
+      .required('Required'),
   });
 
   const handleSubmit = ({ email, password }) => {
