@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DiaryProductsConteinerListStyled = styled.div`
-  position: relative;
   padding-top: 32px;
   @media screen and (min-width: 768px) {
     padding-top: 60px;
@@ -64,9 +63,14 @@ export const DiaryProductsPlusStyled = styled.img`
 `;
 export const DiaryProductsOpasityStyled = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 0;
-  background: green;
+  top: 110%;
+  left: 25%;
+  transform: translate(-50%, -50%);
   height: 50px;
-  width: 731px;
+  width: 730px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 42.19%
+  );
 `;

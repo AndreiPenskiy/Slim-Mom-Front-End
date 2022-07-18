@@ -14,7 +14,6 @@ export const DiaryProductsItemStyled = styled.li`
     margin-top: 16px;
   }
   :last-child {
-    opacity: 0.5;
     /* background-image: linear-gradient(
         to bottom,
         hsl((255, 255, 255, 0.5), 60%, 65%),
