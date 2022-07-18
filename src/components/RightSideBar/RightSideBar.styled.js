@@ -50,6 +50,7 @@ export const Container = styled.div`
     padding-right: 106px;
 
     width: 517px;
+    min-height: 400px;
   }
 `;
 
