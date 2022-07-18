@@ -6,17 +6,21 @@ import { store, persistor } from './redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import LocaleContext from './context/context';
+import CalloriesContext from 'context/kcalContext';
 import './fonts/fonts.css';
 
 function Main() {
   const [locale, setLocale] = useState("uk");
+  const [kcal, setKcal] = useState(null);
 
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="Slim-Mom-Front-End">
           <LocaleContext.Provider value={{ locale, setLocale }}>
-            <App />
+            <CalloriesContext.Provider value={{ kcal, setKcal }}>
+              <App />
+              </CalloriesContext.Provider>
           </LocaleContext.Provider>
         </BrowserRouter>
       </PersistGate>
