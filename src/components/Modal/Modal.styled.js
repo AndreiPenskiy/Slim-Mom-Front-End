@@ -18,6 +18,9 @@ export const Overlay = styled.div`
   transform: scale(${({ open }) => (open ? 1 : 0)});
   opacity: ${({ open }) => (open ? 1 : 0)};
   transition: opacity 300ms ease-in-out;
+  @media (max-width: 767px) {
+    margin-top: 80px;
+  }
 `;
 
 export const ModalContainer = styled.div`

@@ -36,6 +36,7 @@ export default function DiaryAddProductForm() {
     handleChange(event);
     console.log('values', values);
     let { name, value } = event.currentTarget;
+
     switch (name) {
       case 'product':
         return setProduct(value);
@@ -45,26 +46,6 @@ export default function DiaryAddProductForm() {
         throw new Error();
     }
   };
-
-  console.log('product', product);
-  console.log('grams', grams);
-
-  // const handlerSubmitUser = e => {
-  //   e.preventDefault();
-  //   const product = {
-  //     name,
-  //     number,
-  //   };
-  // handlerSubmitUserForm(contact);
-  // };
-  // const handlerSubmitUserForm = contact => {
-  //   products.some(
-  //     contactItem =>
-  //       contactItem.name.toLocaleLowerCase() === name.toLocaleLowerCase()
-  //   )
-  //     ? alert(`${name} is already in contacts`)
-  //     : addProducts(product);
-  // };
 
   const FormError = ({ name }) => {
     return (
@@ -85,6 +66,13 @@ export default function DiaryAddProductForm() {
 
   const { t } = useTranslation();
 
+  const handleSubmit = (resetForm) => {
+      // e.preventDefault();
+            addProducts({product, grams})
+            setProduct('')
+            setGrams('')
+            resetForm();
+  }
   return (
     <>
       {!isMobile && (
@@ -95,12 +83,7 @@ export default function DiaryAddProductForm() {
           }}
           validationSchema={DiaryAddProductSchema}
           validateOnBlur
-          onSubmit={(values, { resetForm }) => {
-            // e.preventDefault();
-            console.log('values', values);
-            addProducts(values);
-            resetForm();
-          }}
+          onSubmit={handleSubmit}
         >
           {({ event, values, handleChange }) => (
             <DiaryFormConteiner>
@@ -111,14 +94,14 @@ export default function DiaryAddProductForm() {
                   onChange={event => {
                     handleChangeForm(event, values, handleChange);
                   }}
-                  value={values.product}
+                  value={product}
                   disabled={isDisabled}
                 />
                 <DiaryFormProductLabelStyled htmlFor="product">
                   {t('ProductForm.label_1')}
                 </DiaryFormProductLabelStyled>
                 {product && (
-                  <DiaryListProducts product={product}></DiaryListProducts>
+                  <DiaryListProducts product={product} setProduct={setProduct}></DiaryListProducts>
                 )}
                 <FormError name="product" />
               </DiaryFormProductConteinerStyled>
@@ -129,7 +112,7 @@ export default function DiaryAddProductForm() {
                   onChange={event => {
                     handleChangeForm(event, values, handleChange);
                   }}
-                  value={values.grams}
+                  value={grams}
                   disabled={isDisabled}
                 />
                 <label htmlFor="grams">{t('ProductForm.label_2')}</label>
