@@ -40,6 +40,8 @@ const RegistrationPage = () => {
     password: Yup.string()
       .min(8, `${t('validationRegisterForm.label3')}`)
       .max(20)
+      .matches(/^(?=.*[0-9])[a-zA-Zа-яА-Я](?=\S+$)/g)
+      .trim()
       .required('Required'),
   });
 
