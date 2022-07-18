@@ -26,12 +26,7 @@ const LoginPage = () => {
 
   const schema = Yup.object().shape({
     email: Yup.string().email().max(40).required('Required'),
-    password: Yup.string()
-      .min(1)
-      .max(20)
-      .matches(/^(?=.*[0-9])[a-zA-Zа-яА-Я](?=\S+$)/g)
-      .trim()
-      .required('Required'),
+    password: Yup.string().min(1).max(20).required('Required'),
   });
 
   const handleSubmit = ({ email, password }) => {
@@ -71,11 +66,11 @@ const LoginPage = () => {
           </Forma>
           {/* </section> */}
           {/* <div className="FormButtonContainer"> */}
-          <FormButtonActiveBtn type="submit">
+          <FormButtonActiveBtn type="submit" onClick={handleSubmit}>
             {t('header.signin')}
           </FormButtonActiveBtn>
           <FormButtonA
-            href="http://localhost:3000/Slim-Mom-Front-End/registration"
+            href="https://andreipenskiy.github.io/Slim-Mom-Front-End/registration"
             role="button"
           >
             {t('header.signup')}

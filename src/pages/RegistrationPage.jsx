@@ -42,8 +42,6 @@ const RegistrationPage = () => {
     password: Yup.string()
       .min(8, `${t('validationRegisterForm.label3')}`)
       .max(20)
-      .matches(/^(?=.*[0-9])[a-zA-Zа-яА-Я](?=\S+$)/g)
-      .trim()
       .required('Required'),
   });
 
@@ -102,11 +100,11 @@ const RegistrationPage = () => {
           </Forma>
           {/* <div className="FormButtonContainer"> */}
 
-          <FormButtonActiveBtn type="submit">
+          <FormButtonActiveBtn type="submit" onClick={handleSubmit}>
             {t('header.signup')}
           </FormButtonActiveBtn>
           <FormButtonA
-            href="http://localhost:3000/Slim-Mom-Front-End/login"
+            href="https://andreipenskiy.github.io/Slim-Mom-Front-End/login"
             role="button"
           >
             {t('header.signin')}
