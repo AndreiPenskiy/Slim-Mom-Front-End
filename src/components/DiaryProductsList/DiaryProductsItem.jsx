@@ -16,12 +16,12 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
 import { useSelector } from 'react-redux';
-import dateSelectors from 'redux/diary/diary-selectors';
+import { getDate } from 'redux/diary/diary-selectors';
 
 export function DiaryProductsItem() {
   const { t } = useTranslation();
 
-  const date = useSelector(dateSelectors.getDate);
+  const date = useSelector(getDate);
   console.log('date', date);
 
   const { data: productsUser } = useGetProductsQuery(date);
@@ -40,7 +40,7 @@ export function DiaryProductsItem() {
   // const showContacts = products && !isFetching && !isError;
   // showContacts && filterVisibleContacts();
 
-  const [deleteContact, /* { isLoading: isDeleting } */] =
+  const [deleteContact /* { isLoading: isDeleting } */] =
     useDeleteProductsMutation();
 
   return (
