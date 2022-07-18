@@ -1,6 +1,6 @@
 import {
+  useDeleteProductsMutation,
   useGetProductsQuery,
-  // useDeleteContactsMutation,
 } from '../../redux/productsApi';
 import {
   DiaryProductsItemStyled,
@@ -15,11 +15,17 @@ import cross from '../../icons/cross.svg';
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
+import { useSelector } from 'react-redux';
+import dateSelectors from 'redux/diary/diary-selectors';
 
 export function DiaryProductsItem() {
   const { t } = useTranslation();
 
-  const { data: productsUser } = useGetProductsQuery('2022-07-18');
+  const date = useSelector(dateSelectors.getDate);
+
+  console.log('date', date);
+
+  const { data: productsUser } = useGetProductsQuery(date);
 
   console.log('productsUser', productsUser);
 
@@ -39,6 +45,9 @@ export function DiaryProductsItem() {
 
   // showContacts && filterVisibleContacts();
 
+  const [deleteContact, { isLoading: isDeleting }] =
+    useDeleteProductsMutation();
+
   return (
     <>
       {productsUser &&
@@ -56,7 +65,9 @@ export function DiaryProductsItem() {
                 {t('EatenProductsListItem.item_2')}
               </DiaryProductsItemSpanStyled>
             </DiaryProductsItemWeightStyled>
-            <DiaryProductsItemBtnDeleteStyled>
+            <DiaryProductsItemBtnDeleteStyled
+              onClick={() => deleteContact(product._id)}
+            >
               <DiaryProductsImgDeleteStyled src={cross} alt="calendar" />
             </DiaryProductsItemBtnDeleteStyled>
           </DiaryProductsItemStyled>

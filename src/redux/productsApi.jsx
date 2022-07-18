@@ -60,7 +60,7 @@ export const productsApi = createApi({
 
     deleteProducts: builder.mutation({
       query: productId => ({
-        url: `/products/${productId}`,
+        url: `/api/diary/${productId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['products'],
