@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { register } from '../redux/auth/auth-options';
 import { LoginBackground } from 'components/Background/LoginBackground';
 import {
@@ -98,11 +100,11 @@ const RegistrationPage = () => {
           </Forma>
           {/* <div className="FormButtonContainer"> */}
 
-          <FormButtonActiveBtn type="submit">
+          <FormButtonActiveBtn type="submit" onClick={handleSubmit}>
             {t('header.signup')}
           </FormButtonActiveBtn>
           <FormButtonA
-            href="http://localhost:3000/Slim-Mom-Front-End/login"
+            href="https://andreipenskiy.github.io/Slim-Mom-Front-End/login"
             role="button"
           >
             {t('header.signin')}
@@ -110,6 +112,14 @@ const RegistrationPage = () => {
           {/* </div> */}
         </FormContainer>
       </Formik>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+      />
       <LoginBackground />
     </>
   );

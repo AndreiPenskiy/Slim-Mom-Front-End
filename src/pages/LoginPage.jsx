@@ -66,11 +66,11 @@ const LoginPage = () => {
           </Forma>
           {/* </section> */}
           {/* <div className="FormButtonContainer"> */}
-          <FormButtonActiveBtn type="submit">
+          <FormButtonActiveBtn type="submit" onClick={handleSubmit}>
             {t('header.signin')}
           </FormButtonActiveBtn>
           <FormButtonA
-            href="http://localhost:3000/Slim-Mom-Front-End/registration"
+            href="https://andreipenskiy.github.io/Slim-Mom-Front-End/registration"
             role="button"
           >
             {t('header.signup')}

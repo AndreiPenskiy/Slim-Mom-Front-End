@@ -73,6 +73,11 @@ export const FormInput = styled(Field)`
     outline: none;
     border-bottom: 1px solid #fc842d;
   }
+
+  @media screen and (min-width: 768px) {
+    font-family: 'Verdana';
+    font-size: 14px;
+  }
 `;
 export const FormButtonContainer = styled.div`
   flex-direction: row;

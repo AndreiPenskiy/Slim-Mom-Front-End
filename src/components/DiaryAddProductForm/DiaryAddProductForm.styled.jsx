@@ -26,6 +26,7 @@ export const DiaryFormProductStyled = styled(Field)`
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   :focus {
     outline: none;
     border-bottom: 1px solid #fc842d;
@@ -75,6 +76,7 @@ export const DiaryFormGramsStyled = styled(Field)`
   width: 107px;
   border: none;
   border-bottom: 1px solid #e0e0e0;
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
@@ -134,7 +136,8 @@ export const DiaryFormButtonConteiner = styled.div`
 export const DiaryFormButton = styled.button`
   width: 48px;
   height: 48px;
-  background: #fc842d;
+  background-color: ${props => (props.disabled ? '#eee' : '#fc842d')};
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -149,8 +152,9 @@ export const DiaryFormButton = styled.button`
     height: 44px;
     left: 72px;
     top: 340px;
-    background: #fc842d;
     border-radius: 30px;
+    background-color: ${props => (props.disabled ? '#eee' : '#fc842d')};
+    pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
 
     font-family: 'Verdana';
     font-weight: 700;
@@ -178,8 +182,13 @@ export const DiaryFormGramsLabelStyled = styled.label`
 `;
 
 export const ErrorText = styled.p`
-  color: red;
-  margin: -17px;
   position: absolute;
-  padding-left: 20px;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 17px;
+  color: rgb(217 120 74);
+  margin: -17px;
+  padding-left: 16px;
 `;
