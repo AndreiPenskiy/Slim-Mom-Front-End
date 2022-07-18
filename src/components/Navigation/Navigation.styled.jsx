@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const StyledNav = styled.nav`
   display: flex;
   align-items: center;
+  margin-left: auto;
 
   @media (min-width: 1280px) {
     height: 30px;
