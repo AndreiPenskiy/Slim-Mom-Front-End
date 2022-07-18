@@ -22,11 +22,9 @@ export function DiaryProductsItem() {
   const { t } = useTranslation();
 
   const date = useSelector(dateSelectors.getDate);
-
   console.log('date', date);
 
   const { data: productsUser } = useGetProductsQuery(date);
-
   console.log('productsUser', productsUser);
 
   // const {
@@ -36,13 +34,10 @@ export function DiaryProductsItem() {
   //   refetch,
   //   isError,
   // } = useGetProductsQuery();
-
   // function filterVisibleContacts() {
   //   console.log('products', products);
   // }
-
   // const showContacts = products && !isFetching && !isError;
-
   // showContacts && filterVisibleContacts();
 
   const [deleteContact, { isLoading: isDeleting }] =
