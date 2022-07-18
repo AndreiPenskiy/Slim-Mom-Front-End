@@ -7,13 +7,12 @@ import {
 
 export function DiaryListProducts({ product, setProduct }) {
   const { data: productsAll } = useGetAllProductsQuery(product);
-const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(true);
 
-const selectedProduct = (product) => {
-  setProduct(product)
-  setOpen(false)
-}
-
+  const selectedProduct = product => {
+    setProduct(product);
+    setOpen(false);
+  };
 
   console.log('productsAll', productsAll);
   return (
@@ -21,7 +20,10 @@ const selectedProduct = (product) => {
       {open && productsAll && (
         <DiaryListProductsStyled>
           {productsAll.map(product => (
-            <li key={product._id} onClick={() => selectedProduct(product.title.ua)}>
+            <li
+              key={product._id}
+              onClick={() => selectedProduct(product.title.ua)}
+            >
               {product.title.ua}
             </li>
           ))}
