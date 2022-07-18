@@ -18,12 +18,16 @@ import {
 } from './DiaryAddProductForm.styled';
 import { StyledLink } from 'components/UserInfo/UserInfo.styled';
 import { getLoggedIn } from 'redux/auth/auth-selectors';
+import { getDate } from 'redux/diary/diary-selectors';
 
 export default function DiaryAddProductForm() {
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   let navigate = useNavigate();
-
+  const selectedDate = useSelector(getDate);
+  const isDisabled =
+    new Date().toLocaleDateString('fr-ca') !==
+    new Date(selectedDate).toLocaleDateString('fr-ca');
   const FormError = ({ name }) => {
     return (
       <ErrorMessage
@@ -64,18 +68,28 @@ export default function DiaryAddProductForm() {
             <DiaryFormProductLabelStyled htmlFor="product">
               Enter product name
             </DiaryFormProductLabelStyled>
-            <DiaryFormProductStyled id="product" name="product" />
+            <DiaryFormProductStyled
+              id="product"
+              name="product"
+              disabled={isDisabled}
+            />
             <FormError name="product" />
           </DiaryFormProductConteinerStyled>
           <DiaryFormGramsConteinerStyled>
             <DiaryFormGramsLabelStyled htmlFor="grams">
               Grams
             </DiaryFormGramsLabelStyled>
-            <DiaryFormGramsStyled id="grams" name="grams" />
+            <DiaryFormGramsStyled
+              id="grams"
+              name="grams"
+              disabled={isDisabled}
+            />
             <FormError name="grams" />
           </DiaryFormGramsConteinerStyled>
           <DiaryFormButtonConteiner>
-            <DiaryFormButton type="submit">Add</DiaryFormButton>
+            <DiaryFormButton type="submit" disabled={isDisabled}>
+              Add
+            </DiaryFormButton>
           </DiaryFormButtonConteiner>
         </DiaryFormConteiner>
       </Formik>

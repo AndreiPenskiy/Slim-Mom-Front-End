@@ -2,8 +2,7 @@
 
 const getDate = state => state.dairy.date;
 
-const dateSelectors = {
+export {
   // getIsLoggedIn,
   getDate,
 };
-export default dateSelectors;
