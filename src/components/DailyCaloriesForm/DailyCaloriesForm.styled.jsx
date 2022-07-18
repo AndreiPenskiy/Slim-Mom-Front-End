@@ -1,21 +1,35 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
+export const DailyCaloriesContainer = styled.div`
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    padding: 0 20px;
+    height: 100%;
+    margin: 0 auto;
+  }
 
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding: 0 16px;
+  }
+`;
 export const DailyCaloriesFormContainer = styled.div`
   width: 280px;
   margin-top: 32px;
-  margin-left: 20px;
 
   @media screen and (min-width: 768px) {
     display: block;
     width: 704px;
     margin-top: 100px;
-    margin-left: 32px;
   }
   @media screen and (min-width: 1280px) {
     width: 608px;
     margin-top: 147px;
-    margin-left: 16px;
   }
 `;
 
@@ -30,6 +44,7 @@ export const FieldStyled = styled(Field)`
   border-bottom: 1px solid #e0e0e0;
   width: 240px;
   margin-top: 0px;
+  font-size: 8px;
 
   :focus {
     outline: none;
@@ -46,6 +61,7 @@ export const FieldStyled = styled(Field)`
     margin-top: 0px;
     margin-right: 30px;
     margin-bottom: 20px;
+    font-size: 14px;
 
     :focus {
       outline: none;
@@ -65,7 +81,7 @@ export const FieldStyledMobil = styled.div`
   display: flex;
   flex-flow: column-reverse;
   border: none;
-  margin-top: 20px;
+  margin-top: 32px;
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -80,7 +96,7 @@ export const FieldStyledTab = styled.div`
     display: block;
     display: flex;
     flex-flow: column-reverse;
-    margin-top: 10px;
+    margin-top: 30px;
   }
 `;
 
@@ -94,7 +110,7 @@ export const FieldRadioGrup = styled(Field)`
   letter-spacing: 0.04em;
   color: #9b9faa;
   width: 240px;
-  margin-top: 20px;
+  margin-top: 30px;
 `;
 
 export const RadioStyled = styled.input`
@@ -131,9 +147,8 @@ export const DailyCaloriesFormTitle = styled.h1`
   font-size: 18px;
   line-height: 26px;
   color: #212121;
-  margin-bottom: 12px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 700;
@@ -258,5 +273,5 @@ export const InputLabel = styled.label`
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  margin-top: 20px;
+  margin-top: 32px;
 `;

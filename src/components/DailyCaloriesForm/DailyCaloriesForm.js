@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
+  DailyCaloriesContainer,
   DailyCaloriesFormContainer,
   DailyCaloriesFormTitle,
   DailyCaloriesFormButton,
@@ -35,7 +36,7 @@ export const DailyCaloriesForm = ({ publicPage }) => {
   const { t } = useTranslation();
   const user = useSelector(getUser);
   const loading = useSelector(toggleLoading);
-  
+
   const initialValues = user.parameters
     ? user.parameters
     : {
@@ -72,128 +73,160 @@ export const DailyCaloriesForm = ({ publicPage }) => {
   });
 
   const handleSubmit = async parameters => {
-    dispath(loading)
+    dispath(loading);
     if (publicPage) {
-      
       await dispath(caloriesCalculator({ parameters }));
       await dispath(setTempParameters(parameters));
-
     } else {
       await dispath(refreshParameters({ parameters }));
       navigate('/diary');
-      
     }
-    dispath(loading)
+    dispath(loading);
   };
   return (
-    
-    <DailyCaloriesFormContainer>
-      <DailyCaloriesFormTitle>
-        {t('dailyCalorieForm.title')}
-      </DailyCaloriesFormTitle>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={DailyCaloriesSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, touched }) => (
-          <FormStyled>
-            <InputContainer>
-              <FieldStyled name="height" type="number" autoComplete="off" />
-              <InputLabel>{t('dailyCalorieForm.label_1')}</InputLabel>
-              {errors.height && touched.height ? (
-                <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
-              ) : null}
-            </InputContainer>
-            <InputContainer>
-              <FieldStyled
-                name="desiredWeight"
-                type="number"
-                autoComplete="off"
-              />
-              <InputLabel>{t('dailyCalorieForm.label_4')}</InputLabel>
+    <DailyCaloriesContainer>
+      <DailyCaloriesFormContainer>
+        <DailyCaloriesFormTitle>
+          {t('dailyCalorieForm.title')}
+        </DailyCaloriesFormTitle>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={DailyCaloriesSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ errors, touched }) => (
+            <FormStyled>
+              <InputContainer>
+                <FieldStyled name="height" type="number" autoComplete="off" />
+                <InputLabel>{t('dailyCalorieForm.label_1')}</InputLabel>
+                {errors.height && touched.height ? (
+                  <ErrorMessageContainer>{errors.height}</ErrorMessageContainer>
+                ) : null}
+              </InputContainer>
+              <FieldStyledTab>
+                <FieldStyled
+                  name="desiredWeight"
+                  type="number"
+                  autoComplete="off"
+                />
+                <InputLabel>{t('dailyCalorieForm.label_4')}</InputLabel>
 
-              {errors.desiredWeight && touched.desiredWeight ? (
-                <ErrorMessageContainer>
-                  {errors.desiredWeight}
-                </ErrorMessageContainer>
-              ) : null}
-            </InputContainer>
-            <InputContainer>
-              <FieldStyled name="age" type="number" autoComplete="off" />
-              <InputLabel>{t('dailyCalorieForm.label_2')}</InputLabel>
+                {errors.desiredWeight && touched.desiredWeight ? (
+                  <ErrorMessageContainer>
+                    {errors.desiredWeight}
+                  </ErrorMessageContainer>
+                ) : null}
+              </FieldStyledTab>
+              <InputContainer>
+                <FieldStyled name="age" type="number" autoComplete="off" />
+                <InputLabel>{t('dailyCalorieForm.label_2')}</InputLabel>
 
-              {errors.age && touched.age ? (
-                <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
-              ) : null}
-            </InputContainer>
+                {errors.age && touched.age ? (
+                  <ErrorMessageContainer>{errors.age}</ErrorMessageContainer>
+                ) : null}
+              </InputContainer>
 
-            <FieldStyledMobil>
-              <FieldStyled
-                name="currentWeight"
-                type="number"
-                autoComplete="off"
-              />
-              <InputLabel>{t('dailyCalorieForm.label_3')}</InputLabel>
+              <FieldStyledMobil>
+                <FieldStyled
+                  name="currentWeight"
+                  type="number"
+                  autoComplete="off"
+                />
+                <InputLabel>{t('dailyCalorieForm.label_3')}</InputLabel>
 
-              {errors.currentWeight && touched.currentWeight ? (
-                <ErrorMessageContainer>
-                  {errors.currentWeight}
-                </ErrorMessageContainer>
-              ) : null}
-            </FieldStyledMobil>
+                {errors.currentWeight && touched.currentWeight ? (
+                  <ErrorMessageContainer>
+                    {errors.currentWeight}
+                  </ErrorMessageContainer>
+                ) : null}
+              </FieldStyledMobil>
 
-            <FieldRadioGrup component="div" name="bloodType" label="bloodType">
-              <Label> {t('dailyCalorieForm.label_5')}</Label>
-              <RadioGrupLabel>
-                <Radiolabel htmlFor="bloodType">
-                  <RadioStyled
-                    type="radio"
-                    name="bloodType"
-                    id="1"
-                    defaultChecked
-                    value="1"
-                  />
-                  1
-                </Radiolabel>
-                <Radiolabel htmlFor="bloodType">
-                  <RadioStyled type="radio" name="bloodType" id="2" value="2" />
-                  2
-                </Radiolabel>
-                <Radiolabel htmlFor="bloodType">
-                  <RadioStyled type="radio" name="bloodType" id="3" value="3" />
-                  3
-                </Radiolabel>
-                <Radiolabel htmlFor="bloodType">
-                  <RadioStyled type="radio" name="bloodType" id="4" value="4" />
-                  4
-                </Radiolabel>
-              </RadioGrupLabel>
-            </FieldRadioGrup>
+              <FieldStyledMobil>
+                <FieldStyled
+                  name="desiredWeight"
+                  type="number"
+                  autoComplete="off"
+                />
+                <InputLabel>{t('dailyCalorieForm.label_4')}</InputLabel>
 
-            <FieldStyledTab>
-              <FieldStyled
-                name="currentWeight"
-                type="number"
-                autoComplete="off"
-              />
-              <InputLabel>{t('dailyCalorieForm.label_3')}</InputLabel>
+                {errors.desiredWeight && touched.desiredWeight ? (
+                  <ErrorMessageContainer>
+                    {errors.desiredWeight}
+                  </ErrorMessageContainer>
+                ) : null}
+              </FieldStyledMobil>
 
-              {errors.currentWeight && touched.currentWeight ? (
-                <ErrorMessageContainer>
-                  {errors.currentWeight}
-                </ErrorMessageContainer>
-              ) : null}
-            </FieldStyledTab>
+              <FieldRadioGrup
+                component="div"
+                name="bloodType"
+                label="bloodType"
+              >
+                <Label> {t('dailyCalorieForm.label_5')}</Label>
+                <RadioGrupLabel>
+                  <Radiolabel htmlFor="bloodType">
+                    <RadioStyled
+                      type="radio"
+                      name="bloodType"
+                      id="1"
+                      defaultChecked
+                      value="1"
+                    />
+                    1
+                  </Radiolabel>
+                  <Radiolabel htmlFor="bloodType">
+                    <RadioStyled
+                      type="radio"
+                      name="bloodType"
+                      id="2"
+                      value="2"
+                    />
+                    2
+                  </Radiolabel>
+                  <Radiolabel htmlFor="bloodType">
+                    <RadioStyled
+                      type="radio"
+                      name="bloodType"
+                      id="3"
+                      value="3"
+                    />
+                    3
+                  </Radiolabel>
+                  <Radiolabel htmlFor="bloodType">
+                    <RadioStyled
+                      type="radio"
+                      name="bloodType"
+                      id="4"
+                      value="4"
+                    />
+                    4
+                  </Radiolabel>
+                </RadioGrupLabel>
+              </FieldRadioGrup>
 
-            <ButtonCont>
-              <DailyCaloriesFormButton type="submit">
-                {t('dailyCalorieForm.btn_name')}
-              </DailyCaloriesFormButton>
-            </ButtonCont>
-          </FormStyled>
-        )}
-      </Formik>
-    </DailyCaloriesFormContainer>
+              <FieldStyledTab>
+                <FieldStyled
+                  name="currentWeight"
+                  type="number"
+                  autoComplete="off"
+                />
+                <InputLabel>{t('dailyCalorieForm.label_3')}</InputLabel>
+
+                {errors.currentWeight && touched.currentWeight ? (
+                  <ErrorMessageContainer>
+                    {errors.currentWeight}
+                  </ErrorMessageContainer>
+                ) : null}
+              </FieldStyledTab>
+
+              <ButtonCont>
+                <DailyCaloriesFormButton type="submit">
+                  {t('dailyCalorieForm.btn_name')}
+                </DailyCaloriesFormButton>
+              </ButtonCont>
+            </FormStyled>
+          )}
+        </Formik>
+      </DailyCaloriesFormContainer>
+    </DailyCaloriesContainer>
   );
 };
