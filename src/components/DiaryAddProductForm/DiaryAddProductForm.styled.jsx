@@ -178,8 +178,13 @@ export const DiaryFormGramsLabelStyled = styled.label`
 `;
 
 export const ErrorText = styled.p`
-  color: red;
-  margin: -17px;
   position: absolute;
-  padding-left: 20px;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 17px;
+  color: rgb(217 120 74);
+  margin: -17px;
+  padding-left: 16px;
 `;
