@@ -26,7 +26,9 @@ import { DiaryListProducts } from './DiaryListProducts';
 
 export default function DiaryAddProductForm() {
   const [product, setProduct] = useState('');
-  const [setGrams] = useState('');
+  const [grams, setGrams] = useState('');
+
+  console.log('grams', grams);
 
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
