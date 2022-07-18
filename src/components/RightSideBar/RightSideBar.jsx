@@ -41,16 +41,16 @@ export const RightSideBar = () => {
           <List>
             <ListItem>
               <span>{t('CalloriesText.item_1')}</span>
-              <span> {kcal ? Number(userCalories) - kcal : '000' } {t('CalloriesText.count')}</span>
+              <span> {kcal ? Number(userCalories) - kcal : '0' } {t('CalloriesText.count')}</span>
             </ListItem>
             <ListItem>
               <span>{t('CalloriesText.item_2')}</span>
-              <span> {kcal ? kcal : '000' } {t('CalloriesText.count')}</span>
+              <span> {kcal ? kcal : '0' } {t('CalloriesText.count')}</span>
             </ListItem>
             <ListItem>
               <span>{t('CalloriesText.item_3')}</span>
               <span>
-                {userCalories === null ? `000 ` : `${userCalories} `}
+                {userCalories === null ? `0 ` : `${userCalories} `}
                 {t('CalloriesText.count')}
               </span>
             </ListItem>
