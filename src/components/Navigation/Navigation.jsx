@@ -13,7 +13,7 @@ import { LangButton, LangButtonEn, ButtonContainer } from './LangButton.styled';
 export const Navigation = () => {
   
   const { locale, setLocale } = useContext(LocaleContext);
-  const [activeUa, setActiveUa] = useState(null);
+  const [activeUa, setActiveUa] = useState(true);
   const [activeEn, setActiveEn] = useState(null);
 
   const { t, i18n } = useTranslation();

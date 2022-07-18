@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CalloriesContext from 'context/kcalContext';
 import { useSelector } from 'react-redux';
 import {
   RightSideSection,
@@ -13,9 +14,12 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import i18n from 'utils/i18next';
 
+
+
 import { getUser } from '../../redux/auth/auth-selectors';
 
 export const RightSideBar = () => {
+  const { kcal, setKcal } = useContext(CalloriesContext);
   const { t } = useTranslation();
 
   const { date } = useSelector(state => state.dairy);
@@ -25,6 +29,8 @@ export const RightSideBar = () => {
   const notRecomended = useSelector(getUser).notAllowedProducts;
 
   return (
+
+
     <RightSideSection>
       <Container>
         <Summary>
@@ -34,11 +40,11 @@ export const RightSideBar = () => {
           <List>
             <ListItem>
               <span>{t('CalloriesText.item_1')}</span>
-              <span>000 {t('CalloriesText.count')}</span>
+              <span> {kcal ? Number(userCalories) - kcal : '000' } {t('CalloriesText.count')}</span>
             </ListItem>
             <ListItem>
               <span>{t('CalloriesText.item_2')}</span>
-              <span>000 {t('CalloriesText.count')}</span>
+              <span> {kcal ? kcal : '000' } {t('CalloriesText.count')}</span>
             </ListItem>
             <ListItem>
               <span>{t('CalloriesText.item_3')}</span>
@@ -49,7 +55,7 @@ export const RightSideBar = () => {
             </ListItem>
             <ListItem>
               <span>{t('CalloriesText.item_4')}</span>
-              <span>000 %</span>
+              <span> {kcal ? Math.round((kcal/Number(userCalories)) * 100) : 0 } %</span>
             </ListItem>
           </List>
         </Summary>
