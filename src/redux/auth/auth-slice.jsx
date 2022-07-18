@@ -9,7 +9,7 @@ import {
 } from './auth-options';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, notAllowedProducts: [] },
   token: null,
   isLoggedIn: false,
   isRefresh: false,
