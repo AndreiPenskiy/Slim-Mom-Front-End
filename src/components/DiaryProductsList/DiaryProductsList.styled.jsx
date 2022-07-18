@@ -61,3 +61,16 @@ export const DiaryProductsPlusStyled = styled.img`
   width: 24px;
   height: 24px;
 `;
+export const DiaryProductsOpasityStyled = styled.div`
+  position: absolute;
+  top: 110%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 730px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 42.19%
+  );
+`;
