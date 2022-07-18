@@ -19,7 +19,7 @@ import i18n from 'utils/i18next';
 export function DiaryProductsItem() {
   const { t } = useTranslation();
 
-  const { data: productsUser } = useGetProductsQuery('2022-07-17');
+  const { data: productsUser } = useGetProductsQuery('2022-07-18');
 
   console.log('productsUser', productsUser);
 
