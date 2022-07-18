@@ -1,3 +1,6 @@
+import // useGetProductsQuery,
+// useDeleteContactsMutation,
+'../../redux/productsApi';
 import {
   DiaryProductsItemStyled,
   DiaryProductsItemProductStyled,
@@ -16,8 +19,25 @@ import i18n from 'utils/i18next';
 export function DiaryProductsItem() {
   const { t } = useTranslation();
 
+  // const {
+  //   data: products,
+  //   isUninitialized,
+  //   isFetching,
+  //   refetch,
+  //   isError,
+  // } = useGetProductsQuery();
+
+  // function filterVisibleContacts() {
+  //   console.log('products', products);
+  // }
+
+  // const showContacts = products && !isFetching && !isError;
+
+  // showContacts && filterVisibleContacts();
+
   return (
     <>
+      {/* {showContacts && <div>{products}</div>} */}
       {productsData.map(product => (
         <DiaryProductsItemStyled key={product.products}>
           <DiaryProductsItemProductStyled>
