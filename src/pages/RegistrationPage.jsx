@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { register } from '../redux/auth/auth-options';
 import { LoginBackground } from 'components/Background/LoginBackground';
 import {
@@ -110,6 +112,14 @@ const RegistrationPage = () => {
           {/* </div> */}
         </FormContainer>
       </Formik>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+      />
       <LoginBackground />
     </>
   );
