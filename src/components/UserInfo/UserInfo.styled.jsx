@@ -25,6 +25,9 @@ export const UserInfoWrapper = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
+  position: absolute;
+  top: 90px;
+  left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +70,10 @@ export const LogoutButton = styled.button`
   border: none;
   outline: none;
   transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+
+  @media (min-width: 1280px) {
+    margin-right: 15px;
+  }
 
   &:hover {
     color: #212121;

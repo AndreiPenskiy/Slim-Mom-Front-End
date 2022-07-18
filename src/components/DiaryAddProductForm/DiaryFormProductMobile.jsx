@@ -1,6 +1,9 @@
 import { ErrorMessage, Formik } from 'formik';
 import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
+import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import { MdOutlineKeyboardReturn } from 'react-icons/md';
 import {
   DiaryFormConteiner,
   DiaryFormProductStyled,
@@ -13,8 +16,12 @@ import {
   DiaryFormButtonConteiner,
   ErrorText,
 } from './DiaryAddProductForm.styled';
+import { StyledLink } from 'components/UserInfo/UserInfo.styled';
+import { getLoggedIn } from 'redux/auth/auth-selectors';
 
 export default function DiaryAddProductForm() {
+  const isLoggedIn = useSelector(getLoggedIn);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   let navigate = useNavigate();
 
   const FormError = ({ name }) => {
@@ -35,6 +42,11 @@ export default function DiaryAddProductForm() {
   });
   return (
     <>
+      {isLoggedIn && isMobile && (
+        <StyledLink to="/diary">
+          <MdOutlineKeyboardReturn size={20} />
+        </StyledLink>
+      )}
       <Formik
         initialValues={{
           product: '',
