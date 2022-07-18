@@ -56,10 +56,10 @@ export const RightSideBar = () => {
         <div>
           <Title>{t('CalloriesText.title_2')}</Title>
           <DietDescription>
-            {notRecomended.length > 0 ? (
+            {notRecomended?.length !== 0 ? (
               <ul>
                 {' '}
-                {notRecomended.map((product, index) => (
+                {notRecomended?.map((product, index) => (
                   <li key={index}>{product}</li>
                 ))}
               </ul>
