@@ -113,7 +113,9 @@ export const DiaryFormButton = styled.button`
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  transition: transform 500ms linear;
   :hover {
+    transform: scale(1.1);
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
 
