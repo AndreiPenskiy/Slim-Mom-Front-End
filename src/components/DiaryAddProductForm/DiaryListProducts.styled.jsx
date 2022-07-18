@@ -5,7 +5,7 @@ export const DiaryListProductsConteinerStyled = styled.div`
 `;
 
 export const DiaryListProductsStyled = styled.ul`
-  z-index: auto;
+  z-index: 99;
   position: absolute;
   top: 0;
   left: 0;
@@ -28,5 +28,10 @@ export const DiaryListProductsStyled = styled.ul`
 
   & li {
     margin-bottom: 10px;
+    cursor: pointer;
+    :hover, :focus {
+      color: #fc842d;
+    }
+
   }
 `;
