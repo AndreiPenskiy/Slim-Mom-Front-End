@@ -100,9 +100,6 @@ export default function DiaryAddProductForm() {
           {({ event, values, handleChange }) => (
             <DiaryFormConteiner>
               <DiaryFormProductConteinerStyled>
-                <DiaryFormProductLabelStyled htmlFor="product">
-                  {t('ProductForm.label_1')}
-                </DiaryFormProductLabelStyled>
                 <DiaryFormProductStyled
                   id="product"
                   name="product"
@@ -111,13 +108,15 @@ export default function DiaryAddProductForm() {
                   }}
                   value={values.product}
                 />
+                <DiaryFormProductLabelStyled htmlFor="product">
+                  {t('ProductForm.label_1')}
+                </DiaryFormProductLabelStyled>
                 {product && (
                   <DiaryListProducts product={product}></DiaryListProducts>
                 )}
                 <FormError name="product" />
               </DiaryFormProductConteinerStyled>
               <DiaryFormGramsConteinerStyled>
-                <label htmlFor="grams">{t('ProductForm.label_2')}</label>
                 <DiaryFormGramsStyled
                   id="grams"
                   name="grams"
@@ -126,6 +125,8 @@ export default function DiaryAddProductForm() {
                   }}
                   value={values.grams}
                 />
+                <label htmlFor="grams">{t('ProductForm.label_2')}</label>
+
                 <FormError name="grams" />
               </DiaryFormGramsConteinerStyled>
               <DiaryFormButton type="submit">
