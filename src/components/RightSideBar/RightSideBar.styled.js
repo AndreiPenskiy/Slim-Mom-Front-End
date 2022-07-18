@@ -103,7 +103,7 @@ export const ListItem = styled.li`
   }
 `;
 
-export const DietDescription = styled.p`
+export const DietDescription = styled.div`
   font-family: 'Verdana';
   font-weight: 400;
   font-size: 14px;
