@@ -8,6 +8,7 @@ export const LoadingPage = () => {
 
   useEffect(() => {
     setLoading(!loading);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isLoading]);
 
   return <>{isLoading && <Loader />}</>;
