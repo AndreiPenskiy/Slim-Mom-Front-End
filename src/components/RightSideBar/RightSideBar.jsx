@@ -43,7 +43,7 @@ export const RightSideBar = () => {
             <ListItem>
               <span>{t('CalloriesText.item_3')}</span>
               <span>
-                {userCalories ? userCalories : `000 `}
+                {`${userCalories} ` ? `${userCalories} ` : `000 `}
                 {t('CalloriesText.count')}
               </span>
             </ListItem>
