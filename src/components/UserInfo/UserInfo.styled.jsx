@@ -25,6 +25,9 @@ export const UserInfoWrapper = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
+  position: absolute;
+  top: 90px;
+  left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
