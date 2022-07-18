@@ -1,15 +1,21 @@
-import { productsData } from 'components/helpers/productsData';
 import { useGetAllProductsQuery } from '../../redux/productsApi';
+import {
+  DiaryListProductsStyled,
+  DiaryListProductsConteinerStyled,
+} from './DiaryListProducts.styled';
 
-export function DiaryListProducts() {
-  const { data: productsAll } = useGetAllProductsQuery();
+export function DiaryListProducts({ product }) {
+  const { data: productsAll } = useGetAllProductsQuery(product);
 
   console.log('productsAll', productsAll);
   return (
-    <ul>
-      {productsData.map(product => (
-        <li key={product.products}>{product.products}</li>
-      ))}
-    </ul>
+    <DiaryListProductsConteinerStyled>
+      <DiaryListProductsStyled>
+        {productsAll &&
+          productsAll.map(product => (
+            <li key={product._id}>{product.title.ua}</li>
+          ))}
+      </DiaryListProductsStyled>
+    </DiaryListProductsConteinerStyled>
   );
 }
