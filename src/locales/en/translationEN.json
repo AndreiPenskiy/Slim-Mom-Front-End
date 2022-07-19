@@ -2,7 +2,9 @@
   "header": {
     "signin": "Sign in",
     "signup": "Registration",
-    "exit": "Log out"
+    "exit": "Log out",
+    "buttonReg": "Register",
+    "buttonLogin": "Login"
   },
   "dailyCalorieForm": {
     "title": "Calculate your daily calorie intake right now",
@@ -48,9 +50,11 @@
   },
   "notify": {
     "alert1": "Incorrect email or password entered",
-    "alert2": "Password should be longer than 8 characters",
+    "alert2": "Password should be from 8 to 20 characters",
     "alert3": "Email should not exceed 40 characters",
-    "alert4": "The name must be at least 3 characters and more than 20"
+    "alert4": "The name must be at least 3 characters and more than 20",
+    "alert5": "User with this email is already registered!",
+    "alert6": "Wrong password or email"
   },
   "validationDiaryForm": {
     "label1": "Height should be more than 100 cm!",
