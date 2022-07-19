@@ -41,7 +41,7 @@ export const DiaryFormProductStyled = styled(Field)`
 
   @media screen and (max-width: 767px) {
     width: 280px;
-    margin-bottom: 32px;
+    // margin-bottom: 32px;
     /* ::placeholder {
       font-family: 'Verdana';
       font-style: normal;
@@ -69,6 +69,8 @@ export const DiaryFormProductConteinerStyled = styled.div`
     bottom: 0;
     border: 1px solid #e0e0e0;
   } */
+  @media screen and (max-width: 767px) {
+    margin-bottom: 32px;
 `;
 
 export const DiaryFormGramsStyled = styled(Field)`
