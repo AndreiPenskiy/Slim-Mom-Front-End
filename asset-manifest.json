@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/Slim-Mom-Front-End/static/css/main.5ecc3c78.css",
-    "main.js": "/Slim-Mom-Front-End/static/js/main.82c11b65.js",
+    "main.js": "/Slim-Mom-Front-End/static/js/main.c934b0bf.js",
     "main-page.js": "/Slim-Mom-Front-End/static/js/main-page.5c7b9701.chunk.js",
-    "login-page.js": "/Slim-Mom-Front-End/static/js/login-page.4f2c00c6.chunk.js",
-    "regisrtation-page.js": "/Slim-Mom-Front-End/static/js/regisrtation-page.d8140c32.chunk.js",
+    "login-page.js": "/Slim-Mom-Front-End/static/js/login-page.8f01c741.chunk.js",
+    "regisrtation-page.js": "/Slim-Mom-Front-End/static/js/regisrtation-page.99a87678.chunk.js",
     "diary-page.css": "/Slim-Mom-Front-End/static/css/diary-page.4d1426e3.chunk.css",
     "diary-page.js": "/Slim-Mom-Front-End/static/js/diary-page.8dcef4f0.chunk.js",
     "calculator-page.js": "/Slim-Mom-Front-End/static/js/calculator-page.46ba0bfc.chunk.js",
@@ -43,10 +43,10 @@
     "static/media/getFetch.cjs": "/Slim-Mom-Front-End/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/cross.svg": "/Slim-Mom-Front-End/static/media/cross.8cdb920ca8331504fc3379915d48c780.svg",
     "main.5ecc3c78.css.map": "/Slim-Mom-Front-End/static/css/main.5ecc3c78.css.map",
-    "main.82c11b65.js.map": "/Slim-Mom-Front-End/static/js/main.82c11b65.js.map",
+    "main.c934b0bf.js.map": "/Slim-Mom-Front-End/static/js/main.c934b0bf.js.map",
     "main-page.5c7b9701.chunk.js.map": "/Slim-Mom-Front-End/static/js/main-page.5c7b9701.chunk.js.map",
-    "login-page.4f2c00c6.chunk.js.map": "/Slim-Mom-Front-End/static/js/login-page.4f2c00c6.chunk.js.map",
-    "regisrtation-page.d8140c32.chunk.js.map": "/Slim-Mom-Front-End/static/js/regisrtation-page.d8140c32.chunk.js.map",
+    "login-page.8f01c741.chunk.js.map": "/Slim-Mom-Front-End/static/js/login-page.8f01c741.chunk.js.map",
+    "regisrtation-page.99a87678.chunk.js.map": "/Slim-Mom-Front-End/static/js/regisrtation-page.99a87678.chunk.js.map",
     "diary-page.4d1426e3.chunk.css.map": "/Slim-Mom-Front-End/static/css/diary-page.4d1426e3.chunk.css.map",
     "diary-page.8dcef4f0.chunk.js.map": "/Slim-Mom-Front-End/static/js/diary-page.8dcef4f0.chunk.js.map",
     "calculator-page.46ba0bfc.chunk.js.map": "/Slim-Mom-Front-End/static/js/calculator-page.46ba0bfc.chunk.js.map",
@@ -57,6 +57,6 @@
   },
   "entrypoints": [
     "static/css/main.5ecc3c78.css",
-    "static/js/main.82c11b65.js"
+    "static/js/main.c934b0bf.js"
   ]
 }
