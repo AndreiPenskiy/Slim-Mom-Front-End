@@ -32,7 +32,7 @@ export default function DiaryAddProductForm() {
     new Date(selectedDate).toLocaleDateString('fr-ca');
   const [addProducts] = useCreateProductsMutation();
 
-  const handleChangeForm = (event, handleChange) => {
+  const handleChangeForm = (event, values, handleChange) => {
     handleChange(event);
     let { name, value } = event.currentTarget;
 
@@ -65,13 +65,13 @@ export default function DiaryAddProductForm() {
 
   const { t } = useTranslation();
 
-  const handleSubmit = (resetForm) => {
-      // e.preventDefault();
-            addProducts({product, grams})
-            setProduct('')
-            setGrams('')
-            resetForm();
-  }
+  const handleSubmit = resetForm => {
+    // e.preventDefault();
+    addProducts({ product, grams, date: selectedDate });
+    setProduct('');
+    setGrams('');
+    resetForm();
+  };
   return (
     <>
       {!isMobile && (
@@ -100,7 +100,10 @@ export default function DiaryAddProductForm() {
                   {t('ProductForm.label_1')}
                 </DiaryFormProductLabelStyled>
                 {product && (
-                  <DiaryListProducts product={product} setProduct={setProduct}></DiaryListProducts>
+                  <DiaryListProducts
+                    product={product}
+                    setProduct={setProduct}
+                  ></DiaryListProducts>
                 )}
                 <FormError name="product" />
               </DiaryFormProductConteinerStyled>
