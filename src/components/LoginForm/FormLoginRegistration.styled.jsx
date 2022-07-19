@@ -1,9 +1,30 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
 
-export const FormContainer = styled(Form)`
+export const FormSection = styled.div`
   padding-top: 40px;
-  margin-left: 16px;
+  padding-bottom: 40px;
+  @media (min-width: 768px) {
+    padding-top: 160px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 160px;
+  }
+`;
+
+export const FormContainer = styled(Form)`
+  width: 320px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 768px;
+    padding-left: 16px;
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    width: 1280px;
+  }
 `;
 
 export const FormTitle = styled.h1`
@@ -26,19 +47,20 @@ export const FormTitle = styled.h1`
 
 export const Forma = styled.div`
   width: 285px;
-  flex-direction: column;
-  margin-top: 40px;
+  margin-bottom: 60px;
 
-  @media screen and(min-width: 768px) {
+  /* @media screen and(min-width: 768px) {
     margin-top: 178px;
-  }
+  } */
 
-  @media screen and (min-width: 1280px) {
+  /* @media screen and (min-width: 1280px) {
     margin-top: 160px;
-  }
+  } */
 `;
 export const FormDiv = styled.div`
-  margin-bottom: 40px;
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -52,7 +74,7 @@ export const FormLabel = styled.label`
   color: #9b9faa;
 `;
 export const FormInput = styled(Field)`
-  width: 240px;
+  width: 100%;
   left: 16px;
   border: none;
   border-bottom: 1px solid #e0e0e0;
@@ -75,19 +97,24 @@ export const FormInput = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
+    width: 240px;
     font-family: 'Verdana';
     font-size: 14px;
   }
 `;
 export const FormButtonContainer = styled.div`
-  flex-direction: row;
-  margin-top: 60px;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    text-align: unset;
+  }
 `;
 
 export const FormButtonActiveBtn = styled.button`
+  min-width: 182px;
   padding: 13px 51px 13px 50px;
   margin-bottom: 20px;
-  margin-right: 32px;
+  /* margin-right: 32px; */
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
@@ -116,11 +143,18 @@ export const FormButtonActiveBtn = styled.button`
     border: transparent;
     transform: scale(1.1);
   }
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const FormButtonA = styled.a`
-  padding: 13px 37px 13px 37px;
-  margin-right: 32px;
+  min-width: 182px;
+  padding: 11px 35px 11px 35px;
+  /* margin-right: 32px; */
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
