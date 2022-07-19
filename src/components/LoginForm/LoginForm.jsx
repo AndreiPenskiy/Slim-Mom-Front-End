@@ -3,12 +3,14 @@ import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from 'redux/auth/auth-options';
 import {
+  FormSection,
   FormContainer,
   FormTitle,
   Forma,
   FormDiv,
   FormLabel,
   FormInput,
+  FormButtonContainer,
   FormButtonActiveBtn,
   FormButtonA,
   Alert,
@@ -33,45 +35,49 @@ const LoginForm = () => {
     dispath(loading);
   };
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
-      <FormContainer>
-        <Forma>
-          <FormTitle>{t('header.signin')}</FormTitle>
-          <FormDiv>
-            <FormLabel htmlFor="email">{t('AuthForm.label_3')}</FormLabel>
-            <FormInput id="email" name="email" type="email" />
-          </FormDiv>
-          <FormDiv>
-            <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
-            <FormInput id="password" name="password" type="password" />
-            {(
-              <ErrorMessage
-                name="email"
-                render={() => <Alert>{t('notify.alert1')}</Alert>}
-              />
-            ) && (
-              <ErrorMessage
-                name="password"
-                render={() => <Alert>{t('notify.alert1')}</Alert>}
-              />
-            )}
-          </FormDiv>
-        </Forma>
-        <FormButtonActiveBtn type="submit">
-          {t('header.buttonLogin')}
-        </FormButtonActiveBtn>
-        <FormButtonA
-          href="https://andreipenskiy.github.io/Slim-Mom-Front-End/registration"
-          role="button"
-        >
-          {t('header.signup')}
-        </FormButtonA>
-      </FormContainer>
-    </Formik>
+    <FormSection>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <FormContainer>
+          <Forma>
+            <FormTitle>{t('header.signin')}</FormTitle>
+            <FormDiv>
+              <FormLabel htmlFor="email">{t('AuthForm.label_3')}</FormLabel>
+              <FormInput id="email" name="email" type="email" />
+            </FormDiv>
+            <FormDiv>
+              <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
+              <FormInput id="password" name="password" type="password" />
+              {(
+                <ErrorMessage
+                  name="email"
+                  render={() => <Alert>{t('notify.alert1')}</Alert>}
+                />
+              ) && (
+                <ErrorMessage
+                  name="password"
+                  render={() => <Alert>{t('notify.alert1')}</Alert>}
+                />
+              )}
+            </FormDiv>
+          </Forma>
+          <FormButtonContainer>
+            <FormButtonActiveBtn type="submit">
+              {t('header.buttonLogin')}
+            </FormButtonActiveBtn>
+            <FormButtonA
+              href="https://andreipenskiy.github.io/Slim-Mom-Front-End/registration"
+              role="button"
+            >
+              {t('header.signup')}
+            </FormButtonA>
+          </FormButtonContainer>
+        </FormContainer>
+      </Formik>
+    </FormSection>
   );
 };
 
