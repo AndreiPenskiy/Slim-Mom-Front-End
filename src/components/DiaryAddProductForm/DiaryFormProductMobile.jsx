@@ -27,7 +27,7 @@ import { useNavigate } from 'react-router';
 export default function DiaryAddProductForm() {
   const [product, setProduct] = useState('');
   const [grams, setGrams] = useState('');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const selectedDate = useSelector(getDate);
