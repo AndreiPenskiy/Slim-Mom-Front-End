@@ -33,9 +33,10 @@ export default function DiaryAddProductForm() {
   const [addProducts] = useCreateProductsMutation();
 
   const handleChangeForm = (event, values, handleChange) => {
+    console.log(event);
     console.log(values);
     handleChange(event);
-    let { name, value } = event.currentTarget;
+    let { name, value } = event.target;
     console.log(name, value);
     switch (name) {
       case 'product':

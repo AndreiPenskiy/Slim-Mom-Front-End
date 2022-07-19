@@ -37,7 +37,7 @@ export default function DiaryAddProductForm() {
 
   const handleChangeForm = (event, handleChange) => {
     handleChange(event);
-    let { name, value } = event.currentTarget;
+    let { name, value } = event.target;
     switch (name) {
       case 'product':
         return setProduct(value);
@@ -67,7 +67,6 @@ export default function DiaryAddProductForm() {
   const { t } = useTranslation();
 
   const handleSubmit = resetForm => {
-    // e.preventDefault();
     addProducts({ product, grams });
     setProduct('');
     setGrams('');
