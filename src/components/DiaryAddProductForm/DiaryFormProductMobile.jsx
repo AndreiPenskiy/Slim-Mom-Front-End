@@ -39,9 +39,8 @@ export default function DiaryAddProductForm() {
     new Date(selectedDate).toLocaleDateString('fr-ca');
   const [addProducts] = useCreateProductsMutation();
 
-  const handleChangeForm = (event, values, handleChange) => {
+  const handleChangeForm = (event, handleChange) => {
     handleChange(event);
-    console.log('values', values);
     let { name, value } = event.currentTarget;
     switch (name) {
       case 'product':
@@ -70,6 +69,13 @@ export default function DiaryAddProductForm() {
       .required("Це поле є обов'язковим!"),
   });
   const { t } = useTranslation();
+
+  const handleSubmit = (resetForm) => {
+    // e.preventDefault();
+          addProducts({product, grams})
+          setProduct('')
+          setGrams('')
+          resetForm();}
   return (
     <>
       {isLoggedIn && isMobile && (
@@ -83,12 +89,7 @@ export default function DiaryAddProductForm() {
           grams: '',
         }}
         validationSchema={DiaryAddProductSchema}
-        onSubmit={(values, { resetForm }) => {
-          console.log('values', values);
-          addProducts(values);
-          navigate('/diary', { replace: true });
-          resetForm();
-        }}
+        onSubmit={handleSubmit}
       >
         {({ event, values, handleChange }) => (
           <DiaryFormConteiner>
@@ -100,13 +101,13 @@ export default function DiaryAddProductForm() {
                 onChange={event => {
                   handleChangeForm(event, values, handleChange);
                 }}
-                value={values.product}
+                value={product}
               />
               <DiaryFormProductLabelStyled htmlFor="product">
                 {t('ProductForm.label_1')}
               </DiaryFormProductLabelStyled>
               {product && (
-                <DiaryListProducts product={product}></DiaryListProducts>
+                <DiaryListProducts product={product} setProduct={setProduct}></DiaryListProducts>
               )}
               <FormError name="product" />
             </DiaryFormProductConteinerStyled>
@@ -117,7 +118,7 @@ export default function DiaryAddProductForm() {
                 onChange={event => {
                   handleChangeForm(event, values, handleChange);
                 }}
-                value={values.grams}
+                value={grams}
                 disabled={isDisabled}
               />
               <DiaryFormGramsLabelStyled htmlFor="grams">
