@@ -30,7 +30,7 @@ export function DiaryProductsItem() {
     new Date(selectedDate).toLocaleDateString('fr-ca');
   const date = useSelector(getDate);
 
-  const { data: productsUser } = useGetProductsQuery(date);
+  const { data: productsUser, refetch } = useGetProductsQuery(date);
 
   function summ(arr, sum = 0, index = 0) {
     if (arr[index]) {
@@ -54,9 +54,11 @@ export function DiaryProductsItem() {
   const [deleteContact /* { isLoading: isDeleting } */] =
     useDeleteProductsMutation();
 
+  const showContacts = productsUser && refetch;
+
   return (
     <>
-      {productsUser &&
+      {showContacts &&
         productsUser.data.products.map(product => (
           <DiaryProductsItemStyled key={product._id}>
             <DiaryProductsItemProductStyled>
