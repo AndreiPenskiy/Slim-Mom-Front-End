@@ -23,12 +23,14 @@ import { useNavigate } from 'react-router-dom';
 import { getTempParameters } from 'redux/auth/auth-selectors';
 import { getCaloriesCalculator } from 'redux/products/products-selectors';
 import { setTempParameters } from 'redux/auth/auth-options';
+import { toggleLoading } from 'redux/loader/spinner-slice';
 
 const RegistrationPage = () => {
   const { t } = useTranslation();
   const dispath = useDispatch();
   const tempParameters = useSelector(getTempParameters);
   const calcCalories = useSelector(getCaloriesCalculator);
+  const loading = useSelector(toggleLoading);
 
   const schema = Yup.object().shape({
     name: Yup.string()
@@ -48,6 +50,7 @@ const RegistrationPage = () => {
   let navigate = useNavigate();
 
   const handleSubmit = async ({ name, email, password }) => {
+    dispath(loading)
     const { payload } = await dispath(
       register({
         name,
@@ -60,7 +63,8 @@ const RegistrationPage = () => {
     await dispath(setTempParameters(null));
 
     if (payload.user.calories) navigate('/diary');
-    else navigate('/calculator');
+    else navigate('/calculator')
+    dispath(loading);
   };
 
   return (
