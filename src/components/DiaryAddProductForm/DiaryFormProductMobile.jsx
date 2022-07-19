@@ -22,12 +22,11 @@ import { getLoggedIn } from 'redux/auth/auth-selectors';
 import { getDate } from 'redux/diary/diary-selectors';
 import { useState } from 'react';
 import { DiaryListProducts } from './DiaryListProducts';
-import { useNavigate } from 'react-router';
 
 export default function DiaryAddProductForm() {
   const [product, setProduct] = useState('');
   const [grams, setGrams] = useState('');
-  const navigate = useNavigate();
+
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const selectedDate = useSelector(getDate);
@@ -38,7 +37,7 @@ export default function DiaryAddProductForm() {
 
   const handleChangeForm = (event, values, handleChange) => {
     handleChange(event);
-    let { name, value } = event.currentTarget;
+    let { name, value } = event.target;
     switch (name) {
       case 'product':
         return setProduct(value);
@@ -67,11 +66,11 @@ export default function DiaryAddProductForm() {
   });
   const { t } = useTranslation();
 
-  const handleSubmit = () => {
+  const handleSubmit = resetForm => {
     addProducts({ product, grams });
     setProduct('');
     setGrams('');
-    navigate('/diary', { replace: true });
+    resetForm();
   };
   return (
     <>
