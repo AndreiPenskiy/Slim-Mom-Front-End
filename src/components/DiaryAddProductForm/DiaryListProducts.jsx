@@ -14,7 +14,6 @@ export function DiaryListProducts({ product, setProduct }) {
     setOpen(false);
   };
 
-  console.log('productsAll', productsAll);
   return (
     <DiaryListProductsConteinerStyled>
       {open && productsAll && (

@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://slimmom-project-team6.herokuapp.com/';
 
-
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -67,7 +66,6 @@ const fetchCurrentUser = createAsyncThunk(
       const {
         data: { data },
       } = await axios.get('/api/users/current');
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue();

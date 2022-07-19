@@ -1,6 +1,5 @@
 import { useCreateProductsMutation } from '../../redux/productsApi';
 import { ErrorMessage, Formik } from 'formik';
-import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -28,12 +27,8 @@ export default function DiaryAddProductForm() {
   const [product, setProduct] = useState('');
   const [grams, setGrams] = useState('');
 
-  console.log('grams', grams);
-
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  // eslint-disable-next-line no-unused-vars
-  let navigate = useNavigate();
   const selectedDate = useSelector(getDate);
   const isDisabled =
     new Date().toLocaleDateString('fr-ca') !==

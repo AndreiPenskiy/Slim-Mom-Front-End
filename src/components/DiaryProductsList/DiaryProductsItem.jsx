@@ -29,10 +29,8 @@ export function DiaryProductsItem() {
     new Date().toLocaleDateString('fr-ca') !==
     new Date(selectedDate).toLocaleDateString('fr-ca');
   const date = useSelector(getDate);
-  console.log('date', date);
 
   const { data: productsUser } = useGetProductsQuery(date);
-  console.log('productsUser', productsUser);
 
   function summ(arr, sum = 0, index = 0) {
     if (arr[index]) {
@@ -52,19 +50,6 @@ export function DiaryProductsItem() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsUser, setKcal]);
-
-  // const {
-  //   data: products,
-  //   isUninitialized,
-  //   isFetching,
-  //   refetch,
-  //   isError,
-  // } = useGetProductsQuery();
-  // function filterVisibleContacts() {
-  //   console.log('products', products);
-  // }
-  // const showContacts = products && !isFetching && !isError;
-  // showContacts && filterVisibleContacts();
 
   const [deleteContact /* { isLoading: isDeleting } */] =
     useDeleteProductsMutation();
