@@ -19,23 +19,16 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'utils/i18next';
 import { useState } from 'react';
 import { DiaryListProducts } from './DiaryListProducts';
-import { getDate } from 'redux/diary/diary-selectors';
-import { useSelector } from 'react-redux';
 
 export default function DiaryAddProductForm() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [product, setProduct] = useState('');
   const [grams, setGrams] = useState('');
-  const selectedDate = useSelector(getDate);
-  const isDisabled =
-    new Date().toLocaleDateString('fr-ca') !==
-    new Date(selectedDate).toLocaleDateString('fr-ca');
   const [addProducts] = useCreateProductsMutation();
 
-  const handleChangeForm = (event, handleChange) => {
+  const handleChangeForm = (event, values, handleChange) => {
     handleChange(event);
     let { name, value } = event.currentTarget;
-
     switch (name) {
       case 'product':
         return setProduct(value);
@@ -65,13 +58,11 @@ export default function DiaryAddProductForm() {
 
   const { t } = useTranslation();
 
-  const handleSubmit = (resetForm) => {
-      // e.preventDefault();
-            addProducts({product, grams})
-            setProduct('')
-            setGrams('')
-            resetForm();
-  }
+  const handleSubmit = () => {
+    addProducts({ product, grams });
+    setProduct('');
+    setGrams('');
+  };
   return (
     <>
       {!isMobile && (
@@ -87,6 +78,9 @@ export default function DiaryAddProductForm() {
           {({ event, values, handleChange }) => (
             <DiaryFormConteiner>
               <DiaryFormProductConteinerStyled>
+                <DiaryFormProductLabelStyled htmlFor="product">
+                  {t('ProductForm.label_1')}
+                </DiaryFormProductLabelStyled>
                 <DiaryFormProductStyled
                   id="product"
                   name="product"
@@ -94,17 +88,17 @@ export default function DiaryAddProductForm() {
                     handleChangeForm(event, values, handleChange);
                   }}
                   value={product}
-                  disabled={isDisabled}
                 />
-                <DiaryFormProductLabelStyled htmlFor="product">
-                  {t('ProductForm.label_1')}
-                </DiaryFormProductLabelStyled>
                 {product && (
-                  <DiaryListProducts product={product} setProduct={setProduct}></DiaryListProducts>
+                  <DiaryListProducts
+                    product={product}
+                    setProduct={setProduct}
+                  ></DiaryListProducts>
                 )}
                 <FormError name="product" />
               </DiaryFormProductConteinerStyled>
               <DiaryFormGramsConteinerStyled>
+                <label htmlFor="grams">{t('ProductForm.label_2')}</label>
                 <DiaryFormGramsStyled
                   id="grams"
                   name="grams"
@@ -112,13 +106,10 @@ export default function DiaryAddProductForm() {
                     handleChangeForm(event, values, handleChange);
                   }}
                   value={grams}
-                  disabled={isDisabled}
                 />
-                <label htmlFor="grams">{t('ProductForm.label_2')}</label>
-
                 <FormError name="grams" />
               </DiaryFormGramsConteinerStyled>
-              <DiaryFormButton type="submit" disabled={isDisabled}>
+              <DiaryFormButton type="submit">
                 <DiaryProductsPlusStyled src={plus} alt="plus" />
               </DiaryFormButton>
             </DiaryFormConteiner>
