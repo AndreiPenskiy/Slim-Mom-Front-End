@@ -24,7 +24,10 @@ export function DiaryProductsItem() {
   // eslint-disable-next-line no-unused-vars
   const { kcal, setKcal } = useContext(CalloriesContext);
   const { t } = useTranslation();
-
+  const selectedDate = useSelector(getDate);
+  const isDisabled =
+    new Date().toLocaleDateString('fr-ca') !==
+    new Date(selectedDate).toLocaleDateString('fr-ca');
   const date = useSelector(getDate);
 
   const { data: productsUser } = useGetProductsQuery(date);
@@ -70,6 +73,7 @@ export function DiaryProductsItem() {
             </DiaryProductsItemWeightStyled>
             <DiaryProductsItemBtnDeleteStyled
               onClick={() => deleteContact(product._id)}
+              disabled={isDisabled}
             >
               <DiaryProductsImgDeleteStyled src={cross} alt="calendar" />
             </DiaryProductsItemBtnDeleteStyled>
