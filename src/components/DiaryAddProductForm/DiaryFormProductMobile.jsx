@@ -1,6 +1,5 @@
 import { useCreateProductsMutation } from '../../redux/productsApi';
 import { ErrorMessage, Formik } from 'formik';
-import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -28,11 +27,8 @@ export default function DiaryAddProductForm() {
   const [product, setProduct] = useState('');
   const [grams, setGrams] = useState('');
 
-  console.log('grams', grams);
-
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  let navigate = useNavigate();
   const selectedDate = useSelector(getDate);
   const isDisabled =
     new Date().toLocaleDateString('fr-ca') !==
@@ -70,12 +66,13 @@ export default function DiaryAddProductForm() {
   });
   const { t } = useTranslation();
 
-  const handleSubmit = (resetForm) => {
+  const handleSubmit = resetForm => {
     // e.preventDefault();
-          addProducts({product, grams})
-          setProduct('')
-          setGrams('')
-          resetForm();}
+    addProducts({ product, grams });
+    setProduct('');
+    setGrams('');
+    resetForm();
+  };
   return (
     <>
       {isLoggedIn && isMobile && (
@@ -107,7 +104,10 @@ export default function DiaryAddProductForm() {
                 {t('ProductForm.label_1')}
               </DiaryFormProductLabelStyled>
               {product && (
-                <DiaryListProducts product={product} setProduct={setProduct}></DiaryListProducts>
+                <DiaryListProducts
+                  product={product}
+                  setProduct={setProduct}
+                ></DiaryListProducts>
               )}
               <FormError name="product" />
             </DiaryFormProductConteinerStyled>

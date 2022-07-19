@@ -11,7 +11,7 @@ import {
   DiaryProductsImgDeleteStyled,
   DiaryProductsItemSpanStyled,
 } from './DiaryProductsItem.styled';
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import cross from '../../icons/cross.svg';
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
@@ -26,18 +26,16 @@ export function DiaryProductsItem() {
   const { t } = useTranslation();
 
   const date = useSelector(getDate);
-  console.log('date', date);
 
   const { data: productsUser } = useGetProductsQuery(date);
-  console.log('productsUser', productsUser);
 
-  function summ (arr, sum = 0, index = 0) {
+  function summ(arr, sum = 0, index = 0) {
     if (arr[index]) {
-      return summ(arr, sum + arr[index], ++index)
+      return summ(arr, sum + arr[index], ++index);
     } else {
-      return sum
+      return sum;
     }
-  };
+  }
 
   useEffect(() => {
     if (productsUser) {
@@ -47,21 +45,8 @@ export function DiaryProductsItem() {
       const result = Number(almostResult);
       setKcal(result);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsUser, setKcal]);
-
-  // const {
-  //   data: products,
-  //   isUninitialized,
-  //   isFetching,
-  //   refetch,
-  //   isError,
-  // } = useGetProductsQuery();
-  // function filterVisibleContacts() {
-  //   console.log('products', products);
-  // }
-  // const showContacts = products && !isFetching && !isError;
-  // showContacts && filterVisibleContacts();
 
   const [deleteContact /* { isLoading: isDeleting } */] =
     useDeleteProductsMutation();
