@@ -36,8 +36,8 @@ export const S = styled.div`
     display: block;
     position: absolute;
     background-size: cover;
-    top: 442px;
-    right: -86px;
+    bottom: 192px;
+    right: -70px;
     width: 370px;
     height: 382px;
     z-index: 4;
@@ -45,7 +45,7 @@ export const S = styled.div`
 
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundStr});
-    top: 458px;
+    bottom: 0px;
     right: 2px;
     width: 362px;
     height: 374px;
@@ -62,7 +62,7 @@ export const L = styled.div`
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    top: 0px;
+    bottom: 190px;
     right: 50px;
     width: 740px;
     height: 842px;
@@ -72,7 +72,7 @@ export const L = styled.div`
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundL});
     background-size: 746px;
-    top: 0;
+    bottom: 0px;
     right: 195px;
     width: 746px;
     height: 846px;
@@ -88,7 +88,7 @@ export const B = styled.div`
     background-image: url(${BackgroundBTab});
     background-size: contain;
     background-repeat: no-repeat;
-    top: 533px;
+    bottom: -10px;
     right: -212px;
     width: 740px;
     height: 527px;
@@ -98,7 +98,7 @@ export const B = styled.div`
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundB});
     background-size: unset;
-    top: -30px;
+    bottom: 345px;
     right: -287px;
     width: 773px;
     height: 552px;
@@ -114,7 +114,7 @@ export const V = styled.div`
     display: block;
     position: absolute;
     background-repeat: no-repeat;
-    top: 428px;
+    bottom: -155px;
     right: -0px;
     width: 553px;
     height: 750px;
@@ -123,7 +123,7 @@ export const V = styled.div`
 
   @media screen and (min-width: 1280px) {
     background-image: url(${BackgroundV});
-    top: 34px;
+    bottom: 0px;
     right: 0;
     width: 603px;
     height: 816px;
