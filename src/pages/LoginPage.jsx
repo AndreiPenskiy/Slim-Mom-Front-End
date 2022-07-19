@@ -39,12 +39,11 @@ const LoginPage = () => {
   return (
     <>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email:'', password:'' }}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
         <FormContainer>
-          {/* <section className="container"> */}
           <Forma>
             <FormTitle>{t('header.signin')}</FormTitle>
             <FormDiv>
@@ -59,7 +58,7 @@ const LoginPage = () => {
                   name="email"
                   render={() => <Alert>{t('notify.alert1')}</Alert>}
                 />
-              ) || (
+              ) && (
                 <ErrorMessage
                   name="password"
                   render={() => <Alert>{t('notify.alert1')}</Alert>}
@@ -67,8 +66,6 @@ const LoginPage = () => {
               )}
             </FormDiv>
           </Forma>
-          {/* </section> */}
-          {/* <div className="FormButtonContainer"> */}
           <FormButtonActiveBtn type="submit">
             {t('header.buttonLogin')}
           </FormButtonActiveBtn>
@@ -78,7 +75,6 @@ const LoginPage = () => {
           >
             {t('header.signup')}
           </FormButtonA>
-          {/* </div> */}
         </FormContainer>
       </Formik>
       <ToastContainer

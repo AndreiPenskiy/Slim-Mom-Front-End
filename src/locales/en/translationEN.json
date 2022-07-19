@@ -51,8 +51,8 @@
   "notify": {
     "alert1": "Incorrect email or password entered",
     "alert2": "Password should be from 8 to 20 characters",
-    "alert3": "Email should not exceed 40 characters",
-    "alert4": "The name must be at least 3 characters and more than 20",
+    "alert3": "Email should be up to 40 characters, example format: Admin@up.info",
+    "alert4": "The name must be at least 3 to 20 characters",
     "alert5": "User with this email is already registered!",
     "alert6": "Wrong password or email"
   },
