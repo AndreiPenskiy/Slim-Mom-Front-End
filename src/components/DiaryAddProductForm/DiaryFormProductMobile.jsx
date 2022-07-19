@@ -32,6 +32,7 @@ export default function DiaryAddProductForm() {
 
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  // eslint-disable-next-line no-unused-vars
   let navigate = useNavigate();
   const selectedDate = useSelector(getDate);
   const isDisabled =
@@ -70,12 +71,13 @@ export default function DiaryAddProductForm() {
   });
   const { t } = useTranslation();
 
-  const handleSubmit = (resetForm) => {
+  const handleSubmit = resetForm => {
     // e.preventDefault();
-          addProducts({product, grams})
-          setProduct('')
-          setGrams('')
-          resetForm();}
+    addProducts({ product, grams });
+    setProduct('');
+    setGrams('');
+    resetForm();
+  };
   return (
     <>
       {isLoggedIn && isMobile && (
@@ -107,7 +109,10 @@ export default function DiaryAddProductForm() {
                 {t('ProductForm.label_1')}
               </DiaryFormProductLabelStyled>
               {product && (
-                <DiaryListProducts product={product} setProduct={setProduct}></DiaryListProducts>
+                <DiaryListProducts
+                  product={product}
+                  setProduct={setProduct}
+                ></DiaryListProducts>
               )}
               <FormError name="product" />
             </DiaryFormProductConteinerStyled>
