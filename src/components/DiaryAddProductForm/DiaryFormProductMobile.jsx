@@ -35,7 +35,7 @@ export default function DiaryAddProductForm() {
     new Date(selectedDate).toLocaleDateString('fr-ca');
   const [addProducts] = useCreateProductsMutation();
 
-  const handleChangeForm = (event, handleChange) => {
+  const handleChangeForm = (event, values, handleChange) => {
     handleChange(event);
     let { name, value } = event.target;
     switch (name) {
