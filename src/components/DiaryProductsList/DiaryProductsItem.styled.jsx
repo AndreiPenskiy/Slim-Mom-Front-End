@@ -121,6 +121,7 @@ export const DiaryProductsItemBtnDeleteStyled = styled.button`
   cursor: pointer;
   border: 0px;
   background-color: white;
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   :hover,
   :focus {
     background-color: #ffffff;
