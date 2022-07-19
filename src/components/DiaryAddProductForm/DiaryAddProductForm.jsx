@@ -65,7 +65,7 @@ export default function DiaryAddProductForm() {
   const { t } = useTranslation();
 
   const handleSubmit = resetForm => {
-    addProducts({ product, grams });
+    addProducts({ product, grams, date: selectedDate });
     setProduct('');
     setGrams('');
     resetForm();
