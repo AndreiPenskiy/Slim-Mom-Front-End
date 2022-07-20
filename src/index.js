@@ -17,7 +17,7 @@ function Main() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/">
+        <BrowserRouter>
           <LocaleContext.Provider value={{ locale, setLocale }}>
             <CalloriesContext.Provider value={{ kcal, setKcal }}>
               <App />
