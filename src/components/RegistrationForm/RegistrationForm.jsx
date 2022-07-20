@@ -69,12 +69,14 @@ const RegistrationForm = () => {
 
     if (payload.user.calories) {
       navigate('/diary');
+    } else {
+      navigate('/calculator');
     }
-    else {
-      navigate('/calculator')
-    };
   };
 
+  const handleClick = () => {
+    navigate('/login');
+  };
 
   return (
     <FormSection>
@@ -88,7 +90,7 @@ const RegistrationForm = () => {
             <FormTitle>{t('header.signup2')}</FormTitle>
             <FormDiv>
               <FormLabel htmlFor="name">{t('AuthForm.label_1')}</FormLabel>
-              <FormInput id="name" name="name" type="text" autoComplete="off"/>
+              <FormInput id="name" name="name" type="text" autoComplete="off" />
               <ErrorMessage
                 name="name"
                 render={() => <Alert>{t('notify.alert4')}</Alert>}
@@ -104,7 +106,12 @@ const RegistrationForm = () => {
             </FormDiv>
             <FormDiv>
               <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
-              <FormInput id="password" name="password" type="password" autoComplete="off"/>
+              <FormInput
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="off"
+              />
               <ErrorMessage
                 name="password"
                 render={() => <Alert>{t('notify.alert2')}</Alert>}
@@ -116,10 +123,7 @@ const RegistrationForm = () => {
             <FormButtonActiveBtn type="submit">
               {t('header.buttonReg')}
             </FormButtonActiveBtn>
-            <FormButtonA
-              href="https://andreipenskiy.github.io/Slim-Mom-Front-End/login"
-              role="button"
-            >
+            <FormButtonA onClick={handleClick} role="button">
               {t('header.signin')}
             </FormButtonA>
             {/* </div> */}

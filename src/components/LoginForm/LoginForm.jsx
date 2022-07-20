@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/auth-options';
 import {
   FormSection,
@@ -24,6 +25,8 @@ const LoginForm = () => {
   const { t } = useTranslation();
   const dispath = useDispatch();
   const loading = useSelector(toggleLoading);
+
+  let navigate = useNavigate();
   const schema = Yup.object().shape({
     email: Yup.string()
       .trim()
@@ -43,6 +46,11 @@ const LoginForm = () => {
     dispath(logIn({ email, password }));
     dispath(loading);
   };
+
+  const handleClick = () => {
+    navigate('/registration');
+  };
+
   return (
     <FormSection>
       <Formik
@@ -55,11 +63,21 @@ const LoginForm = () => {
             <FormTitle>{t('header.signin')}</FormTitle>
             <FormDiv>
               <FormLabel htmlFor="email">{t('AuthForm.label_3')}</FormLabel>
-              <FormInput id="email" name="email" type="email" autoComplete="off"/>
+              <FormInput
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="off"
+              />
             </FormDiv>
             <FormDiv>
               <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
-              <FormInput id="password" name="password" type="password" autoComplete="off"/>
+              <FormInput
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="off"
+              />
               {(
                 <ErrorMessage
                   name="email"
@@ -77,10 +95,7 @@ const LoginForm = () => {
             <FormButtonActiveBtn type="submit">
               {t('header.buttonLogin')}
             </FormButtonActiveBtn>
-            <FormButtonA
-              href="https://andreipenskiy.github.io/Slim-Mom-Front-End/registration"
-              role="button"
-            >
+            <FormButtonA onClick={handleClick} role="button">
               {t('header.signup')}
             </FormButtonA>
           </FormButtonContainer>
