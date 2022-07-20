@@ -72,6 +72,7 @@
   "validationRegisterForm": {
     "label1": "The name is not entered correctly",
     "label2": "The email is not entered correctly",
-    "label3": "Password should be longer than 8 characters"
+    "label3": "Password should be longer than 8 characters",
+    "label4": "Password should not contain spaces"
   }
 }

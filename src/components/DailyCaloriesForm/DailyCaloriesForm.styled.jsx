@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
 export const DailyCaloriesContainer = styled.div`
-  @media screen and (min-width: 320px) {
+  height: 100%;
+  @media screen and (max-width: 767px) {
     width: 320px;
     padding: 0 20px;
-    height: 100%;
     margin: 0 auto;
   }
 

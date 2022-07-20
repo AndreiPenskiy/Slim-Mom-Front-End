@@ -25,8 +25,17 @@ const LoginForm = () => {
   const dispath = useDispatch();
   const loading = useSelector(toggleLoading);
   const schema = Yup.object().shape({
-    email: Yup.string().email().max(40).required('Required'),
-    password: Yup.string().min(1).max(20).required('Required'),
+    email: Yup.string()
+      .trim()
+      .email(`${t('validationRegisterForm.label2')}`)
+      .max(40)
+      .required('Required'),
+    password: Yup.string()
+      .trim()
+      .min(8, `${t('validationRegisterForm.label3')}`)
+      .max(20)
+      .matches(/^\S*$/, `${t('validationRegisterForm.label4')}`)
+      .required('Required'),
   });
 
   const handleSubmit = ({ email, password }) => {
