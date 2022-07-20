@@ -34,7 +34,8 @@ const RegistrationPage = () => {
     name: Yup.string()
       .min(3, `${t('validationRegisterForm.label1')}`)
       .max(20)
-      .required('Required'),
+      .required('Required')
+      .matches(/^(?![\d+_@.-]+$)[a-zA-Z0-9+_@.-]*$/),
     email: Yup.string()
       .email(`${t('validationRegisterForm.label2')}`)
       .max(40)
@@ -50,9 +51,9 @@ const RegistrationPage = () => {
   const handleSubmit = async ({ name, email, password }) => {
     const { payload } = await dispath(
       register({
-        name,
-        email,
-        password,
+        name: name.trim(),
+        email: email.trim(),
+        password: password.trim(),
         parameters: tempParameters ? tempParameters : {},
         calculator: calcCalories.calories ? { ...calcCalories } : {},
       })
@@ -100,7 +101,7 @@ const RegistrationPage = () => {
           </Forma>
           {/* <div className="FormButtonContainer"> */}
 
-          <FormButtonActiveBtn type="submit" >
+          <FormButtonActiveBtn type="submit">
             {t('header.buttonReg')}
           </FormButtonActiveBtn>
           <FormButtonA
