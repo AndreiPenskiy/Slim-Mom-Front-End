@@ -13,7 +13,6 @@
     "i18next": "^21.8.13",
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.1",
-    "modern-normalize": "^1.1.0",
     "moment": "^2.29.4",
     "nanoid": "^4.0.0",
     "react": "^17.0.2",
