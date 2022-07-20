@@ -57,7 +57,7 @@ export const App = () => {
               />
 
               <Route
-                path="login"
+                path="/login"
                 element={
                   <PublicRoute restricted>
                     <LoginPage />
@@ -66,7 +66,7 @@ export const App = () => {
               />
 
               <Route
-                path="registration"
+                path="/registration"
                 element={
                   <PublicRoute restricted>
                     <RegistrationPage />
@@ -75,7 +75,7 @@ export const App = () => {
               />
 
               <Route
-                path="diary"
+                path="/diary"
                 element={
                   <PrivateRoute>
                     <DiaryPage />
@@ -84,7 +84,7 @@ export const App = () => {
               />
 
               <Route
-                path="calculator"
+                path="/calculator"
                 element={
                   <PrivateRoute>
                     <CalculatorPage />
@@ -93,7 +93,7 @@ export const App = () => {
               />
 
               <Route
-                path="diaryformmobile"
+                path="/diaryformmobile"
                 element={
                   <PrivateRoute>
                     <DiaryFormProductMobile />
