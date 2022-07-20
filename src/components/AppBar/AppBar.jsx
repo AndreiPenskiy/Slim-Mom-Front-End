@@ -20,8 +20,12 @@ import { getLoggedIn } from 'redux/auth/auth-selectors';
 import { Outlet } from 'react-router-dom';
 import { Modal } from 'components/Modal/Modal';
 import { LoadingPage } from 'components/LoadingPage/LoadingPage';
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
 
 export const AppBar = () => {
+  const { t } = useTranslation();
   const [burgerShown, setBurgerShown] = useState(false);
   const isLoggedIn = useSelector(getLoggedIn);
 
@@ -63,10 +67,10 @@ export const AppBar = () => {
         {isLoggedIn && !isDesktop && burgerShown && (
           <BurgerMenu>
             <StyledNavLink to="/diary" onClick={toggleBurgerMenu}>
-              Diary
+              {t("MobileMenu.page1")}
             </StyledNavLink>
             <StyledNavLink to="/calculator" onClick={toggleBurgerMenu}>
-              Calculator
+              {t("MobileMenu.page2")}
             </StyledNavLink>
           </BurgerMenu>
         )}
