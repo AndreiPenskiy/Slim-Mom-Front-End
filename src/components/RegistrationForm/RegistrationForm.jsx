@@ -59,12 +59,19 @@ const RegistrationForm = () => {
         calculator: calcCalories.calories ? { ...calcCalories } : {},
       })
     );
+    dispath(loading);
+
     await dispath(setTempParameters(null));
 
-    if (payload.user.calories) navigate('/diary');
-    else navigate('/calculator');
-    dispath(loading);
+    if (payload.user.calories) {
+      navigate('/diary');
+    }
+    else {
+      navigate('/calculator')
+    };
   };
+
+
   return (
     <FormSection>
       <Formik

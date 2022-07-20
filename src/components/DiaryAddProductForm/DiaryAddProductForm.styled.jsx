@@ -71,6 +71,7 @@ export const DiaryFormProductConteinerStyled = styled.div`
   } */
   @media screen and (max-width: 767px) {
     margin-bottom: 32px;
+  }
 `;
 
 export const DiaryFormGramsStyled = styled(Field)`
