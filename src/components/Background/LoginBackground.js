@@ -1,12 +1,18 @@
-import { S, L, B, V, BackgroundImage } from './LoginBackground.styled';
+import {
+  Strawberries,
+  Leaf,
+  Banana,
+  Vector,
+  BackgroundImage,
+} from './LoginBackground.styled';
 
 export const LoginBackground = () => {
   return (
     <BackgroundImage>
-      <S />
-      <L />
-      <B />
-      <V />
+      <Strawberries />
+      <Leaf />
+      <Banana />
+      <Vector />
     </BackgroundImage>
   );
 };

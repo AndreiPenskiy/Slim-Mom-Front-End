@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import BackgroundStr from './backgroundImages/str.png';
-import BackgroundL from './backgroundImages/l.png';
-import BackgroundB from './backgroundImages/b.png';
-import BackgroundV from './backgroundImages/v.png';
-import BackgroundStrTab from './backgroundImages/strtab.png';
-import BackgroundLlTab from './backgroundImages/lltab.png';
-import BackgroundBTab from './backgroundImages/btab.png';
-import BackgroundVTab from './backgroundImages/vtab.png';
+import BackgroundStrawberries from './backgroundImages/strawberries.png';
+import BackgroundLeaf from './backgroundImages/leaf.png';
+import BackgroundBanana from './backgroundImages/banana.png';
+import BackgroundVector from './backgroundImages/vector.png';
+import BackgroundStrawberriesTab from './backgroundImages/strawberriestab.png';
+import BackgroundLeafLoginTab from './backgroundImages/leaflogintab.png';
+import BackgroundBananaTab from './backgroundImages/bananatab.png';
+import BackgroundVectorTab from './backgroundImages/vectortab.png';
 
 export const BackgroundImage = styled.div`
   display: none;
@@ -28,11 +28,11 @@ export const BackgroundImage = styled.div`
   }
 `;
 
-export const S = styled.div`
+export const Strawberries = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${BackgroundStrTab});
+    background-image: url(${BackgroundStrawberriesTab});
     display: block;
     position: absolute;
     background-size: cover;
@@ -44,7 +44,7 @@ export const S = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url(${BackgroundStr});
+    background-image: url(${BackgroundStrawberries});
     bottom: 0px;
     right: 2px;
     width: 362px;
@@ -53,11 +53,11 @@ export const S = styled.div`
   }
 `;
 
-export const L = styled.div`
+export const Leaf = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${BackgroundLlTab});
+    background-image: url(${BackgroundLeafLoginTab});
     display: block;
     position: absolute;
     background-repeat: no-repeat;
@@ -70,7 +70,7 @@ export const L = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url(${BackgroundL});
+    background-image: url(${BackgroundLeaf});
     background-size: 746px;
     bottom: 0px;
     right: 195px;
@@ -79,13 +79,13 @@ export const L = styled.div`
     z-index: 3;
   }
 `;
-export const B = styled.div`
+export const Banana = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
     position: absolute;
     display: block;
-    background-image: url(${BackgroundBTab});
+    background-image: url(${BackgroundBananaTab});
     background-size: contain;
     background-repeat: no-repeat;
     bottom: -10px;
@@ -96,7 +96,7 @@ export const B = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url(${BackgroundB});
+    background-image: url(${BackgroundBanana});
     background-size: unset;
     bottom: 345px;
     right: -287px;
@@ -106,11 +106,11 @@ export const B = styled.div`
   }
 `;
 
-export const V = styled.div`
+export const Vector = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${BackgroundVTab});
+    background-image: url(${BackgroundVectorTab});
     display: block;
     position: absolute;
     background-repeat: no-repeat;
@@ -122,7 +122,7 @@ export const V = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url(${BackgroundV});
+    background-image: url(${BackgroundVector});
     bottom: 0px;
     right: 0;
     width: 603px;

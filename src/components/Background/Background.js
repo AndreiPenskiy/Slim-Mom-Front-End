@@ -1,12 +1,18 @@
-import { S, L, B, V, BackgroundImage } from './Background.styled';
+import {
+  Strawberries,
+  Leaf,
+  Banana,
+  Vector,
+  BackgroundImage,
+} from './Background.styled';
 
 export const Background = () => {
   return (
     <BackgroundImage>
-      <S />
-      <L />
-      <B />
-      <V />
+      <Strawberries />
+      <Leaf />
+      <Banana />
+      <Vector />
     </BackgroundImage>
   );
 };
