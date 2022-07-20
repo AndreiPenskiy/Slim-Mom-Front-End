@@ -2,7 +2,7 @@ import { GlobalStyle } from '../style/GlobalStyle';
 import { lazy, Suspense } from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
 import { Loader } from '../components/Loader/Loader';
 import { fetchCurrentUser } from 'redux/auth/auth-options';
@@ -101,7 +101,7 @@ export const App = () => {
                 }
               />
 
-              <Route path="*" element={<Navigate to="/" />} />
+              <Route path="*" element={<MainPage />} />
             </Route>
           </Routes>
         </Suspense>

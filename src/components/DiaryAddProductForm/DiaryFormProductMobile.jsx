@@ -93,6 +93,7 @@ export default function DiaryAddProductForm() {
               <DiaryFormProductStyled
                 id="product"
                 name="product"
+                autoComplete="off"
                 disabled={isDisabled}
                 onChange={event => {
                   handleChangeForm(event, values, handleChange);
@@ -114,6 +115,7 @@ export default function DiaryAddProductForm() {
               <DiaryFormGramsStyled
                 id="grams"
                 name="grams"
+                autoComplete="off"
                 onChange={event => {
                   handleChangeForm(event, values, handleChange);
                 }}

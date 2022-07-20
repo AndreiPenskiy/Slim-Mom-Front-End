@@ -55,11 +55,11 @@ const LoginForm = () => {
             <FormTitle>{t('header.signin')}</FormTitle>
             <FormDiv>
               <FormLabel htmlFor="email">{t('AuthForm.label_3')}</FormLabel>
-              <FormInput id="email" name="email" type="email" />
+              <FormInput id="email" name="email" type="email" autoComplete="off"/>
             </FormDiv>
             <FormDiv>
               <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
-              <FormInput id="password" name="password" type="password" />
+              <FormInput id="password" name="password" type="password" autoComplete="off"/>
               {(
                 <ErrorMessage
                   name="email"

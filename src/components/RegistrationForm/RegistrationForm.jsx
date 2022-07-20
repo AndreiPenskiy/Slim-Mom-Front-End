@@ -88,7 +88,7 @@ const RegistrationForm = () => {
             <FormTitle>{t('header.signup')}</FormTitle>
             <FormDiv>
               <FormLabel htmlFor="name">{t('AuthForm.label_1')}</FormLabel>
-              <FormInput id="name" name="name" type="text" />
+              <FormInput id="name" name="name" type="text" autoComplete="off"/>
               <ErrorMessage
                 name="name"
                 render={() => <Alert>{t('notify.alert4')}</Alert>}
@@ -104,7 +104,7 @@ const RegistrationForm = () => {
             </FormDiv>
             <FormDiv>
               <FormLabel htmlFor="password">{t('AuthForm.label_2')}</FormLabel>
-              <FormInput id="password" name="password" type="password" />
+              <FormInput id="password" name="password" type="password" autoComplete="off"/>
               <ErrorMessage
                 name="password"
                 render={() => <Alert>{t('notify.alert2')}</Alert>}
