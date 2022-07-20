@@ -85,7 +85,7 @@ const RegistrationForm = () => {
       >
         <FormContainer>
           <Forma>
-            <FormTitle>{t('header.signup')}</FormTitle>
+            <FormTitle>{t('header.signup2')}</FormTitle>
             <FormDiv>
               <FormLabel htmlFor="name">{t('AuthForm.label_1')}</FormLabel>
               <FormInput id="name" name="name" type="text" autoComplete="off"/>

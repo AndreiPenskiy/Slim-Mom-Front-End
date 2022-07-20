@@ -22,10 +22,13 @@ import { getLoggedIn } from 'redux/auth/auth-selectors';
 import { getDate } from 'redux/diary/diary-selectors';
 import { useState } from 'react';
 import { DiaryListProducts } from './DiaryListProducts';
+// eslint-disable-next-line no-unused-vars
+import i18n from 'utils/i18next';
 
 export default function DiaryAddProductForm() {
   const [product, setProduct] = useState('');
   const [grams, setGrams] = useState('');
+  const { t } = useTranslation();
 
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -58,13 +61,13 @@ export default function DiaryAddProductForm() {
   };
 
   const DiaryAddProductSchema = Yup.object().shape({
-    product: Yup.string().required("Це поле є обов'язковим!"),
+    product: Yup.string().required(t('validationDiaryForm.label4')),
     grams: Yup.number()
-      .min(1, 'Значення має бути більше 0!')
-      .max(1000, 'Значення має бути меньшим 1000!')
-      .required("Це поле є обов'язковим!"),
+      .min(1, t('validationDiaryForm.label12'))
+      .max(1000, t('validationDiaryForm.label13'))
+      .required(t('validationDiaryForm.label4')),
   });
-  const { t } = useTranslation();
+  
 
   const handleSubmit = resetForm => {
     addProducts({ product, grams });
@@ -129,7 +132,7 @@ export default function DiaryAddProductForm() {
             </DiaryFormGramsConteinerStyled>
             <DiaryFormButtonConteiner>
               <DiaryFormButton type="submit" disabled={isDisabled}>
-                Add
+                {t('MobileMenu.addBtn')}
               </DiaryFormButton>
             </DiaryFormButtonConteiner>
           </DiaryFormConteiner>
