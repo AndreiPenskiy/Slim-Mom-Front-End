@@ -68,9 +68,9 @@ export const DiaryProductsOpasityStyled = styled.div`
   transform: translate(-50%, -50%);
   height: 50px;
   width: 730px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.5) 0%,
     #ffffff 42.19%
-  );
+  ); */
 `;
