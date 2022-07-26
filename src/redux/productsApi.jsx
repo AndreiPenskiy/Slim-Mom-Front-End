@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const productsApi = createApi({
   reducerPath: 'productsApi',
+  refetchOnMountOrArgChange: true,
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://slimmom-project-team6.herokuapp.com',
 
@@ -49,15 +50,6 @@ export const productsApi = createApi({
       invalidatesTags: ['products'],
     }),
 
-    // updateProducts: builder.mutation({
-    //   query: ({ productId, name, number }) => ({
-    //     url: `/products/${productId}`,
-    //     method: 'PATCH',
-    //     body: { name, number },
-    //   }),
-    //   invalidatesTags: ['products'],
-    // }),
-
     deleteProducts: builder.mutation({
       query: productId => ({
         url: `/api/diary/${productId}`,
@@ -72,6 +64,5 @@ export const {
   useGetAllProductsQuery,
   useGetProductsQuery,
   useCreateProductsMutation,
-  useDeleteProductsMutation,
-  // useUpdateProductsMutation,
+  useDeleteProductsMutation
 } = productsApi;
