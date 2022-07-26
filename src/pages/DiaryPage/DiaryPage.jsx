@@ -9,6 +9,7 @@ import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { StyledLink } from 'components/UserInfo/UserInfo.styled';
 import { getLoggedIn } from 'redux/auth/auth-selectors';
 
+
 export default function DiaryPage() {
   const isLoggedIn = useSelector(getLoggedIn);
   const isMobile = useMediaQuery({ maxWidth: 767 });

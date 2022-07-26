@@ -51,8 +51,7 @@ export function DiaryProductsItem() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsUser, setKcal]);
 
-  const [deleteContact /* { isLoading: isDeleting } */] =
-    useDeleteProductsMutation();
+  const [deleteContact] = useDeleteProductsMutation();
 
   const showContacts = productsUser && refetch;
 
