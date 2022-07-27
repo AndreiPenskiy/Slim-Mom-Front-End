@@ -1,4 +1,5 @@
 A calorie counting app developed by GOIT students :)
+
 The purpose of the application: to help the user to monitor nutrition and successfully lose weight.
 
 Used technologies: 
