@@ -4,4 +4,5 @@ The purpose of the application: to help the user to monitor nutrition and succes
 
 Used technologies: 
 Front-End: React, Redux, translate Ukr/Eng with i18next, moment.js, Formik, Yup, REST API, styled with styled components. Deployed on Netlify.
+
 Back-end: Node.js, Express.js, MongoDB, Swagger UI. Backend link - https://slimmom-project-team6.herokuapp.com/api-docs/
